@@ -1,0 +1,259 @@
+\begin{thebibliography}{10}
+
+\bibitem{paper41}
+Rolf Apweiler, Amos Bairoch, Cathy~H Wu, Winona~C Barker, Brigitte Boeckmann,
+  Serenella Ferro, Elisabeth Gasteiger, Hongzhan Huang, Rodrigo Lopez, Michele
+  Magrane, et~al.
+\newblock Uniprot: the universal protein knowledgebase.
+\newblock {\em Nucleic acids research}, 32(suppl 1):D115--D119, 2004.
+
+\bibitem{paper30}
+Joanne Barnes, Linda~A Anderson, and J~David Phillipson.
+\newblock St john's wort (hypericum perforatum l.): a review of its chemistry,
+  pharmacology and clinical properties.
+\newblock {\em Journal of pharmacy and pharmacology}, 53(5):583--600, 2001.
+
+\bibitem{paper2}
+Patricia~M Barnes, Eve Powell-Griner, Kim McFann, and Richard~L Nahin.
+\newblock Complementary and alternative medicine use among adults: United
+  states, 2002.
+\newblock In {\em Seminars in Integrative Medicine}, volume~2, pages 54--71.
+  Elsevier, 2004.
+
+\bibitem{paper10}
+Sean Bechhofer, Hendler Van~Harmelen, Frank, et~al.
+\newblock Owl web ontology language reference.
+\newblock 2004.
+
+\bibitem{paper51}
+Fran{\c{c}}ois Belleau, Marc-Alexandre Nolin, Nicole Tourigny, Philippe
+  Rigault, and Jean Morissette.
+\newblock Bio2rdf: towards a mashup to build bioinformatics knowledge systems.
+\newblock {\em Journal of biomedical informatics}, 41(5):706--716, 2008.
+
+\bibitem{paper4}
+Tim Berners-Lee, James Hendler, Ora Lassila, et~al.
+\newblock The semantic web.
+\newblock {\em Scientific american}, 284(5):28--37, 2001.
+
+\bibitem{paper56}
+Christian Bizer and Richard Cyganiak.
+\newblock D2r server-publishing relational databases on the semantic web.
+\newblock In {\em 5th international Semantic Web conference}, page~26, 2006.
+
+\bibitem{paper21}
+Ward Blond{\'e}, Vladimir Mironov, et~al.
+\newblock Reasoning with bio-ontologies: using relational closure rules to
+  enable practical querying.
+\newblock {\em Bioinformatics}, 27(11):1562--1568, 2011.
+
+\bibitem{paper9}
+Dan Brickley and Ramanathan~V Guha.
+\newblock $\{$RDF Vocabulary Description Language 1.0: RDF Schema$\}$.
+\newblock 2004.
+
+\bibitem{paper26}
+Kun-Chieh Cheng, Chen Huang, Hsuan-Cheng, et~al.
+\newblock Ganoderma lucidum polysaccharides in human monocytic leukemia cells:
+  from gene expression to network construction.
+\newblock {\em BMC genomics}, 8(1):411, 2007.
+
+\bibitem{paper6}
+Kei-Hoi Cheung, Eric Prud¡¯hommeaux, Yimin Wang, and Susie Stephens.
+\newblock Semantic web for health care and life sciences: a review of the state
+  of the art.
+\newblock {\em Briefings in bioinformatics}, 10(2):111--113, 2009.
+
+\bibitem{paper15}
+Jeffrey Dean and Sanjay Ghemawat.
+\newblock Mapreduce: simplified data processing on large clusters.
+\newblock {\em Communications of the ACM}, 51(1):107--113, 2008.
+
+\bibitem{paper39}
+Yu-Ching Fang, Hsuan-Cheng Huang, Hsin-Hsi Chen, and Hsueh-Fen Juan.
+\newblock Tcmgenedit: a database for associated traditional chinese medicine,
+  gene and disease information using text mining.
+\newblock {\em BMC complementary and alternative medicine}, 8(1):58, 2008.
+
+\bibitem{paper37}
+Kwang-Il Goh and In-Geol Choi.
+\newblock Exploring the human diseasome: the human disease network.
+\newblock {\em Briefings in functional genomics}, 11(6):533--542, 2012.
+
+\bibitem{paper19}
+Christine Golbreich, Songmao Zhang, and Olivier Bodenreider.
+\newblock The foundational model of anatomy in owl: Experience and
+  perspectives.
+\newblock {\em Web Semantics: Science, Services and Agents on the World Wide
+  Web}, 4(3):181--195, 2006.
+
+\bibitem{paper45}
+Abolfasl Golisade, Jochen Wiesner, Claudia Herforth, Hassan Jomaa, and Andreas
+  Link.
+\newblock Anti-malarial activity of< i> n</i>< sup> 6</sup>-substituted
+  adenosine derivatives. part i.
+\newblock {\em Bioorganic \& medicinal chemistry}, 10(3):769--777, 2002.
+
+\bibitem{paper33}
+Rocky Graziose, Mary~Ann Lila, and Ilya Raskin.
+\newblock Merging traditional chinese medicine with modern drug discovery
+  technologies to find novel drugs and functional foods.
+\newblock {\em Current drug discovery technologies}, 7(1):2, 2010.
+
+\bibitem{paper20}
+Volker Haarslev and Ralf M{\"o}ller.
+\newblock Racer: A core inference engine for the semantic web.
+\newblock In {\em Proceedings of the 2nd International Workshop on Evaluation
+  of Ontology-based Tools}, volume~87, 2003.
+
+\bibitem{paper35}
+MA~Harris, J~Clark, A~Ireland, J~Lomax, M~Ashburner, R~Foulger, K~Eilbeck,
+  S~Lewis, B~Marshall, C~Mungall, et~al.
+\newblock The gene ontology (go) database and informatics resource.
+\newblock {\em Nucleic acids research}, 32(Database issue):D258--61, 2004.
+
+\bibitem{paper55}
+Norman Heino and Jeff~Z Pan.
+\newblock Rdfs reasoning on massively parallel hardware.
+\newblock In {\em The Semantic Web--ISWC 2012}, pages 133--148. Springer, 2012.
+
+\bibitem{paper18}
+Matthew~E Holford, Ekta Khurana, Kei-Hoi Cheung, and Mark Gerstein.
+\newblock Using semantic web rules to reason on an ontology of pseudogenes.
+\newblock {\em Bioinformatics}, 26(12):i71--i78, 2010.
+
+\bibitem{paper27}
+You-Cheng Hseu, Fang-Yang Wu, Jia-Jiuan Wu, et~al.
+\newblock Anti-inflammatory potential of antrodia camphorata through inhibition
+  of inos, cox-2 and cytokines via the nf-kappab pathway.
+\newblock {\em International immunopharmacology}, 5(13):1914--1925, 2005.
+
+\bibitem{paper34}
+WL~Wendy Hsiao and Liang Liu.
+\newblock The role of traditional chinese herbal medicines in cancer
+  therapy-from tcm theory to mechanistic insights.
+\newblock {\em Planta medica}, 76(11):1118--1131, 2010.
+
+\bibitem{paper53}
+Chang Liu, Guilin Qi, Haofen Wang, and Yong Yu.
+\newblock Large scale fuzzy pd* reasoning using mapreduce.
+\newblock In {\em The Semantic Web--ISWC 2011}, pages 405--420. Springer, 2011.
+
+\bibitem{paper42}
+Donna Maglott, Jim Ostell, Kim~D Pruitt, and Tatiana Tatusova.
+\newblock Entrez gene: gene-centered information at ncbi.
+\newblock {\em Nucleic acids research}, 33(suppl 1):D54--D58, 2005.
+
+\bibitem{paper5}
+Deborah~L McGuinness, Frank Van~Harmelen, et~al.
+\newblock Owl web ontology language overview.
+\newblock {\em W3C recommendation}, 10(2004-03):10, 2004.
+
+\bibitem{paper50}
+Natalya~F Noy, Nigam~H Shah, Patricia~L Whetzel, Benjamin Dai, Michael Dorf,
+  Nicholas Griffith, Clement Jonquet, Daniel~L Rubin, Margaret-Anne Storey,
+  Christopher~G Chute, et~al.
+\newblock Bioportal: ontologies and integrated data resources at the click of a
+  mouse.
+\newblock {\em Nucleic acids research}, 37(suppl 2):W170--W173, 2009.
+
+\bibitem{paper54}
+Eyal Oren, Spyros Kotoulas, George Anadiotis, Ronny Siebes, Annette ten Teije,
+  and Frank van Harmelen.
+\newblock Marvin: Distributed reasoning over large-scale semantic web data.
+\newblock {\em Web Semantics: Science, Services and Agents on the World Wide
+  Web}, 7(4):305--316, 2009.
+
+\bibitem{paper7}
+Alan Ruttenberg, Jonathan~A Rees, Matthias Samwald, and M~Scott Marshall.
+\newblock Life sciences on the semantic web: the neurocommons and beyond.
+\newblock {\em Briefings in bioinformatics}, 10(2):193--204, 2009.
+
+\bibitem{paper36}
+Lynn~Marie Schriml, Cesar Arze, Suvarna Nadendla, Yu-Wei~Wayne Chang, Mark
+  Mazaitis, Victor Felix, Gang Feng, and Warren~Alden Kibbe.
+\newblock Disease ontology: a backbone for disease semantic integration.
+\newblock {\em Nucleic acids research}, 40(D1):D940--D946, 2012.
+
+\bibitem{paper8}
+Rob Shearer.
+\newblock Obo and owl: Leveraging semantic web technologies for the life
+  sciences.
+\newblock In {\em The Semantic Web: 6th International Semantic Web Conference,
+  2nd Asian Semantic Web Conference, ISWC 2007+ ASWC 2007, Busan, Korea,
+  November 11-15, 2007, Proceedings}, volume 4825, page 169. Springer, 2008.
+
+\bibitem{paper47}
+Sang~Yop Shin, Gil~Myeong Seong, Young~Ree Kim, Jin~Woo Kang, and Jinseok Kim.
+\newblock An atypical case of plasmodium vivax malaria after initiating
+  adalimumab therapy.
+\newblock {\em Journal of Rheumatic Diseases}, 19(3):160--162, 2012.
+
+\bibitem{paper44}
+Konstantin Shvachko, Hairong Kuang, Sanjay Radia, and Robert Chansler.
+\newblock The hadoop distributed file system.
+\newblock In {\em Mass Storage Systems and Technologies (MSST), 2010 IEEE 26th
+  Symposium on}, pages 1--10. IEEE, 2010.
+
+\bibitem{paper46}
+Veronique Sinou, Yves Boulard, Philippe Grellier, and Joseph Schrevel.
+\newblock Host cell and malarial targets for docetaxel (taxotere?) during the
+  erythrocytic development of plasmodium falciparum.
+\newblock {\em Journal of Eukaryotic Microbiology}, 45(2):171--183, 1998.
+
+\bibitem{paper12}
+Evren Sirin, Bijan Parsia, et~al.
+\newblock Pellet: A practical owl-dl reasoner.
+\newblock {\em Web Semantics: science, services and agents on the World Wide
+  Web}, 5(2):51--53, 2007.
+
+\bibitem{paper13}
+Dmitry Tsarkov and Ian Horrocks.
+\newblock Fact++ description logic reasoner: System description.
+\newblock In {\em Automated reasoning}, pages 292--297. Springer, 2006.
+
+\bibitem{paper43}
+Jacopo Urbani, Spyros Kotoulas, Jason Maassen, Frank Van~Harmelen, and Henri
+  Bal.
+\newblock Owl reasoning with webpie: calculating the closure of 100 billion
+  triples.
+\newblock In {\em The Semantic Web: Research and Applications}, pages 213--227.
+  Springer, 2010.
+
+\bibitem{paper52}
+Jacopo Urbani, Spyros Kotoulas, Eyal Oren, and Frank Van~Harmelen.
+\newblock Scalable distributed reasoning using mapreduce.
+\newblock In {\em The Semantic Web-ISWC 2009}, pages 634--649. Springer, 2009.
+
+\bibitem{paper29}
+Sheng-Yuan Wang, Ming-Ling Hsu, et~al.
+\newblock The anti-tumor effect of ganoderma lucidum is mediated by cytokines
+  released from activated macrophages and t lymphocytes.
+\newblock {\em International Journal of Cancer}, 70(6):699--705, 1997.
+
+\bibitem{paper38}
+David~S Wishart, Craig Knox, An~Chi Guo, Dean Cheng, Savita Shrivastava, Dan
+  Tzur, Bijaya Gautam, and Murtaza Hassanali.
+\newblock Drugbank: a knowledgebase for drugs, drug actions and drug targets.
+\newblock {\em Nucleic acids research}, 36(suppl 1):D901--D906, 2008.
+
+\bibitem{paper28}
+Hong-Sheng Zhang, Sheng-Qi Wang, et~al.
+\newblock Salvianolic acid b from salvia miltiorrhiza inhibits tumor necrosis
+  factor-alpha (tnf-alpha)-induced mmp-2 upregulation in human aortic smooth
+  muscle cells via suppression of nad (p) h oxidase-derived reactive oxygen
+  species.
+\newblock {\em Journal of molecular and cellular cardiology}, 41(1):138, 2006.
+
+\bibitem{paper32}
+Jian Zhou, Li~Ma, Qiaoling Liu, Lei Zhang, Yong Yu, and Yue Pan.
+\newblock Minerva: A scalable owl ontology storage and inference system.
+\newblock In {\em The Semantic Web--ASWC 2006}, pages 429--443. Springer, 2006.
+
+\bibitem{paper40}
+Xuezhong Zhou, Zhaohui Wu, Aining Yin, Lancheng Wu, Weiyu Fan, and Ruen Zhang.
+\newblock Ontology development for unified traditional chinese medical language
+  system.
+\newblock {\em Artificial Intelligence in Medicine}, 32(1):15--27, 2004.
+
+\end{thebibliography}

@@ -1,0 +1,1570 @@
+
+%% bare_conf.tex
+%% V1.3
+%% 2007/01/11
+%% by Michael Shell
+%% See:
+%% http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.7 or later) with an IEEE conference paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE!
+%% User assumes all risk.
+%% In no event shall IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%
+%% File list of work: IEEEtran.cls, IEEEtran_HOWTO.pdf, bare_adv.tex,
+%%                    bare_conf.tex, bare_jrnl.tex, bare_jrnl_compsoc.tex
+%%*************************************************************************
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. IEEE's font choices can trigger bugs that do  ***
+% *** not appear when using other class files.                            ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+% Note that the a4paper option is mainly intended so that authors in
+% countries using A4 can easily print to A4 and see how their papers will
+% look in print - the typesetting of the document will not typically be
+% affected with changes in paper size (but the bottom and side margins will).
+% Use the testflow package mentioned above to verify correct handling of
+% both paper sizes by the user's LaTeX system.
+%
+% Also note that the "draftcls" or "draftclsnofoot", not "draft", option
+% should be used if it is desired that the figures are to be displayed in
+% draft mode.
+%
+\documentclass[10pt, conference, compsocconf]{IEEEtran}
+\usepackage{algorithm}
+%\usepackage{algorithmic}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{graphicx}
+
+\usepackage{cite}
+\usepackage{subfigure}
+\usepackage{float}
+
+\usepackage{epstopdf}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+
+\usepackage{multicol}
+
+
+
+
+
+
+\makeatletter
+\thm@headfont{\sc}
+\makeatother
+\newtheorem{theorem}{Problem}
+% Add the compsocconf option for Computer Society conferences.
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[conference]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/oberdiek/
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+%\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 4.0 (2003-05-27) and later if using hyperref.sty. cite.sty does
+% not currently provide for hyperlinked citations.
+% The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/cite/
+% The documentation is contained in the cite.sty file itself.
+
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/graphics/
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found as epslatex.ps or
+% epslatex.pdf at: http://www.ctan.org/tex-archive/info/
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage[cmex10]{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics. If using
+% it, be sure to load this package with the cmex10 option to ensure that
+% only type 1 fonts will utilized at all point sizes. Without this option,
+% it is possible that some math symbols, particularly those within
+% footnotes, will be rendered in bitmap form which will result in a
+% document that can not be IEEE Xplore compliant!
+%
+% Also, note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/amslatex/math/
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithms/
+% There is also a support site at:
+% http://algorithms.berlios.de/index.html
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/tools/
+
+
+%\usepackage{mdwmath}
+%\usepackage{mdwtab}
+% Also highly recommended is Mark Wooding's extremely powerful MDW tools,
+% especially mdwmath.sty and mdwtab.sty which are used to format equations
+% and tables, respectively. The MDWtools set is already installed on most
+% LaTeX systems. The lastest version and documentation is available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/mdwtools/
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+%\usepackage{eqparbox}
+% Also of notable interest is Scott Pakin's eqparbox package for creating
+% (automatically sized) equal width boxes - aka "natural width parboxes".
+% Available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/eqparbox/
+
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\usepackage[tight,footnotesize]{subfigure}
+% subfigure.sty was written by Steven Douglas Cochran. This package makes it
+% easy to put subfigures in your figures. e.g., "Figure 1a and 1b". For IEEE
+% work, it is a good idea to load it with the tight package option to reduce
+% the amount of white space around the subfigures. subfigure.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at:
+% http://www.ctan.org/tex-archive/obsolete/macros/latex/contrib/subfigure/
+% subfigure.sty has been superceeded by subfig.sty.
+
+
+
+%\usepackage[caption=false]{caption}
+%\usepackage[font=footnotesize]{subfig}
+% subfig.sty, also written by Steven Douglas Cochran, is the modern
+% replacement for subfigure.sty. However, subfig.sty requires and
+% automatically loads Axel Sommerfeldt's caption.sty which will override
+% IEEEtran.cls handling of captions and this will result in nonIEEE style
+% figure/table captions. To prevent this problem, be sure and preload
+% caption.sty with its "caption=false" package option. This is will preserve
+% IEEEtran.cls handing of captions. Version 1.3 (2005/06/28) and later
+% (recommended due to many improvements over 1.2) of subfig.sty supports
+% the caption=false option directly:
+%\usepackage[caption=false,font=footnotesize]{subfig}
+%
+% The latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/subfig/
+% The latest version and documentation of caption.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/caption/
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure. The latest version and documentation can be found at:
+% http://www.ctan.org/tex-archive/macros/latex/base/
+
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/sttools/
+% Documentation is contained in the stfloats.sty comments as well as in the
+% presfull.pdf file. Do not use the stfloats baselinefloat ability as IEEE
+% does not allow \baselineskip to stretch. Authors submitting work to the
+% IEEE should note that IEEE rarely uses double column equations and
+% that authors should try to avoid such use. Do not be tempted to use the
+% cuted.sty or midfloat.sty packages (also by Sigitas Tolusis) as IEEE does
+% not format its papers in such ways.
+
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/misc/
+% Read the url.sty source comments for usage information. Basically,
+% \url{my_url_here}.
+
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+
+\bibliographystyle{plain}
+
+\addtolength\itemsep{0em}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{OWL Reasoning Framework over Big Biological Knowledge Network}
+
+
+% author names and affiliations
+% use a multiple column layout for up to two different
+% affiliations
+
+
+
+
+%\author{\IEEEauthorblockN{Xi Chen}
+%\IEEEauthorblockA{Department of Computer Science\\
+%Zhejiang University\\
+%Hangzhou, China\\
+%xichen@zju.edu.cn}
+%\and
+%\IEEEauthorblockN{Huajun Chen}
+%\IEEEauthorblockA{Department of Computer Science\\
+%Zhejiang University\\
+%Hangzhou, China\\
+%huajunsir@zju.edu.cn}
+%\and
+%\IEEEauthorblockN{Tong Yu}
+%\IEEEauthorblockA{Institute of Information on Traditional Chinese Medicine\\
+%China Academy of Chinese Medical Sciences\\
+%Beijing, China\\
+%luckyyutong@gmail.com}
+%}
+
+% conference papers do not typically use \thanks and this command
+% is locked out in conference mode. If really needed, such as for
+% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
+% after \documentclass
+
+% for over three affiliations, or if they all won't fit within the width
+% of the page, use this alternative format:
+%
+\author{\IEEEauthorblockN{Xi Chen\IEEEauthorrefmark{1},
+Huajun Chen\IEEEauthorrefmark{1}, Peiqin Gu\IEEEauthorrefmark{1},
+Tong Yu\IEEEauthorrefmark{2},
+\IEEEauthorblockA{\IEEEauthorrefmark{1}Department of Computer Science\\
+Zhejiang University,
+Hangzhou, China\\ Email: \{xichen,huajunsir,gupeiqin\}@zju.edu.cn}
+\IEEEauthorblockA{\IEEEauthorrefmark{2}Institute of Information on Traditional Chinese Medicine\\
+China Academy of Chinese Medical Sciences\\
+Beijing, China\\
+Email: luckyyutong@gmail.com}}}
+
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+
+% make the title area
+\maketitle
+
+
+\begin{abstract}
+Recently, huge amounts of data are generated in the domain of biology.
+Embedded with domain knowledge from different disciplines all regarding to human biological systems, the isolated biological resources (e.g. massive proteins, genes, drugs, diseases and herbs, etc.) are implicitly connected by some complex biological mechanisms.
+%As a result,
+The emerging accumulation of biological data on the Web has shaped a big network of versatile biological knowledge.
+%Lots of biological sources are published separately in the form of semantic ontologies represented by Web Ontology Language (OWL) syntax,
+%which is naturally based on linked graphs.
+%When we are faced with such massive, disparate and interlinked data, biological data analysis
+Faced with such massive, disparate and interlinked biological data, how to provide an efficient way to model, integrate and analyze the big biological network becomes a challenge. In this paper, we present a general OWL (Web Ontology Language) reasoning framework to systemically study and reveal the implicit relationships among biological entities from the big biological network.
+%and implement a MapReduce-based property chain reasoning prototype system to discover implicit associations between different biological entities.
+ A comprehensive biological ontology across Traditional Chinese Medicine (TCM) and Western Medicine (WM) is used to create a conceptual model for the big biological network. Then corresponding large-scale biological data is integrated into a biological knowledge network as the data model.
+%OWL reasoning method is ideally suitable for problems involved complex semantic association discovery
+%because it is able to infer logical consequences based on a set of asserted rules or axioms.
+Based on the conceptual model and data model, OWL reasoning method is utilized to infer the potential associations between biological entities from the biological network.
+MapReduce framework is used to solve the problem of scalability.
+In our experiment, we focus on the association discovery between TCM and WM. The derived associations are quite useful for biologists to promote the development of novel drugs and TCM modernization.
+%help biologists have a better understanding of the functional mechanisms of the complex biological system in a whole.
+The experimental results show the system achieves high efficiency,
+accuracy, scalability and effectivity.
+%In our experiment, we focus on the problem that looks for the relationship between Chinese Medicine and Western Medicine. The experimental results show that our approach achieves high performance, accuracy and scalability.
+
+
+%Moreover, biological data is interlinked with complex semantic associations. Every biological entity links to many other biological entities with association relationships. When we are
+%faced with such massive and complicated data, biological data integration and analysis become a challenge. In this paper, we utilize the OWL (Ontology Web Language) reasoning technology with distributed computing architecture MapReduce to deal with the problem of massive biological data analysis. OWL reasoning method is ideally suitable for problems involved complex semantic associations because it is able to infer logical consequences based on a set of asserted rules or axioms.
+%MapReduce framework is used to solve the problem of memory overflow and low efficiency.
+%In our experiment, we focus on the problem that looks for the relationship between Chinese Medicine and Western Medicine. The experimental results show that our approach achieves high performance, accuracy and scalability.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Big Data, Biological Network, OWL reasoning, MapReduce, Traditional Chinese Medicine, Western Medicine
+\end{IEEEkeywords}
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+% no \IEEEPARstart
+
+% You must have at least 2 lines in the paragraph with the drop letter
+% (should never be an issue)
+
+%With the rapid development of biological data acquisition technologies, such as Next Generation Sequencing System (NGS)\cite{paper1},
+With the explosive growth of biological data on the Web,
+large volume datasets are generated rapidly in the field of biology. Up to now, Linked Life Data (LLD) \raisebox{0.2mm}{---}a data integration platform in the biological domain\footnote{http://linkedlifedata.com/sources.html}, has 10,192,505,364 statements and 1,553,620,636 entitles.
+Entrez Gene maintains more 100 million gene records \footnote{http://www.ncbi.nlm.nih.gov/gene/}and
+UniProt\cite{paper41} knowledge base (UniProtKB/Swiss-Prot) contains 34,535,400 sequence entries, comprising about 10 billion amino acids\footnote{ftp://ftp.uniprot.org/pub/databases/uniprot/relnotes.txt}.
+Besides the obvious scalability issues, heterogeneities from different resources are another major challenges for big biological data integration and analysis.
+Biological data has a quite wide coverage including proteins, pathways, diseases, targets, genes, Chinese Medical herbs, symptoms and syndromes, which usually come from multiple isolated sources and have different formats and taxonomies.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=3.5in,bb=0 0 760 571]{complex_graph.jpg}
+  \caption{A Big Biological Knowledge Network}\label{}
+\end{figure}
+
+
+
+Embedded with domain knowledge from different disciplines all regarding to
+human biological systems, the decentralized data repositories
+are implicitly connected by human expert knowledge (such as Figure 1). Thus, without regard to the formatting issue, we can logically regard the large-scale, heterogeneous and complex-associated biological data as a big biological knowledge network. Biologists will benefit a lot by mining and discovering the hidden association information from the network. For example, the implicit associations between TCM and WM can help biologists have a better understanding
+of the complex biological system from the two perspectives of TCM
+and modern biology. Besides, they also can greatly promote the combination of TCM and WM, which will be useful in explaining the science of TCM and developing novel drugs.
+
+%On the other hand, understand the functional mechanisms of the complex biological system in a whole is drawing more and more attention in global health care management, characterized by the emerging of integrative medicine or personalized medicine such as Traditional Chinese Medicine (TCM). So revealing the associations between different biological entities(e.g. a gene, a disease, a protein, a drug, a herb, etc.) from the big network is of great value to biologists.
+% essentially different from Western Medicine (WM), is gaining increasing attention due to its emphasis on individual wellness and the use of natural herbal medicine, which satisfy the goal of integrative medicine.
+
+%Biological data is also interlinked with complex semantic associations. Every biological entity (e.g. a gene, a disease, a protein, a drug, a herb, etc.) links to many other biological entities with different attributes. A protein, for example, has a number of attributes that
+
+%must be included in its representation as shown in Figure 1. These include inherent properties of a protein, such as "full name",
+%"short name", "sequence", as well as "synonyms", "accession numbers" and "biological process", which can link to other proteins and gene products in various resources.
+
+
+
+
+%urgent need to present a new solution for big biological data analysis is imperative.
+
+%Traditional biological data analysis tools and methods have difficulty in processing such large-scale, heterogeneous and linked biological data. An
+However, faced with such large-scale, heterogeneous and linked biological data, how to provide an efficient approach to model, integrate and analyze the big biological network becomes a challenge.
+To support challenging these efforts, a computational framework should satisfy the following three basic requirements:
+\begin{enumerate}[(i)]
+\item A standard and sharable conceptional model that is capable of capturing the concepts and corresponding relationships of the biological network including modern biology and TCM.
+\item A data integration model capable of mapping and merging biological data across disparate data sources.
+\item A collection of efficient and scalable computational services to
+analyze and discover new associations in the integrated biological knowledge network.
+
+\end{enumerate}
+
+Semantic web technologies\cite{paper4}, most especially the OWL\cite{paper5},
+are widely used in the life science and healthcare, provide us with an efficient way to create a conceptional model for the biological network by defining a specific ontology\cite{paper6}\cite{paper8}\cite{paper7}. % Lots of biological data sources are published separately in the form of semantic ontologies represented by OWL syntax.
+ An ontology represents the formal and explicit concepts within a domain, and the relationships between those concepts.
+In OWL, resources are identified with triple pattern $<s, p, o>$, representing a property p between subject s and object o\cite{paper9}. It provides a simple graph data model for
+encoding networked data on the Web using concepts and semantic relations. Every concept in the biological ontology maps a class of the biological network (e.g. a gene, herb, protein, drug, disease, etc.). The connections (e.g. Treatment, PossibleDrug and Encode)
+between biological classes are expressed as certain
+semantic rules (relations). For example, triple (Drug, Treatment, Disease) represents a statement or a fact that drug class can link to disease class by the rule "treatment". The semantic rule "treatment" from the example can combine drug database and disease database. So Semantic Web
+technologies are able to help us construct a conceptional model to logistically organize and unify the versatile biological data by defining an unified biological ontology. Then based on the shared conceptional model, corresponding large-scale heterogeneous biological data sources can be mapped and merged into a big biological knowledge network. %the unified ontology also determines which  %It can provide an abstract model for the biological network by defining corresponding classes, properties and relationship and so on.
+%Semantic Web technology provides us with a good way to model the complicated and large-scale realms of biological knowledge network by defining an unified biological ontology.
+
+%After modeling the complicated and large-scale realms of biological knowledge network based on Semantic Web technology, how to make full use of knowledge base to achieve some meaningful results for biological researchers becomes a problem to be solved.Since we have created a well-designed biological ontology, we have the idea that what .
+
+
+A biological conceptional network can be divided into multiple chains. Every chain is composed of multiple classes of biological entities which are linked by several semantic rules (Figure 4). %Figure 2 shows a simple knowledge network and its corresponding several rule chains.
+Reasoners are able to derive the implicit associations along the semantic rule chains.
+Thus, it becomes quite natural to make full use of reasoning method to accomplish the association discovery for the biological network.
+OWL reasoning technology is quite applicable to data analysis problems especially knowledge discovery problems involving complex semantic associations because it is able to infer logical consequences based on a set of asserted rules or axioms\cite{paper10}. In rule-based reasoners, the OWL ontology definitions are
+first compiled into a set of rules. This rule-set is then applied on the presented data-set to generate the new inferred triples.
+
+%We can consider a simple reasoning scenario. Disease A connects to drug B by rule "Treat" meaning that A can be treated by B. Disease A links to disease C by rule "Similar". So we are able to infer a new relationship based on above facts and rules by OWL reasoning way : Drug B might treat disease C. This kind of reasoning technology plays an important role for discovering new biological associations in the biological network.
+
+%However, existing biological ontologies do not facilitate data integration and interoperability yet, since OWL reasoning over these big ontologies is very complex and cannot be performed efficiently or is even impossible\cite{paper11}.
+However,
+%since OWL reasoning over these big ontologies is very complex and cannot be performed efficiently or is even impossible\cite{paper11},
+existing reasoners on single machine including Pellet\cite{paper12}, Fact++\cite{paper13} and Racer\cite{paper20} work only on small or simple knowledge network because the reasoning algorithms are not scalable and are usually main memory oriented. As to the large biological data analysis, we have to devise an efficient and scalable reasoning algorithm.
+MapReduce is a popular parallel programming model for large scale data processing on commodity computer cluster\cite{paper15}. Unlike other parallel computing frameworks, which require application developers explicitly manage inter-process communication, computation in MapReduce is simply divided into two major phases called map and reduce, separated by an automatic internal shuffle phase of the intermediate results, and the framework automatically executes those functions in parallel over any number of processors.
+ Users only specify a map function that processes a key/value pair to generate a set of intermediate key/value pairs, and a reduce function that merges all intermediate values associated with the same intermediate key. Figure 2 shows a simple MapReduce word count example.
+  Applying the simple and effective distributed computing method to big biological network reasoning becomes an ideal choice.
+
+%\begin{figure}
+ % \centering
+ % \includegraphics[width=3.5in,bb=0 0 881 618]{network_chains.jpg}
+  %\caption{A Biological Knowledge Network and Corresponding Rule Chains}\label{}
+%\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=3.5in,bb=0 0 814 305]{mapreduce.jpg}
+  \caption{The MapReduce Word Count Example}\label{}
+\end{figure}
+
+\begin{figure*}[htbp]
+  \centering
+  \includegraphics[width=0.8\linewidth]{framework.jpg}
+  \caption{OWL Reasoning Framework over Big Biological Knowledge Network}\label{}
+\end{figure*}
+In this paper, we present a general OWL reasoning framework for the modeling, integration and analysis of the big biological network.
+Specifically speaking, our works are as follows:
+\begin{enumerate}[(i)]
+%\item We present a general OWL reasoning framework to model, integrate and analyze the big biological network.
+\item We design a unified biological ontology to model the complex and
+abstract biological network including TCM and WM. It provides an
+explicit specification of the conceptualization of the abstract view of the integrated biological network.
+%We summarize several basic requirements to support challenging big biological data analysis efforts, and present a general OWL reasoning framework for the analysis of big biological data.
+\item Based on the definition of the unified ontology, corresponding massive biological instance entities are integrated into a big linked biological knowledge network, which acts as the data model of the reasoning framework.
+\item We propose several MapReduce-based property chain reasoning algorithms to discover the implicit associations between entities from the big biological knowledge network. %andpresent an abstract reasoning algorithm framework based on rules generated by OWL ontology. We then propose two specific distributed reasoning algorithms.and compare their efficiency.
+\item We present an implementation based on our prototype system and real biological data sets. The results show the system achieves high efficiency, accuracy, scalability and effectivity.
+
+\end{enumerate}
+
+
+
+The remaining of this paper is organized as follows. In Sect. 2, we give the overall OWL reasoning framework over big biological network and related modules. Sect. 3 presents the detailed implementation of the distributed reasoning system. Sect. 4 introduces the experiment and the result analysis. Sect. 5 describes the related work, including OWL reasoning over biological data, massive biological data integration and search platforms, and large-scale semantic data reasoning systems. Sect. 6 gives conclusion.
+% An example of a floating figure using the graphicx package.
+% Note that \label must occur AFTER (or within) \caption.
+% For figures, \caption should occur after the \includegraphics.
+% Note that IEEEtran v1.7 and later has special internal code that
+% is designed to preserve the operation of \label within \caption
+% even when the captionsoff option is in effect. However, because
+% of issues like this, it may be the safest practice to put all your
+% \label just after \caption rather than within \caption{}.
+%
+% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
+% option should be used if it is desired that the figures are to be
+% displayed while in draft mode.
+%
+%\begin{figure}[!t]
+%\centering
+%\includegraphics[width=2.5in]{myfigure}
+% where an .eps filename suffix will be assumed under latex,
+% and a .pdf suffix will be assumed for pdflatex; or what has been declared
+% via \DeclareGraphicsExtensions.
+%\caption{Simulation Results}
+%\label{fig_sim}
+%\end{figure}
+
+% Note that IEEE typically puts floats only at the top, even when this
+% results in a large percentage of a column being occupied by floats.
+
+
+% An example of a double column floating figure using two subfigures.
+% (The subfig.sty package must be loaded for this to work.)
+% The subfigure \label commands are set within each subfloat command, the
+% \label for the overall figure must come after \caption.
+% \hfil must be used as a separator to get equal spacing.
+% The subfigure.sty package works much the same way, except \subfigure is
+% used instead of \subfloat.
+%
+%\begin{figure*}[!t]
+%\centerline{\subfloat[Case I]\includegraphics[width=2.5in]{subfigcase1}%
+%\label{fig_first_case}}
+%\hfil
+%\subfloat[Case II]{\includegraphics[width=2.5in]{subfigcase2}%
+%\label{fig_second_case}}}
+%\caption{Simulation results}
+%\label{fig_sim}
+%\end{figure*}
+%
+% Note that often IEEE papers with subfigures do not employ subfigure
+% captions (using the optional argument to \subfloat), but instead will
+% reference/describe all of them (a), (b), etc., within the main caption.
+
+
+% An example of a floating table. Note that, for IEEE style tables, the
+% \caption command should come BEFORE the table. Table text will default to
+% \footnotesize as IEEE normally uses this smaller font for tables.
+% The \label must come after \caption as always.
+%
+%\begin{table}[!t]
+%% increase table row spacing, adjust to taste
+%\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+%\caption{An Example of a Table}
+%\label{table_example}
+%\centering
+%% Some packages, such as MDW tools, offer better commands for making tables
+%% than the plain LaTeX2e tabular which is used here.
+%\begin{tabular}{|c||c|}
+%\hline
+%One & Two\\
+%\hline
+%Three & Four\\
+%\hline
+%\end{tabular}
+%\end{table}
+
+
+% Note that IEEE does not put floats in the very first column - or typically
+% anywhere on the first page for that matter. Also, in-text middle ("here")
+% positioning is not used. Most IEEE journals/conferences use top floats
+% exclusively. Note that, LaTeX2e, unlike IEEE journals/conferences, places
+% footnotes above bottom floats. This can be corrected via the \fnbelowfloat
+% command of the stfloats package.
+
+
+\section{OWL Reasoning Framework over Big Biological Knowledge Network}
+
+
+Figure 3 shows the schematic description of our OWL reasoning framework over big biological knowledge network.
+The framework mainly consists of three modules: \textit{ontology modeling module}, \textit{data integration module}, \textit{distributed reasoning module}.
+\textit{Ontology modeling module} focuses on creating a unified and comprehensive
+biological ontology to model the big biological network. Based on
+this conceptional model, \textit{Data integration module} is used to create a big linked biological knowledge network as the data model. It collects all required data sources
+from external biological data cloud and transforms these data with different
+formats (XML, Text, OBO, RDB, eg.) to uniform triple format. Having the conceptional model and data model, the \textit{distributed reasoning module} is responsible for deriving some implicit associations between different biological entities from the big biological network by MapReduce-based property chain reasoning algorithms.
+
+
+
+
+%The rest of this section gives the information of the OWL reasoning framework.
+In the first subsection, we first introduce the the method used to build the unified biological ontology.
+The second subsection shows the process of data integration. The last part gives the brief introduction of the distributed reasoning process. The detailed implementation of the \textit{distributed reasoning module} will be presented in next section.
+
+%The second subsection shows the detailed realization of the distributed reasoning system
+%:Firstly, we describe and define a typical biological reasoning problem formally. Then we present a general reasoning algorithm framework and subsequently introduce a naive OWL reasoning algorithm based on MapReduce. We call this implementation "naive" because it is easy to understand but performs poorly.Therefore, in the last part, an improved algorithm is presented to deal with the conflict between the parallel mechanism of MapReduce and the sequential demands of a reasoning rule set.
+%Every reasoning rule from the rule set is formalized as a triple (A, PropertyAB, B) meaning that class A links to class B by property "PropertyAB".
+
+\subsection{Unified BioTCM Ontology}
+To capture and model the complex biological network including modern biology and TCM, we construct a standard and sharable conceptional model by defining a unified biological ontology called \textit{Unified BioTCM Ontology} with the help of some TCM and WM experts. It is a crucial component of the reasoning framework, playing
+a fundamental role in integrating disparate data sources and extracting
+reasoning rules, in that: 1)it is a unique ontology, which captures the important
+concepts and crucial properties that help build the theoretical model of integrated
+knowledge of modern biology science and TCM; 2)it enables us to have a better understanding of the complex biological mechanisms in a whole and provides a communication boundary for those who are interested in but do not know much
+about the consensus and differences among multiple disciplines of knowledge; 3)it defines the explicit semantic relations between different
+biological entities, which will act as the reasoning rules
+for cross-domain associated knowledge discovery.
+
+Fundamentally, the \textit{Unified BioTCM Ontology} provides a common
+generalized terminological and assertional base for mapping from multiple
+sources to a unified mapping schema. It is mainly a terminology box (TBOX) which consists
+of class hierarchies and class restrictions defined with object properties.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=3.5in,bb=0 0 608 455]{TCM_WM2.jpg}
+  \caption{ The Basic Associated Network of TCM and WM, and Corresponding Reasoning Property Chains}\label{}
+\end{figure}
+
+
+Figure 4 gives a brief description of the associated conceptional model for TCM and WM network. Under the
+category of \textit{Unified BioTCM Ontology} model, there are many key concepts: \textit{Disease}, \textit{Drug}, \textit{Gene}, \textit{Protein}, \textit{Pathway}, \textit{Syndrome}, \textit{Symptom}, \textit{Target}, \textit{TCM Herb}, \textit{TCM Symptom}, \textit{TCM Syndrome} and so on. Mainly, specific disorders of certain genes can affect
+the encoding proteins, which cause diseases to appear. Proteins also can affect the gene expression. Drugs are used
+to treat diseases by interacting with the in
+sequential proteins through possible
+targets and involved pathways. A pathway can trigger the assembly of new protein molecules. The herbs are the constituents making up of
+drugs. The major link between modern biology and Chinese medicine lies on
+the fact that some western diseases are similar to some TCM diseases, and
+it has been found that certain genes are responsible for some TCM diseases,
+that certain remedies (e.g. herbs) might cure the genetic disease by possible
+biological targets.
+%\subsection{Distributed Reasoning Prototype System}
+%complex biological system in a whole
+
+
+
+\subsection{Biological Data Integration}
+Since we have designed a well-defined comprehensive biological ontology, the TBOX from the ontology tells us which data needs to be collected and how their schemas should be. Thus, a big linked biological knowledge graph (also called assertion component (ABOX)) can be created based on the TBOX. Another challenge in the integration of biological data lies in the format. Although there are numerous bioinformatics databases available, most of them do not share the uniform format. We utilize many different ways to transform these data into a standard RDF format.
+
+For some text data sources, we use simple text mining method to extract required instance
+triples. For the data from relational databases, we
+use RDB2RDF tools such as D2R to enable this data into standard RDF
+data\cite{paper56}. We also acquire some online data by Web Service, such as the NCBI
+efetch service\footnote{http://www.ncbi.nlm.nih.gov/books/NBK43082/}. Then we transform these data to RDF format. As a result,
+the big linked biological knowledge network is formed.
+
+
+
+\subsection{Distributed Reasoning}
+The \textit{distributed reasoning module} is the core of our reasoning framework. It is composed of three parts: reasoning rules, reasoning objects and distributed reasoning algorithm. Reasoning rules depict some basic association relationships between biological classes, which can be extracted from the unified biological ontology.
+Reasoning objects refer to those biological instances that we want to discover the implicit associations.
+It can be formed by constructing a linked knowledge network. Distributed reasoning algorithm is dedicated to deploying an efficient and scalable reasoner over big biological network based on reasoning rules. The first two parts have been described. We will show the detailed realization of the distributed reasoning algorithm in next section.
+
+
+
+\section{OWL Reasoning Algorithms Based on MapReduce}
+In the section, we first describe a typical biological reasoning
+problem and redefine it formally. Then we present a general
+reasoning algorithm framework and subsequently introduce a
+naive OWL reasoning algorithm based on MapReduce. We call
+this implementation ”naive” because it is easy to understand
+but performs poorly. Therefore, in the next part, an improved
+algorithm is presented to deal with the conflict between the
+parallel mechanism of MapReduce and the sequential demands
+of a reasoning rule set. At last, to enhance the parallel capability and efficiency of reasoning system, a multi-chains reasoning algorithm is presented to accomplish multiple property chains reasoning processes in an iterative MapReduce job.
+
+
+
+\subsection{Biological Reasoning Example}
+%
+
+ %Thus, it becomes quite natural to make full use of the property chains to accomplish the implicit association discovery for the biological network.
+
+%OWL reasoning technology is quite applicable to data analysis problems especially knowledge discovery problems involving complex semantic associations because it is able to infer logical consequences based on a set of asserted rules or axioms\cite{paper10}. In rule-based reasoners, the OWL ontology definitions are
+%first compiled into a set of rules. This rule-set is then applied on the presented data-set to generate the new inferred triples.
+
+%As described previously, one key characteristic of biological data is that there exist complex association relationships between them.
+As described previously, a big biological network can be divided into multiple property chains. For the associated network of \textit{Unified BioTCM Ontology}, we identify several property chains in Figure 4.
+Every property chain, consisting of several sequential semantic rules, can capture the implicit associations between every two specific biological classes by modeling the potential interactions of intermediate biological entities.
+These association information
+is useful in understanding the mechanisms of action of biological entities in a whole, especially those entities biological researchers are not familiar with.
+For example, Traditional Chinese Medicine, which has existed for thousands of years in China, yet to become an integral part of the standard healthcare system
+in Western countries due to a lack of scientific evidence for its efficacy and safety \cite{paper2}. Meanwhile, TCM is also gaining increasing attention from Western healthcare practitioners because it
+is making favorable contributions to the development of novel drugs that are
+made of natural herbs.
+So it will become quite useful to reveal some implicit relationships between TCM and WM. Problem 1 describes a typical biological reasoning example.
+
+\begin{theorem}
+In recent years, several herbs were found to exhibit a variety of effects through
+regulating a wide range of gene expressions or protein
+activities\cite{paper26}\cite{paper27}. Biological researchers are eager to discover related gene for every herb to help understand the possible therapeutic mechanisms of TCMs via gene regulations.
+\end{theorem}
+
+%\begin{figure}
+ % \centering
+  %\includegraphics[width=3.5in,bb=0 0 588 69]{closure.jpg}
+  %\caption{OWL Transitive Property Rule Between Herb and Gene}\label{}
+%\end{figure}
+
+We are able to get association information between herb and gene based on the corresponding OWL transitive property chain in the biological network (Chain 2 in Figure 4). The transitive relationship can be derived through the shared intermediates.
+%The reasoning system is supposed to provide biological researchers with a knowledge discovery platform over the biological data cloud.
+In our reasoning system, relationships between two kinds of biological entities are expressed as
+reasoning rules.
+%So our reasoning system is implemented using rule based engines.
+Typically, as is shown in Figure 4, some basic reasoning rules have been given directly by the biological ontology, such as "treatment" and "possibleDrug". %the disease class connects to drug class with a rule "PossibleDrug".
+But there does not exist a direct association rule between herb and gene. On this occasion, we need to create a reasoning rule set based on
+existing basic reasoning rules that can link them implicitly.
+
+%The main purpose of our reasoning system is to provide biological researchers with a data analysis platform over biological data cloud. The association relationships between biological entities are expressed as association rules or reasoning rules in the reasoning system.
+%So our reasoning system is implemented using rule based engines.
+%Typically, some basic reasoning rules between biological entities are given directly by the biological ontology. For example, the drug class connects to disease class with a rule "Treat".But in most cases, there does not exist a direct association rule between two kinds of biological entities, such as Chinese Medical herb and gene. On this occasion, if we want to discover the associations between them, we need to create a reasoning rule set that can link the two kinds of biological entities implicitly based on existing basic reasoning rules. After determining the reasoning rule set, the reasoning system is responsible for deriving some new knowledge over the large-scale biological cloud.
+
+%In particular, the reasoning system is supposed to solve the problem described as Problem 1:
+%\begin{theorem}Suppose there is a instance triple graph G which represents millions of biological entities from biological data cloud. Given a reasoning rule set and two kinds of biological entities, the reasoning system is required to derive the implicit associations between them.
+%derive new triples whose subject and object come from the two kinds of biological entities respectively and are linked by the reasoning rule set.\end{theorem}
+\subsection{Formal Definition of Reasoning Problem}
+To address the problem efficiently, we define the following concepts:
+
+\emph{Definition 1:}\textbf{ Reasoning Rule Chain (RCC)}.
+A Reasoning Rule Chain is a set of sequential basic reasoning rules. Every basic reasoning rule is given in advance which is formalized as a rule triple such as (Herb, treatment, Disease).
+The Reasoning Rule Chain of Problem 1 can be described as RCC$_{0}$=\{(herb, treatment, Disease),
+(Disease, possibleDrug, Drug), (Drug, hasTarget, Target), (Target, hasAccession, Protein), (Protein, classifiedWith, EntrezID), (EntrezID, symbol, Gene)\}.
+%So in fact, a Reasoning Rule Chain is the set of sequential rule triples.%The basic reasoning rule represents that biological entities belonging to drug class link to disease entities by rule "Treat".
+
+\emph{Definition 2:}\textbf{ OWL Property Chain (OPC)}. A OPC is made up of one or more sequential properties from the Reasoning Rule Chain. Given a Reasoning Rule Chain such as RCC$_{0}$,
+P$_{k}$ refers to the property of the kth rule triple. Initially, OPC$_{k}$ equals to P$_{k}$. Therefore,
+we can get following results: OPC$_{0}$=Treatment, OPC$_{1}$=PossibleDrug, ... ,OPC$_{5}$=Symbol.
+Then several consecutive sequential OPCs will form a new OPC with operation $\bigotimes$ if they meet merging condition. For example, if there exist some triples: (Herb$_{0}$, treatment, Disease$_{0}$), (Disease$_{0}$, possibleDrug, Drug$_{0}$), ... , (EntrezID$_{0}$, symbol, Gene$_{0}$), then we can derive a new triple (Drug$_{0}$, P, Gene$_{0}$) where
+P is expressed as (OPC$_{0}$$\bigotimes$OPC$_{1}$$\bigotimes$OPC$_{2}$...$\bigotimes$
+OPC$_{5}$). To some extent, the reasoning process can be regarded as the iterated merging operations of OPCs.
+
+\emph{Definition 3:} \textbf{Property Chain Set (PCS)}.
+As the name suggests, the PCS is a set of sequential OPCs in a given triple graph. For RCC$_{0}$, the Initial PCS is expressed as PCS$_{0}$=\{treatment, possibleDrug, hasTarget, hasAccession, classifiedWith, symbol\}.
+In the process of reasoning, the PCS will vary with OPCs.
+
+\emph{Definition 4:}\textbf{ Property ID (PID)}.
+We allocate an ID called PID to every OPC in the PCS. Initially, the PID of the first OPC in the PCS$_{0}$ is set as 0, the second is 1, ... ,
+the PID of the last OPC is 5 (the length of PCS$_{0}$ is 6). Correspondingly, every instance triple also owns a PID because its predicate
+maps some OPC. For those triples whose OPCs are not included in the PCS, the PID is assigned as -1. These triples should be ignored in the process of reasoning.
+
+Based on above definitions, Problem 1 can be redefined formally as Problem 2:
+\begin{theorem}
+Input a quad (G, PCS$_{0}$, Herb, Gene), we are required to find out the solution domain S=\{(O$_{0}$,OPC,O$_{5}$)$\mid$O$_{0}$$\in$Herb,OPC=(treatment$\bigotimes$possibleDrug
+$\bigotimes$hasTarget...$\bigotimes$symbol), O$_{5}$$\in$Gene\}. G is the instance triple graph. (X$_{k}$, P$_{k}$, Y$_{k}$) represents
+a typical triple in G. X$_{k}$ represents a entity belonging to biological class X. P$_{k}$ is the kth initial OPC. Y$_{k}$ is an entity of class Y.
+The PCS$_{0}$ is the Property Chain Set of G. Herb and Gene represent the two classes needed to explore implicit relationship.
+\end{theorem}
+%\begin{theorem}input a quad (G,PCS,Class$_{0}$,Class$_{n-1}$),we are required to find out the solution domain S=\{(O$_{0}$,OPC,O$_{n-1}$)$\mid$O$_{0}$$\in$Class$_{0}$,OPC=(OPC$_{0}$$\bigotimes$OPC$_{1}$$\bigotimes$OPC$_{2}$...$\bigotimes$OPC$_{n-1}$), O$_{n-1}$$\in$Class$_{n-1}$\}. G is the instance triple graph. (X$_{k}$, P$_{k}$, Y$_{k}$) represents a typical triple in G. X$_{k}$ represents a entity belonging to biological class X. P$_{k}$ is the kth initial OPC. Y$_{k}$ is an entity of class Y. The PCS is the Property Chain Set of G. Class$_{1}$ and Class$_{2}$ represent the two classes needed to explore implied relationship.\end{theorem}
+
+Consider the following instance triple graph: G$_{0}$=\{
+T$_{0}$(Herb$_{0}$, treatment, Disease$_{0}$), T$_{1}$(Disease$_{0}$, possibleDrug, Drug$_{0}$),T$_{2}$(Drug$_{0}$,hasTarget,Target$_{0}$),T$_{3}$(Target$_{0}$,hasAccession, Protein$_{0}$), T$_{4}$(Protein$_{0}$,classifiedWith,EntrezID$_{0}$),T$_{5}$(EntrezID$_{0}$, symbol, Gene$_{0}$), T$_{6}$(Herb$_{1}$, treatment, Disease$_{0}$), T$_{7}$(Target$_{0}$, geneSequence,Sequence$_{0}$)\}.
+According to above three definitions, we can calculate the PID for every instance triple. For example, T$_{0}$'s PID is 0 because its predicate "treatment" is the first OPC in PCS$_{0}$.
+T$_{7}$'s PID is -1 because its predicate "geneSequence" is not included in PCS$_{0}$.
+For the convenience of description, P$_{k}$ is used to refer to the kth OPC in PCS$_{0}$ in the following sections.
+
+%Consider the following scenario: Suppose the input quad is QUAD$_{0}$(G$_{0}$, PCS$_{0}$, A, F). G$_{0}$=\{T$_{0}$(A$_{0}$, P$_{0}$, B$_{0}$),T$_{1}$(B$_{0}$, P$_{1}$, C$_{0}$),T$_{2}$(C$_{0}$, P$_{2}$, D$_{0}$), T$_{3}$(D$_{0}$, P$_{3}$, E$_{0}$), T$_{4}$(E$_{0}$, P$_{4}$, F$_{0}$),
+%T$_{5}$(A$_{1}$, P$_{0}$, B$_{0}$), T$_{6}$(B$_{0}$, P$_{10}$, C$_{1}$)\}. PCS$_{0}$=\{P$_{0}$, P$_{1}$, P$_{2}$, P$_{3}$, P$_{4}$\}. According to above three definitions, we can calculate the PID for every instance triple. For example, T$_{0}$'s PID is 0 because its predicate P$_{0}$ is the first OPC element in PCS$_{0}$. T$_{6}$'s PID is -1 because its predicate P$_{6}$ is not included in PCS$_{0}$.
+
+\subsection{Framework of OWL Reasoning Algorithm}
+Given a input quad (G$_{0}$, PCS$_{0}$, Herb, Gene), to compute solution domain, we need to keep applying the rules to reason until we finish deriving the desired triples (fixpoint). It will involve multiple iterations. The number of iterations depends on the complexity of the input and efficiency of the algorithm.
+
+In the workflow of the algorithm as shown in Algorithm 1, we firstly complete initialization by inputting a quad (G$_{0}$, PCS$_{0}$, Herb, Gene) and setting a global variable to check fixpoint condition. Then the algorithm comes into the procedure of iterating. In every iteration, we load the triple graph and PCS. Then we perform a join with a MapReduce job. At last, new input triple graph and PCS are calculated for next iteration.
+
+
+\renewcommand{\algorithmicrequire}{\textbf{Initialization:}}
+\renewcommand{\algorithmicensure}{\textbf{Iteration:}}
+%%正文代码
+\begin{algorithm}[htb]
+\caption{ Framework of OWL Reasoning Algorithm.}
+\label{alg:Framwork}
+\begin{algorithmic}[]
+\Require
+instance triple graph, $G_0$;
+Property Chain Set, $PCS_0$;
+two classes required to explore implicit semantic associations, Herb and Gene;
+number that has been iterated, $I=0$;
+number needed to be iterated, $M$;
+\Ensure
+\label{code:recentStart}
+\While {$I<M$}
+\State Step 1) Load triple graph and PCS on the current iteration, $G_I$, $PCS_I$;
+\State Step 2) Group instance triples based on join key;
+%\State   $//$ Corresponding to map function
+\State Step 3) Derive new instance triples;
+%\State   $//$ Corresponding to reduce function
+\State Step 4) Update input instance triple graph, $G$$_{I+1}$;
+\State Step 5) Update PCS, $PCS$$_{I+1}$;
+\State Step 6) $I\leftarrow I+1$;
+\EndWhile
+\label{code:recentEnd}
+
+\end{algorithmic}
+\end{algorithm}
+\subsection{Naive OWL Reasoning Algorithm}
+
+To derive a new triple, we need another two triples as the sources. It is quite natural and direct to connect Herb with Drug through
+intermediate Disease based on the rule chain in Figure 4. That is to say, we firstly process the instance triples whose
+PID is 0 or 1 in every iteration. Based on the idea, we can specify the join condition: the objects of triples whose PID equals
+0 must match the subjects of other triples whose PID is 1. For the sake of description, we define the concept of Join Candidate Set.
+
+\emph{Definition 5:} \textbf{Join Candidate Set.}
+Join Candidate Set is a binary set of the instance triples that meet join condition. Once there exists two instance triples
+satisfied with above join condition such as T$_{0}$(Herb$_{0}$, P$_{0}$, Disease$_{0}$), T$_{1}$(Disease$_{0}$, P$_{1}$, Drug$_{0}$),
+we should add the element (T$_{0}$, T$_{1}$) to the Join Candidate Set.
+In every iteration, we firstly compute the Join Candidate Set, then we can perform joins to derive some new triples over elements in the Join Candidate Set.
+
+After an iteration, the first two OPCs (P$_{0}$ and P$_{1}$) in the PCS will merge to a new OPC (P$_{0}$$\bigotimes$P$_{1}$) whose PID is set to 0.
+Meanwhile, the PID of all other OPCs reduce by 1. Obviously, the length of the PCS will also reduce by 1.
+When length of the PCS becomes 1, the algorithm ends. So for a PCS whose initial length is n, we need n-1 iterations to finish reasoning.
+
+Let us consider the same input QUAD$_{0}$=(G$_{0}$, PCS$_{0}$, Herb, Gene) as above. In the first iteration,
+we derive two triples by computing the Join Candidate Set \{(T$_{0}$, T$_{1}$), (T$_{6}$, T$_{1}$)\}: T$_{8}$(Herb$_{0}$, P$_{0}$$\bigotimes$P$_{1}$, Drug$_{0}$) and T$_{9}$(Herb$_{1}$, P$_{0}$$\bigotimes$P$_{1}$, Drug$_{0}$). Then \{T$_{0}$, T$_{1}$, T$_{6}$\} will be deleted from the input data.
+T$_{7}$ is also removed because its OPC (GeneSequence) is not included in the PCS$_{0}$. So the new input quad becomes QUAD$_{1}$(G$_{1}$, PCS$_{1}$, Herb, Gene).
+G$_{1}$=\{T$_{8}$(Herb$_{0}$, P$_{0}$$\bigotimes$P$_{1}$, Drug$_{0}$), T$_{9}$(Herb$_{1}$, P$_{0}$$\bigotimes$P$_{1}$, Drug$_{0}$),
+T$_{2}$(Drug$_{0}$, HasTarget, Target$_{0}$), T$_{3}$(Target$_{0}$, HasAccession, Protein$_{0}$), T$_{4}$(Protein$_{0}$, ClassifiedWith, EntrezID$_{0}$),
+T$_{5}$(EntrezID$_{0}$, Symbol, Gene$_{0}$)\}. PCS$_{1}$=\{P$_{0}$$\bigotimes$P$_{1}$, P$_{2}$, P$_{3}$, P$_{4}$\}. Then we continue to apply
+same method to perform joins until we get the final results: (Herb$_{0}$, P$_{0}$$\bigotimes$P$_{1}$$\bigotimes$P$_{2}$$\bigotimes$P$_{3}$$\bigotimes$P$_{4}$, Gene$_{0}$)
+and (Herb$_{1}$, P$_{0}$$\bigotimes$P$_{1}$$\bigotimes$P$_{2}$$\bigotimes$P$_{3}$$\bigotimes$P$_{4}$, Gene$_{0}$). As the length of PCS$_{0}$ is 5, the total number of iterations is 4.
+The first iteration process is shown in Figure 5.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=3.3in,bb=0 0 482 363]{naive.jpg}
+  \caption{Workflow of the First Iteration Based on the Naive Reasoning Algorithm on Hadoop Cluster}\label{}
+\end{figure}
+
+
+
+%When deployed in MapReduce, every MapReduce job corresponds to an iteration procedure which performs a join.
+%In the map function, we process every triple and output a key/value pair, using as value the original triple, and as key the triple's term (s, p, o) on which the join should be performed.
+%Join key is determined by the triple's PID. Specifically speaking, for a triple(X$_{k}$, P$_{k}$, Y$_{k}$), if its PID is 0, the join key is
+%Y$_{k}$. If PID is 1, the join key is X$_{k}$. If PID is -1, we will do nothing about the triple. Otherwise, the join key is represented as 1.
+
+%In the reduce function, we will implement join to recalculate input triple graph for next iteration.
+%If the key is 1, we just need to emit a key/value pair $<ok, ov1>$ where ok is null and ov1 is the triple itself.
+%Otherwise, we add the triple's object or subject to corresponding list to compute the Join Candidate Set.
+%Subsequently, we are able to reason new triples based on Join Candidate Set and write another kind of key/value pair $<ok,ov2>$ to
+%HDFS where ov2 refers to the new derived triples. The union of ov1 and ov2 will be the new input graph for next iteration.
+When deployed in MapReduce, every MapReduce job corresponds to an iteration procedure which performs a join. Mapper is used to separate all input
+triples into three groups based on PID: triples needed to be joined immediately, triples needed to be processed later, irrelevant triples. Reducer
+is responsible for implementing joins to recalculate new input triple graph for next iteration.
+At last, PCS is updated. Another similar MapReduce job continues to be executed until the length of PCS becomes 1.
+
+
+%\renewcommand{\algorithmicrequire}{\textbf{Map(key, value)}}   %改成后面的小标题
+%\renewcommand{\algorithmicensure}{\textbf{Reduce(key, value)}}
+%%%正文代码
+%\begin{algorithm}[htb]
+%\caption{ Naive OWL Reasoning Algorithm based on MapReduce}
+%\label{alg:naive}
+%\begin{algorithmic}[]
+%\Require
+%\State $//$ key:linenumber(irrelevant)
+%\State $//$ value:instance triple
+%\State $PID$ = $PCS$.getIndex($triple$.predicate);
+%\State $//$get the PID of the triple
+%\If{$PID==0$}
+%\State  $key$=$triple$.getObject();
+%\ElsIf{$PID==1$}
+%\State  $key$=$triple$.getSbject();
+%\ElsIf{$1<PID<PCS.length-1$}
+%\State  $key$=1;
+%\Else
+%\State return;
+%\EndIf
+%\State emit($key$, $value$);
+%
+%\Ensure
+%\State $//$ key:join key
+%\State $//$ value:triple
+%\State $subjectList$ = empty;
+%\State $objectList$ = empty;
+%\State $PID$ = $PCS$.getIndex($triple$.predicate);
+%\If{$key==1$}
+%    \For{each $triple\in value$}
+%        \State emit(null, $triple$);
+%    \EndFor
+%\Else
+%    \For{each $triple\in value$}
+%        \If{$PID==0$}
+%         \State    $subjectList$.add($triple$.subject);
+%        \Else
+%         \State   $objectList$.add($triple$.object);
+%
+%     \EndIf
+%     \EndFor
+%
+%     \State $new\_OPC$=$PCS[0] \bigotimes PCS[1]$;
+%     \For{each $s\in subjectList$}
+%       \For{each $o\in objectList$}
+%        \State emit(null, triple($s$, $new\_OPC$, $o$));
+%       \EndFor
+%     \EndFor
+%\EndIf
+%\end{algorithmic}
+%\end{algorithm}
+
+
+\subsection{Efficient OWL Reasoning Algorithm}
+The previously presented implementation is straightforward, but is inefficient because it involves too many iterations and wastes lots of valuable computing resources in an iteration. Algorithm 1 only implements joins on these instance triples whose PID is 0 or 1 in one iteration, while other instance triples are not processed concurrently. As a result, it needs (n-1) iterations to complete reasoning where n represents the length of the initial PCS.
+So we introduce an more efficient algorithm to greatly decrease the number of jobs and time required for reasoning computation.
+
+In fact, we can perform more joins in an iteration if we set out a more flexible join requirement. Specifically, the join requirements contain two conditions:
+\begin{enumerate}[(1)]
+\item the PIDs of two triples' OPCs are adjacent strictly.
+\item the object of triple owning a smaller PID matches the other triple's subject.
+\end{enumerate}
+
+For example, there are three instance triples as followings:
+T$_{0}$(Herb$_{0}$, treatment, Disease$_{0}$), T$_{1}$(Disease$_{0}$, possibleDrug, Drug$_{0}$),T$_{2}$(Drug$_{0}$, hasTarget, Target$_{0}$).
+As T$_{1}$ meets join conditions both with T$_{0}$ and T$_{2}$, the Join Candidate Set should be \{(T$_{0}$, T$_{1}$), (T$_{1}$, T$_{2}$)\}.
+So we derive two triples T$_{3}$(Disease$_{0}$, P$_{0}$$\bigotimes$P$_{1}$, Drug$_{0}$) and T$_{4}$(Disease$_{0}$, P$_{1}$$\bigotimes$P$_{2}$,
+Target$_{0}$). It is obvious that T$_{3}$ and T$_{4}$ do not meet join conditions in next iteration. Therefore, we can not derive the right result
+(Herb$_{0}$, P$_{0}$$\bigotimes$P$_{1}$$\bigotimes$P$_{2}$, Target$_{0}$). %Therefor, T$_{1}$ can only join with T$_{0}$ or T$_{2}$ in an iteration.
+%another problem arises:it is not certain to extract its subject or object as a part of join key. If we choose subject B$_{0}$, T$_{1}$ can not connect to T$_{2}$.Otherwise,T$_{1}$ can not join with T$_{0}$.
+
+
+We are able to solve the problem if we add another restricted condition called Parity Judgment Rule to join requirement.
+Firstly, let us give the definition of Parity Judgment Rule.
+
+\emph{Rule 1:}\textbf{Parity Judgment Rule}.
+We regard the Parity Judgment Rule as the third join condition.
+It is based on this principle that a triple (assuming k represents its PID and is a odd number) only performs joins with triples
+whose PID is (k-1). In particular, for a instance triple T$_{k}$(X$_{k}$, OPC, Y$_{k}$), if PID of the OPC is a odd number k,
+the join key is represented as (k-1)\_X$_{k}$. Otherwise, the join key is k\_Y$_{k}$. As to above three triples, the join condition guarantees that
+T$_{1}$ only connects with T$_{0}$ in the first iteration. Then we can derive the right result in the second iteration.
+
+%This rule guarantees that we can determine the join sequences in advance. Further more, according to this rule we can know exactly how to extract the join key from the triple.
+
+%$\lfloor3.14\rfloor$, $\lceil3.14\rceil$
+
+\begin{figure}
+  \centering
+  \includegraphics[width=3.3in,bb=0 0 594 131]{property.jpg}
+  \caption{Parallel Reasoning Process based on Property Chain}\label{}
+\end{figure}
+
+
+As is shown in Figure 6, based on the above three join conditions, we can divide all biological entities
+except irrelevant contents (Sequence) into 3 ($\lceil N/2\rceil$) groups where N represents the length of PCS$_{0}$.
+Then we perform joins between the triples from the same group in an iteration.
+As a result, the derived triples will be the new input graph for next iteration. Meanwhile, we halve the PCS by merging the two adjacent OPCs to one new OPC with the operation $\bigotimes$.
+Subsequently, we continue to apply similar method to reason until the length of PCS becomes 1.
+Obviously, this algorithm makes full use of the computing capacity of cluster nodes to limit the number of
+total iterations to 3 ($\log{N}$) which will greatly improve the efficiency of reasoning, compared to 5 (N-1) iterations in the previous naive algorithm.
+
+
+Consider the same input quad Quad$_{0}$=(G$_{0}$, PCS$_{0}$, Herb, Gene).
+In the first iteration, the Join Candidate Set is calculated as \{(T$_{0}$, T$_{1}$), (T$_{1}$, T$_{6}$), (T$_{2}$, T$_{3}$), (T$_{4}$, T$_{5}$)\}
+based on join conditions. Then new triples are derived as followings:
+\{T$_{8}$(Herb$_{0}$, P$_{0}$$\bigotimes$P$_{1}$, Drug$_{0}$), T$_{9}$(Herb$_{1}$, P$_{0}$$\bigotimes$P$_{1}$, Drug$_{0}$),
+T$_{10}$(Drug$_{0}$, P$_{2}$$\bigotimes$P$_{3}$, Protein$_{0}$), T$_{11}$(Protein$_{0}$, P$_{4}$$\bigotimes$P$_{5}$, Gene$_{0}$)\}.
+Then we get a new graph G$_{1}$=\{T$_{8}$, T$_{9}$, T$_{10}$, T$_{11}$\}. The PCS is also updated as PCS$_{1}$= \{P$_{0}$$\bigotimes$P$_{1}$,
+P$_{2}$$\bigotimes$P$_{3}$, P$_{4}$$\bigotimes$P$_{5}$\}. So the first iteration ends up with a new smaller input quad Quad$_{1}$=(G$_{1}$, PCS$_{1}$, Herb, Gene).
+Similarly, in the second iteration, we work out the new Join Candidate Set which is expressed as \{(T$_{8}$, T$_{10}$), (T$_{9}$, T$_{10}$)\}
+and another new graph is recalculated as G$_{2}$=\{T$_{11}$(Protein$_{0}$, P$_{4}$$\bigotimes$P$_{5}$,
+Gene$_{0}$), T$_{12}$(Herb$_{0}$, P$_{0}$$\bigotimes$P$_{1}$$\bigotimes$P$_{2}$$\bigotimes$P$_{3}$$\bigotimes$P$_{4}$, Protein$_{0}$),
+T$_{13}$(Herb$_{1}$, P$_{0}$$\bigotimes$P$_{1}$$\bigotimes$P$_{2}$$\bigotimes$P$_{3}$$\bigotimes$P$_{4}$, Protein$_{0}$)\}. The new PCS is also updated as \{P$_{0}$$\bigotimes$P$_{1}$$\bigotimes$P$_{2}$$\bigotimes$P$_{3}$, P$_{4}$$\bigotimes$P$_{5}$\}.
+Then we implement the last iteration. The Join Candidate Set is {(T$_{12}$, T$_{11}$), (T$_{13}$, T$_{11}$)}. The desired triples are derived \{T$_{14}$(Herb$_{0}$, P$_{0}$$\bigotimes$P$_{1}$$\bigotimes$P$_{2}$$\bigotimes$
+P$_{3}$$\bigotimes$P$_{4}$$\bigotimes$P$_{5}$, Gene$_{0}$), T$_{15}$(Herb$_{1}$, P$_{0}$$\bigotimes$P$_{1}$$\bigotimes$P$_{2}$$\bigotimes$P$_{3}$$\bigotimes$P$_{4}$$\bigotimes$P$_{5}$, Gene$_{0}$)\}.
+As the length of PCS$_{0}$ is 5. So the algorithm ends after 3 iterations. The first iteration scenario is shown in Figure 7.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=3.3in,bb=0 0 482 362]{efficient.jpg}
+  \caption{Workflow of the First Iteration Based on Parallel Property Chain Reasoning Algorithm}\label{}
+\end{figure}
+
+
+
+When implemented in MapReduce, Mapper is used to group all triples that meet join conditions into a Reducer.
+Reducer is responsible for computing the Join Candidate Set and deriving new input triples for next iteration.
+The algorithm is demonstrated in Algorithm 2.
+
+In map function, we compute join key for every triple based on Parity Judgement Rule.
+The join key is used as intermediate key. Intermediate value is the triple itself.
+Each Map process outputs several pairs of intermediate results $<ik,iv>$.
+
+In reduce function, we firstly divide input triples into two classes based on the parity of triple's PID.
+If PID is odd, we extract triple's object to a set called ObjectList. Otherwise, we add triple's subject to
+the set called SubjectList. We are able to get the Join Candidate Set based on ObjectList and SubjectList.
+Then we compute the shared OPC for all new derived triples. Subsequently, the output pairs $<ok,ov>$ are written to HDFS
+where ok is null and ov is the derived triples. The triples will form a new input triple graph for next iteration.
+
+At last, the PCS is updated by merging the two adjacent OPCs to one new OPC. Then another similar MapReduce job is launched
+until the length of PCS becomes 1.
+
+
+\renewcommand{\algorithmicrequire}{\textbf{Map(key, value)}}   %改成后面的小标题
+\renewcommand{\algorithmicensure}{\textbf{Reduce(key, value)}}
+%%正文代码
+\begin{algorithm}[htb]
+\caption{ Efficient OWL Reasoning Algorithm based on MapReduce}
+\label{alg:efficient}
+\begin{algorithmic}[]
+\Require
+\State $//$ key:linenumber(irrelevant)
+\State $//$ value:instance triple
+\State $PID$ = $PCS$.getPID($triple$.predicate);
+\State $//$get the PID of the triple
+\If{$PID==-1$}
+\State return;
+\EndIf
+
+\If{$PID ==(len-1)\&len\%2==1$}
+       % \State $//$ if the length of PCS is odd, these triples owning the largest PID are emitted directly.
+            \State emit(null, triple);
+            \State  return;
+\EndIf
+
+
+\If{$PID\%2==1$}
+\State  $key$=($PID$-1)+"\_"+$triple$.getSubject();
+\Else
+\State  $key$=$PID$+"\_"+$triple$.getObject();
+\EndIf
+\State emit($key$, $value$);
+
+\Ensure
+\State $//$ key:join key
+\State $//$ value:triple
+\State $subjectList$ = empty;
+\State $objectList$ = empty;
+\State $len$=PCS.length;
+\For{each $triple\in value$}
+    \State $PID$ = $PCS$.getPID($triple$.predicate);
+
+        \If{$PID\%2==1$}
+         \State    $subjectList$.add($triple$.subject);
+        \Else
+         \State   $objectList$.add($triple$.object);
+        \EndIf
+\EndFor
+
+%\If{$PID\%2==1$}
+ %    \State $new\_OPC$=$PCS[$PID$-1] \bigotimes PCS[$PID$]$;
+%\Else
+ %     \State $new\_OPC$=$PCS[$PID$] \bigotimes PCS[$PID$+1]$;
+ \State $new\_OPC$=ComputeOPC();
+
+
+     \For{each $s\in subjectList$}
+       \For{each $o\in objectList$}
+        \State emit(null, triple($s$,$new\_OPC$, $o$));
+       \EndFor
+     \EndFor
+%\EndIf
+\end{algorithmic}
+\end{algorithm}
+
+
+
+
+\subsection{Multi-chains Parallel Reasoning Algorithm}
+The previously described reasoning algorithms are intended to derive the association information among the entities from two specific biological classes in an iterative MapReduce job. A significant feature of the big biological network lies in the complex association relationships between biological data. Every property chain only represents the implicit associations between two specific biological classes. Meanwhile, there exist multiple property chains in the big biological network. If we want to get the associations between multiple pairs of biological classes, the reasoning process has to be repeated several times. This will result in low efficiency and waste I/O, network bandwidth, and CPU resources, which large-scale data must be reloaded and reprocessed at each iterated job. So to enhance the efficiency and parallel capability of the reasoning system, a improved multi-chains parallel reasoning algorithm is presented below.
+
+First, we give two related definitions.
+
+\emph{Definition 6:} \textbf{OWL Reasoning Network (ORN)}.
+A OWL Reasoning Network is a set of Property Chain Sets (PCS). In previous example, the ORN only has a PCS element (PCS$_{0}$). In this new reasoning scenario, the "i" in PCS$_{ij}$ represents it is the ith element in ORN, while "j" denotes the new PCS after "j" iterations. Similarly, the "i" in P$_{ij}$ represents which PCS the property belongs to, while "j" denotes its order in corresponding PCS.
+%As the name suggests, the PCS is a set of sequential OPCs in a given triple graph. For RCC$_{0}$, the Initial PCS is expressed as PCS$_{0}$=\{Treatment, PossibleDrug, HasTarget, HasAccession, ClassifiedWith, Symbol\}. In the process of reasoning, the PCS will vary with OPCs.
+
+\emph{Definition 7:} \textbf{Associated Result Set (ARS)}.
+An Associated Result Set is a collection of binary sets like (CLASS$_{1}$, CLASS$_{2}$) which represents the two biological classes that we want to discover implicit association information. Every Reasoning Rule Chain or Property Chain Set corresponds to an element in ARS. For example, PCS$_{0}$ corresponds to the binary set
+(Herb, Gene).
+
+
+\begin{figure*}[htbp]
+  \centering
+   \includegraphics[width=0.8\linewidth]{multi-chains.jpg}
+   \caption{Workflow of the First Iteration Based on Multi-chains Parallel Reasoning Algorithm}\label{}
+ \end{figure*}
+
+
+
+%\begin{figure}
+%  \centering
+%  \includegraphics[width=3.3in,bb=0 0 577 667]{multi-chains.jpg}
+%  \caption{the Linked Biological Knowledge Graph}\label{}
+%\end{figure}
+
+
+%A OWL Reasoning Network is a set of Property Chain Sets (PCS).
+So the multiple chains reasoning problem is defined formally as Problem 3:
+\begin{theorem}
+Input a three tuple (G, ORN$_{0}$, ARS$_{0}$), where G is the instance triple graph, ORN$_{0}$ represents a concrete OWL Reasoning Network and ARS$_{0}$ denotes the Associated Result Set,
+the reasoner is required to find out the solution domain S=\{(O$_{0}$,OPC,O$_{k}$)$\mid$ (O$_{0}$,O$_{k}$)$\in$ARS$_{0}$, OPC denotes the OWL Property Chain that links O$_{0}$ and O$_{k}$ together.\}.
+\end{theorem}
+
+For every Reasoning Rule Chain in ORN$_{0}$, the principle and process of reasoning are as same as Algorithm 2. The key task of multi-chains parallel reasoning is to ensure that every reasoning job can be executed simultaneously but does not affect the others.
+
+Consider the input$_{0}$=(G$_{0}$,ORN$_{0}$,ARS$_{0}$). G$_{0}$=\{T$_{0}$(Herb$_{0}$,tr-
+eatment,Disease$_{0}$),T$_{1}$(Disease$_{0}$,possibleDrug,Drug$_{0}$),T$_{2}$(Drug$_{0}$
+,hasTarget,Target$_{0}$), T$_{3}$(Drug$_{0}$,hasIngredient,Ingredient$_{0}$),T$_{4}$
+(Drug$_{0}$,
+hasIngredient,Ingredient$_{1}$),T$_{5}$(Target$_{0}$,hasAccession,
+Protein$_{0}$),T$_{6}$(Protein$_{0}$, classifiedWith,EntrezID$_{0}$),T$_{7}$(EntrezID$_{0}$
+,symbol,Gene$_{0}$),T$_{8}$(Herb$_{1}$,treatment,Disease$_{0}$),T$_{9}$(Target$_{0}$,ge-
+neSequence,Sequence$_{0}$)\}.
+The OWL Reasoning Network (ORN$_{0}$) is made up of the first two reasoning chains in Figure 4 (Chain 1 and Chain 2). The ARS$_{0}$ is \{(herb,gene), (herb,ingredient)\}.
+
+As the multiple Reasoning Rule Chains in the ORN$_{0}$ may intersect, the cross section (instance triples) should participate in the multiple reasoning jobs separately. Take T$_{0}$ for example, since the PCS$_{00}$ and PCS$_{10}$ all contain property "treatment", the Mappers should emit two key/value pairs into different Reducers to isolate the two reasoning chains. For T$_{3}$ and T$_{6}$, as their properties "hasIngredient" and "classifiedWith" only exist in PCS$_{00}$ or PCS$_{10}$, Mappers only need to output a key/value pair. At the Mapper process, we add another optimization scheme for the triples whose PID is n-1 (n is the length of corresponding PCS and n is a odd number). Because it is obvious that these triples do not meet join conditions, we only need to directly output the triples to HDFS without the processing of Reducer. Compared to Algorithm 2, Mappers only need to add a label reasoning chain identification to the intermediate key and Reducers remain almost unchanged. The number of iteration depends on the length of the longest PCS element in the ORN$_{0}$. The first iteration process of the multi-chains parallel reasoning is shown in Figure 8.
+
+
+\section{Experiment Evolution}
+% Hadoop uses a distributed file system, called HDFS to manage executions details such as data transfer,
+%job scheduling, and error management.
+ Our experiment aims at discovering the implicit associations between TCM and WM. In particular, it focuses on deriving the association information between Chinese herbs and Western Medical genes, drug ingredients. These information hidden in the big biological network is of quite value in promoting the development of novel drugs, TCM modernization and understanding the complex biological system in whole.
+%Corresponding two reasoning rule chains in our experiment are shown as Figure 4 (Chain 1 and Chain 2).
+The distributed reasoner uses multi-chains parallel reasoning algorithm with two reasoning rule chains shown as Figure 4 (Chain 1 and Chain 2).%Data sets come from the BioCloud\footnotemark[2] knowledge base which is detailed in Table I.
+
+
+\subsection{Data Preparation and Experimental Environment}
+As the data model, a big linked biological knowledge network is constructed in Figure 9 (available in \footnote{http://www.biotcm.org/mappingsearch/index.html}). It includes most of the typical biological ontologies across WM and TCM including Gene
+Ontology\cite{paper35}, Disease Ontology\cite{paper36}, Diseasome Ontology\cite{paper37}, DrugBank\cite{paper38},
+TCMGeneDit\cite{paper39}, TCMLS\cite{paper40}, Uniprot\cite{paper41}, NCBI Gene\cite{paper42} and so on.
+Every oval in the linked knowledge graph is marked up by a number which represents the triple number of the dataset. The dashed ovals in Figure 9 indicate the experimental input data sets. The total triple number of the experimental input is more than 81 million triples, occupying 15 gigabytes. This is so massive knowledge graph that all popular reasoners can not process it efficiently. At the same time, existing distributed reasoners like such as WebPIE are also not able to fulfil the reasoning task over the big biological network, because they only
+can calculate the closure of large-scale triples based on fixed RDFS or OWL rules\cite{paper43}.
+
+We implemented the reasoning prototype system based on the Hadoop framework, which is an open-source Java implementation of MapReduce\cite{paper44}. The experiment was conducted in several Hadoop clusters with the scale of 1 node, 2nodes, 3 nodes, 4 nodes. One node in cluster acts as master (controlling node) and the left ones act as slaves (real computing nodes). The hadoop version is 1.1.3. Each node has the same configuration,
+including Linux OS, 8G RAM, 500G disk capacity, 8 core of Intel(R) Xeon(R) CPU E5620 with 2.4GHz.
+The nodes are connected by the network with the bandwith of 1000M/s.  In experiment, as Reducer is responsible for the major computation, Reducer is dynamically set by the length of PCS in a MapReduce job. Each test is executed 5 times and the average computing time is recorded.
+\begin{figure}
+  \centering
+  \includegraphics[width=3in,bb=0 0 508 164]{knowledge_graph.jpg}
+  \caption{the Big Linked Biological Knowledge Network}\label{}
+\end{figure}
+
+
+\subsection{Evaluation Parameters}
+
+Because our ultimate goal is to develop an efficient reasoner to systemically explore the implicit relationships among biological entities from the big biological network for further analysis, the accuracy(high precision), efficiency(less processing time), scalability(larger input data) and effectivity(high practicality) will be critical. As there is no a gold standard for determining the
+correct mapping space between herbs and Western medical
+entities, the recall evaluation is not performed.
+So we evaluate our reasoning system from the following several aspects : accuracy, efficiency, scalability and effectivity.
+Accuracy evaluation is based on Random Sampling Inspection.
+We selected a number of herb-gene pairs and herb-ingredient pairs from the results. Then three
+annotators with graduate degrees in biomedical and TCM domains independently examined whether each pair was correctly extracted by our system. Only the pairs agreed upon by all three curators were counted as true positives (TP).
+Precision is defined according to formula (1) ,
+where TP and FP are the numbers of true positives and
+false positives, respectively.
+Efficiency evaluation is conducted by comparing the running time of single node and the distributed reasoning system.
+According to formula (2) and formula (3), speedup and sizeup are calculated for scalability evaluation. Effectivity evaluation is constructed by analysing the potential value of these association information.
+
+
+\begin{equation}
+\setlength{\abovedisplayskip}{1pt}
+\setlength{\belowdisplayskip}{1pt}
+Precision = \frac{TP}{TP \ + \ FP}
+\end{equation}
+
+
+\begin{equation}
+\setlength{\abovedisplayskip}{0.5pt}
+\setlength{\belowdisplayskip}{0.5pt}
+Speedup = \frac{computing \ time \ on\ 1\ computer}{computing \ time \ on\ cluster}
+\end{equation}
+
+\begin{equation}
+\setlength{\abovedisplayskip}{0.5pt}
+\setlength{\belowdisplayskip}{0.5pt}
+Sizeup = \frac{computing \ time \ for\ processing\ m\times data}{computing \ time \ for\ processing\ data}
+\end{equation}
+
+
+
+
+\subsection{Evaluation and Discussion}
+\subsubsection{Accuracy}
+Our reasoning system derive 40,178 herb-gene pairs and 5,183 herb-ingredient pairs.
+We focused on some major reported genes, ingredients and herbs in recent years. Then we randomly selected 30 pairs of associations (samples) for
+every selected entity from the reasoning results, and used precision
+measurement to evaluate the performances. The accuracy evaluations of the association information are shown in Table I, Table II and Table III. The results show that our system achieves high accuracy. In fact, the calculated precision is
+underestimated because
+we might mistake some TP for FP
+in the manual evaluation. The high accuracy provides strong evidence to support further results analysis for researchers.
+All the results are available online\footnote{https://github.com/hualichenxi/biological-knowledge-reasoner}.
+\begin{table}[H]
+\caption{Accuracy Evaluation for Selected genes}
+\setlength{\abovecaptionskip}{2pt}
+\setlength{\belowcaptionskip}{-2pt}
+\label{table_example}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Gene Symbol & Sample Size & TP & Precision \\
+\hline
+TNF  & 30& 28& 93.3\%\\
+\hline
+PEP4  & 30& 22& 73.3\%\\
+\hline
+HK1  & 30& 24& 80\%\\
+\hline
+IL6 & 30& 26& 86.7\%\\
+\hline
+NQO1  & 30& 26& 86.7\%\\
+\hline
+Sum up & 150& 126& 84\%\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[H]
+\caption{Accuracy Evaluation for selected ingredients}
+\setlength{\abovecaptionskip}{2pt}
+\setlength{\belowcaptionskip}{-2pt}
+\label{table_example}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+WM Ingredient & Sample Size & TP & Precision \\
+\hline
+dasatinib  & 30& 23& 76.7\%\\
+\hline
+fluoxymesterone  & 30& 26& 86.7\%\\
+\hline
+paclitaxel  & 30& 22& 73.3\%\\
+\hline
+pindolol & 30& 24& 80\%\\
+\hline
+trastuzumab  & 30& 25& 83.3\%\\
+\hline
+Sum up & 150& 120& 80\%\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[H]
+\caption{Accuracy Evaluation for selected herbs}
+\setlength{\abovecaptionskip}{2pt}
+\setlength{\belowcaptionskip}{-2pt}
+\label{table_example}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Herb & Sample Size & TP & Precision \\
+\hline
+
+ganoderma lucidum  & 30& 24& 80\%\\
+\hline
+hypericum perforatum & 30& 23& 76.7\%\\
+\hline
+salvia miltiorrhiza  & 30& 26& 86.7\%\\
+\hline
+artemisinin  & 30& 23& 76.7\%\\
+\hline
+ginkgo biloba  & 30& 25& 83.3\%\\
+\hline
+
+
+
+Sum up & 150& 121& 80.7\%\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\subsubsection{Efficiency}
+
+Table IV shows that reasoning on a single node leads to out-of-memory problem. When implemented in the distributed reasoning system, we are able to complete reasoning for 15G data within several minutes. Especially when the scale of Hadoop cluster becomes bigger, the performance is improved significantly.
+Meanwhile, the multi-chains reasoning algorithm guarantees that reasoner can perform multiple reasoning tasks defined by users themselves in a MapReduce job. The high-efficiency and flexibility make our reasoning system become an excellent reasoner for large-scale biological data.
+
+
+\subsubsection{Scalability}
+
+Table IV shows how our approach scales with an increasing number of computing nodes,
+using the data from Figure 9 as a fixed input. We use the running time on the 2-node configuration as baseline
+because a single node can not process all the data due to out of memory. Table V shows how our approach
+scales with increasing input size by doubling the original data (reasoning rules not changed),
+using a fixed configuration of 4 nodes. Speedup and sizeup are shown in Figure 10 and Figure 11, respectively.
+
+From Figure 10 we can see that the speedup is nearly linear to the number of nodes.
+The processing time is significantly reduced by adding more computing nodes.
+Figure 11 shows that sizeup of m times input
+is less than or equal m. It means that execution time increases more slowly than input data size and our system
+works better in processing larger input set.
+
+To sum up, considering the effects of the platform overhead, we conclude that the results show linear
+scalability regarding the size of the input and number of nodes. Our reasoning system shows excellent scalability. This advantage ensures our reasoning system can be easily applied to the analysis of massive biological knowledge network.
+
+
+
+\begin{table}[H]
+\caption{Scalability over number of nodes}
+\label{table_example}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Number of nodes & Time  (minutes)& Speedup\\
+\hline
+1 node & out of memory & \\
+\hline
+2 nodes & 8.45 & 1\\
+\hline
+3 nodes & 4.96 & 1.7 \\
+\hline
+4 nodes & 3.07 & 2.76\\
+\hline
+\end{tabular}
+\end{center}
+%\end{table}
+
+%\begin{table}[H]
+\caption{Scalability over input data}
+\label{table_example}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Input Data (size) & Time  (minutes)& Sizeup\\
+\hline
+1 time (15G) & 3.07 & 1\\
+\hline
+2 times (30G)& 5.75 & 1.87 \\
+\hline
+3 times (45G)& 8.03 & 2.62\\
+\hline
+4 times (60G)& 11.26 &3.67\\
+\hline
+6 times (90G)& 18.04 &5.88\\
+\hline
+8 times (120G)& 24.09 &7.85\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{figure}
+  \centering
+ \includegraphics[width=0.35\textwidth]{speedup.eps}
+  \caption{Speedup on Hadoop Cluster}\label{}
+\end{figure}
+
+\begin{figure}
+  \centering
+ \includegraphics[width=0.35\textwidth]{sizeup.eps}
+  \caption{Sizeup on Hadoop Cluster}\label{}
+\end{figure}
+
+
+\subsubsection{Effectivity}
+The extracted association information consists of two parts: herb-gene pairs and herb-ingredient pairs. These associations are of great value to TCM and WM biologists in TCM modernization, new drug development and so on.
+
+\textbf{analysis for herb-gene pairs:}
+The derived herb-gene pairs could be used to provide some scientific evidences for TCM modernization from the perspective of modern biology by explaining the potential therapeutic mechanisms of herbs
+via gene regulations.
+Take gene Tumour necrosis factor (TNF) for example.
+TNF is an important proinflammatory cytokine, plays a role in the regulation of cell differentiation,
+proliferation and death which is closely correlated with tumour disease\footnote{http://www.ncbi.nlm.nih.gov/pubmed/21790707}.
+Our experimental results reveal that TNF gene is associated with 34 herbs including Ganoderma lucidum,
+Salvia miltiorrhiza, Hypericum perforatum and so on.
+On the other hand, just as predicated by the results, according to chemical component analysis,
+most of these herbs (94\%) contain anti-cancer compounds. The compounds can cause cancer cells
+to round up and die, inhibit tumor-induced blood supply development and prevent tumor growth\cite{paper28}\cite{paper29}\cite{paper30}.
+These derived associations suggest the possible therapeutic mechanisms involved by herbs,
+genes and herb components. Besides, these herbs containing the anti-cancer components can inspire researchers into the development of new cancer drugs.
+The associations can also help biologists have a more comprehensive understanding of the functional mechanisms of the complex biological system in a whole from the two perspectives of TCM and modern biology.
+
+\textbf{analysis for herb-ingredient pairs:}
+An increasing number of researchers are focusing their attention on developing drugs from traditional Chinese medicinal herbs and identifying the active ingredients of these herbs and their pharmacological mechanism of actions\cite{paper33}\cite{paper34}. The most successful herb example for TCM is the antimalarial drug artemisinin. Other famous TCM herbs (e.g. Ginkgo biloba, Salvia miltiorrhiza
+Hypericum perforatum, and so on) are also widely used in WM for treating some complex diseases such as Alzheimer disease and Asthma. However, the active ingredients of many existing herbs have still remained unknown or uncertain for biologists. So besides regular chemical experiments, the extracted herb-ingredient pairs can also assist researchers to discover more information about some certain herb for revealing the mystery of herbs. Moreover, these TCM-inspired ingredient information can be further used to develop novel drugs. Take artemisinin for example, if biologists want to develop novel drugs for malaria, they can get some inspirations from these ingredients related to herb artemisinin. Our reasoning results show the herb artemisinin is associated with 33 ingredients including adalimumab, docetaxel, Adenosine and so on. Many of the ingredients have been proved effective for treating malaria \cite{paper45}\cite{paper46}\cite{paper47}. So the mechanisms of action and chemical components of these ingredients can facilitate the development of new drug for malaria.
+
+
+\section{Related Work}
+\subsection{Reasoning over Biological Data}
+
+%Ontologies are essential in biological research due to their ability to semantically integrate contents from different scientific databases and resources. Many initiatives on biological knowledge management have evolved into large knowledge Bases (KB), like the Gene Ontology (GO)\cite{paper16}\raisebox{0.2mm}{---}containing cellular information for gene description, the NCBI Taxonomy \raisebox{0.2mm}{---}holding the standard nomenclature and classification repository for the International Nucleotide Sequence Database Collaboration (INSDC)\cite{paper17}.
+
+%Ontologies are essential in biological research due to their ability to semantically integrate contents from different scientific databases and resources.
+Based on biological formal ontologies, we are able to make use of reasoning method from description logic to implement many biological applications, such as the discovery of new relationships, consistency checking, classification, practical querying and so on. Here are some examples which use OWL reasoning over biological data.
+
+
+Matthew et al. \cite{paper18} used semantic web rules to reason on an ontology of pseudogenes to discover information about human pseudogene evolution. ZHANG made use of existing reasoners Racer\cite{paper20} to support reasoning with the foundational model of anatomy in OWL DL\cite{paper19}. Ward Blondé et al. \cite{paper21} applied relational closure rules to reason with bio-ontologies to enable practical querying.
+
+So far, however, most of these applications only apply to relatively small data. when it comes to the data analysis of big integrated biological knowledge network, OWL reasoning faces the problems of low efficiency and out of memory\cite{paper32}.%\cite{paper31}
+
+\subsection{Massive Biological Data Integration and Search Platforms}
+In recent years, several data integration and search platforms
+for the biological domain were presented, such as Linked Life Data (LLD)\footnote{http://linkedlifedata.com}, Bioportal\cite{paper50}, NCBI\footnote{http://www.ncbi.nlm.nih.gov/} and Bio2RDF\cite{paper51}. LLD was a semantic data integration framework that enables access to multiple
+public biological databases. BioPortal was an open repository of biological
+ontologies that provided access via Web services and Web browsers to ontologies
+developed in OWL, RDF, OBO format and Protege tool.
+The NCBI was a system of interlinked biological databases created by
+the U.S. National Library of Medicine, which provided a series of search services
+for biological data. Bio2RDF
+was a mashup system to help the process of bioinformatics knowledge integration. But these systems lack a comprehensive ontology to model the entire biological network including TCM and WM, making it hard to
+discover more implicit knowledge behind the big and complex biological network.
+
+
+\subsection{large-scale semantic data reasoning systems}
+Presently, some work of applying cloud computing to semantic data reasoning had been done to solve the problem of scalability. Urbani et al. \cite{paper52} developed the MapReduce algorithms for materializing RDFS inference results. Liu et al. \cite{paper53} extended the method to handle fuzzy pD\* reasoning. Marvin\cite{paper54} was a parallel and distributed platform for processing large amounts of RDF data on a network of loosely coupled peers. Norman et al. \cite{paper55} implemented RDFS reasoning on massively parallel hardware. Above systems mainly focus on computing closure for every domain based on RDFS or OWL rules by different cloud computing methods. None of them is dedicated to derive some implicit associations across multiple domains. However, in the data analysis of large-scale biological knowledge network, there are many problems across multiple biological domains. At this time, digging out meaningful knowledge from the big biological data network can not be easily achieved using above methods.
+
+%From the above descriptions, we can find present applications based on MapReduce mainly focus on big data processing problems from a specific biological domain.
+%biological data itself covers a wide range of domain knowledge which is implicitly linked together.
+%However, in most cases of biological data analysis, there are many problems across multiple biological domains. At this time, digging out meaningful knowledge from the big biological data can not be easily achieved using MapReduce due to the complex relationships among biological data.
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Conclusion}
+Confronted with the massive, disparate and interlinked biological network,
+this paper presents a general biological data reasoning framework to model, integrate and analyze the big biological network.
+%and implement a MapReduce-based property chain reasoning prototype system to deal with
+%data analysis problems in the massive, disparate and interlinked biological data cloud.
+We firstly summarize the basic requirements for a feasible framework.
+Then we give the overall OWL reasoning framework
+over big biological network and related modules. We construct a unified biological ontology to capture and model the complex biological network including modern biology and TCM. Based on the conceptional model, a big biological linked knowledge network is formed to integrate and unify the
+heterogeneous data sources. Then for the data analysis of the big biological linked knowledge network, we propose three different kinds of reasoning algorithms and implement corresponding reasoning prototype systems
+which make full use of the advantages of MapReduce parallel programming model and OWL property chain reasoning method. Finally, we evaluate the reasoning prototype system on the big biological linked knowledge network, with its focus on discovering the implicit associations between TCM and WM.
+%MapReduce is a widely used programming model for big data processing on large clusters. OWL reasoning is a common approach to process the problems involved the high data correlation. To achieve higher performance, we have also presented some optimisations for reducing the running time of MapReduce. In our experiment, we have shown a scalable implementation of OWL reasoning over big biological data which results in some meaningful associations between Chinese herbs and Western Medical genes within a short time.
+The results demonstrate that our prototype system achieves high efficiency, accuracy, scalability and effectivity.
+% conference papers do not normally have an appendix
+% use section* for acknowledgement
+
+% trigger a \newpage just before the given reference
+% number - used to balance the columns on the last page
+% adjust value as needed - may need to be readjusted if
+% the document is modified later
+%\IEEEtriggeratref{8}
+% The "triggered" command can be changed if desired:
+%\IEEEtriggercmd{\enlargethispage{-5in}}
+
+% references section
+
+% can use a bibliography generated by BibTeX as a .bbl file
+% BibTeX documentation can be easily obtained at:
+% http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
+% The IEEEtran BibTeX style support page is at:
+% http://www.michaelshell.org/tex/ieeetran/bibtex/
+%\bibliographystyle{IEEEtran}
+% argument is your BibTeX string definitions and bibliography database(s)
+%\bibliography{IEEEabrv,../bib/paper}
+%
+% <OR> manually copy in the resultant .bbl file
+% set second argument of \begin to the number of references
+% (used to reserve space for the reference number labels box)
+
+The authors declare no competing financial interest.
+
+\bibliography{IEEEexample}
+
+
+
+% that's all folks
+\end{document}
+
+

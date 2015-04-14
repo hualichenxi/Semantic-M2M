@@ -1,0 +1,545 @@
+
+%% bare_conf.tex
+%% V1.3
+%% 2007/01/11
+%% by Michael Shell
+%% See:
+%% http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.7 or later) with an IEEE conference paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE!
+%% User assumes all risk.
+%% In no event shall IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%
+%% File list of work: IEEEtran.cls, IEEEtran_HOWTO.pdf, bare_adv.tex,
+%%                    bare_conf.tex, bare_jrnl.tex, bare_jrnl_compsoc.tex
+%%*************************************************************************
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. IEEE's font choices can trigger bugs that do  ***
+% *** not appear when using other class files.                            ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+% Note that the a4paper option is mainly intended so that authors in
+% countries using A4 can easily print to A4 and see how their papers will
+% look in print - the typesetting of the document will not typically be
+% affected with changes in paper size (but the bottom and side margins will).
+% Use the testflow package mentioned above to verify correct handling of
+% both paper sizes by the user's LaTeX system.
+%
+% Also note that the "draftcls" or "draftclsnofoot", not "draft", option
+% should be used if it is desired that the figures are to be displayed in
+% draft mode.
+%
+\documentclass[onecolumn,dvipdfm]{ieeetran}
+\usepackage{algorithm}
+%\usepackage{algorithmic}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{graphicx}
+
+\usepackage{cite}
+\usepackage{subfigure}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{epstopdf}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\makeatletter
+\thm@headfont{\sc}
+\makeatother
+\newtheorem{theorem}{Problem}
+% Add the compsocconf option for Computer Society conferences.
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[conference]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/oberdiek/
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+%\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 4.0 (2003-05-27) and later if using hyperref.sty. cite.sty does
+% not currently provide for hyperlinked citations.
+% The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/cite/
+% The documentation is contained in the cite.sty file itself.
+
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/graphics/
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found as epslatex.ps or
+% epslatex.pdf at: http://www.ctan.org/tex-archive/info/
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage[cmex10]{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics. If using
+% it, be sure to load this package with the cmex10 option to ensure that
+% only type 1 fonts will utilized at all point sizes. Without this option,
+% it is possible that some math symbols, particularly those within
+% footnotes, will be rendered in bitmap form which will result in a
+% document that can not be IEEE Xplore compliant!
+%
+% Also, note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/amslatex/math/
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithms/
+% There is also a support site at:
+% http://algorithms.berlios.de/index.html
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/tools/
+
+
+%\usepackage{mdwmath}
+%\usepackage{mdwtab}
+% Also highly recommended is Mark Wooding's extremely powerful MDW tools,
+% especially mdwmath.sty and mdwtab.sty which are used to format equations
+% and tables, respectively. The MDWtools set is already installed on most
+% LaTeX systems. The lastest version and documentation is available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/mdwtools/
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+%\usepackage{eqparbox}
+% Also of notable interest is Scott Pakin's eqparbox package for creating
+% (automatically sized) equal width boxes - aka "natural width parboxes".
+% Available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/eqparbox/
+
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\usepackage[tight,footnotesize]{subfigure}
+% subfigure.sty was written by Steven Douglas Cochran. This package makes it
+% easy to put subfigures in your figures. e.g., "Figure 1a and 1b". For IEEE
+% work, it is a good idea to load it with the tight package option to reduce
+% the amount of white space around the subfigures. subfigure.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at:
+% http://www.ctan.org/tex-archive/obsolete/macros/latex/contrib/subfigure/
+% subfigure.sty has been superceeded by subfig.sty.
+
+
+
+%\usepackage[caption=false]{caption}
+%\usepackage[font=footnotesize]{subfig}
+% subfig.sty, also written by Steven Douglas Cochran, is the modern
+% replacement for subfigure.sty. However, subfig.sty requires and
+% automatically loads Axel Sommerfeldt's caption.sty which will override
+% IEEEtran.cls handling of captions and this will result in nonIEEE style
+% figure/table captions. To prevent this problem, be sure and preload
+% caption.sty with its "caption=false" package option. This is will preserve
+% IEEEtran.cls handing of captions. Version 1.3 (2005/06/28) and later
+% (recommended due to many improvements over 1.2) of subfig.sty supports
+% the caption=false option directly:
+%\usepackage[caption=false,font=footnotesize]{subfig}
+%
+% The latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/subfig/
+% The latest version and documentation of caption.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/caption/
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure. The latest version and documentation can be found at:
+% http://www.ctan.org/tex-archive/macros/latex/base/
+
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/sttools/
+% Documentation is contained in the stfloats.sty comments as well as in the
+% presfull.pdf file. Do not use the stfloats baselinefloat ability as IEEE
+% does not allow \baselineskip to stretch. Authors submitting work to the
+% IEEE should note that IEEE rarely uses double column equations and
+% that authors should try to avoid such use. Do not be tempted to use the
+% cuted.sty or midfloat.sty packages (also by Sigitas Tolusis) as IEEE does
+% not format its papers in such ways.
+
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/misc/
+% Read the url.sty source comments for usage information. Basically,
+% \url{my_url_here}.
+
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+
+\bibliographystyle{plain}
+
+\addtolength\itemsep{0em}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{SparkRDF: Elastic Discreted RDF Graph Processing Engine With Distributed Memory}
+
+
+% author names and affiliations
+% use a multiple column layout for up to two different
+% affiliations
+
+\author{\IEEEauthorblockN{Authors Name/s per 1st Affiliation (Author)}
+\IEEEauthorblockA{line 1 (of Affiliation): dept. name of organization\\
+line 2: name of organization, acronyms acceptable\\
+line 3: City, Country\\
+line 4: Email: name@xyz.com}
+\and
+\IEEEauthorblockN{Authors Name/s per 2nd Affiliation (Author)}
+\IEEEauthorblockA{line 1 (of Affiliation): dept. name of organization\\
+line 2: name of organization, acronyms acceptable\\
+line 3: City, Country\\
+line 4: Email: name@xyz.com}
+}
+
+% conference papers do not typically use \thanks and this command
+% is locked out in conference mode. If really needed, such as for
+% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
+% after \documentclass
+
+% for over three affiliations, or if they all won't fit within the width
+% of the page, use this alternative format:
+%
+%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
+%Homer Simpson\IEEEauthorrefmark{2},
+%James Kirk\IEEEauthorrefmark{3},
+%Montgomery Scott\IEEEauthorrefmark{3} and
+%Eldon Tyrell\IEEEauthorrefmark{4}}
+%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
+%Georgia Institute of Technology,
+%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
+%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
+%Telephone: (800) 555--1212, Fax: (888) 555--1212}
+%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
+
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+
+% make the title area
+\maketitle
+
+
+\begin{abstract}
+With the explosive growth of semantic data on the Web over the past years, many large-scale RDF knowledge bases with billions of facts are generating. This poses
+significant challenges for the storage and retrieval of huge RDF graphs. Current systems and methods still can not process web scale RDF data effectively. In this paper, we introduce the SparkRDF, an elastic discreted semantic graph processing engine with distributed memory. To reduce the high I/O and communication costs for distributed processing platforms such as Hadoop, SparkRDF implements SPARQL query based on SPARK, a novel in-memory distributed computing framework for big data processing. All the intermediate join results are cached in the distributed memory to accelerate the process of next join.
+Instead of building a traditional massive set of permutations of (S,P,O) indexes which causes large space and memory overhead,
+we store the RDF data in the elastic discreted subgraphs based on the predicates and classes of the ontology. For SPARQL query optimization, SparkRDF's query processor dynamically generates an optimal execution plan for join queries, leading to effective reduction on the size of intermediate results, the number of joins and the cost of communication. Our extensive evaluation demonstrates that SparkRDF can efficiently answers non-selective joins faster than both current state-of-the-art RDF processing system.
+%In our experiment, we focus on the problem that looks for the relationship between Chinese Medicine and Western Medicine. The experimental results show that our approach achieves high performance, accuracy and scalability.
+
+
+%Moreover, biomedical data is interlinked with complex semantic associations. Every biomedical entity links to many other biomedical entities with association relationships. When we are
+%faced with such massive and complicated data, biomedical data integration and analysis become a challenge. In this paper, we utilize the OWL (Ontology Web Language) reasoning technology with distributed computing architecture MapReduce to deal with the problem of massive biomedical data analysis. OWL reasoning method is ideally suitable for problems involved complex semantic associations because it is able to infer logical consequences based on a set of asserted rules or axioms.
+%MapReduce framework is used to solve the problem of memory overflow and low efficiency.
+%In our experiment, we focus on the problem that looks for the relationship between Chinese Medicine and Western Medicine. The experimental results show that our approach achieves high performance, accuracy and scalability.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Large Semantic Graph, RDF, SPARQL, SPARK, Distributed memory.
+\end{IEEEkeywords}
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+% no \IEEEPARstart
+
+% You must have at least 2 lines in the paragraph with the drop letter
+% (should never be an issue)
+
+With the development of Semantic technologies and Web 3.0,
+the amount of Semantic Web data represented by the Resource Description Framework (RDF) is increasing rapidly. A growing number of organizations or Community driven projects
+are constructing large knowledge bases with billions of facts in many domains including bioinformatics, life sciences, social networks and so on. For example, The Linked Life Data Knowledge base contains more than 10 billion statements. The DBpedia and Probase also have billions of facts in RDF format. The Linked Open Data Project even announces 52 billion triples were published by 2012.
+
+How to manage the large-scale RDF graph imposes technical challenges to the conventional storage layout, indexing and query processing. Existing single-node RDF systems are vulnerable to the growth of the data size\cite{paper3}. MapReduce-based distributed RDF systems also suffer from high i/o and communication cost because of iteratively reading and writing intermediate results in disk\cite{paper2}\cite{paper4}.
+
+In this paper, we introduce SparkRDF, an elastic discreted RDF graph processing system with distributed memory, which is capable of handling web scale RDF data (billion or enen more). Unlike existing systems that use a set of permutations of (S,P,O) indexes to manage RDF, SparkRDF splits the RDF graph into multiple small and discreted RDF subgraphs based on the nature of semantic graph: type and relationship. Thus it creates 5 kinds of elastic indexes with different grains (T,P,TP,PT,TPT) to cater for diverse triple patterns. These discreted index files on demand are modeled as a collection of objects partitioned across machines on Spark framework, a fast in-memory cluster computing system which is quite suitable for large-scale iterative computing jobs\cite{paper1}. Generated intermediate results remain in the distributed memory to support further joins. Based on the data model, several query optimization strategies are made to improve query efficiency including triple pattern merging, join order making and data prepartitioning.
+
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=1\textwidth,bb=0 0 521 281]{architecture.pdf}
+\caption{The Architecture of SparkRDF}
+\label{}
+\end{figure*}
+\section{SparkRDF}
+
+\subsection{An Overview of System Architecture}
+Figure 1 shows the architecture of SparkRDF. The SparkRDF consists of five modules: data preprocessing module, graph splitting module, distributed storage module, query parser module and distributed join module in memory.
+
+The data preprocessing module is responsible for unifying the format of input data by converting XML-like RDF data to N-Triples. Then the big RDF graph is splitted into several elastic discreted subgraphs by
+graph splitting module. The distributed storage module subsequently persists the indexes into HDFS\cite{paper5}. Query parser module takes the SPARQL query from the user, dynamically generates the query plan and required input list for next step. Based on the input list, corresponding indexes are loaded into the distributed memory for further implementing iterative joins in memory as the query plan requested. At last, the query results are returned to the user.
+\subsection{Data Model}
+To cut down the search space and memory overhead, SparkRDF partitions a big RDF graph into many small index files based on type and predicate.
+Firstly, we constructs the type indexes and predicate indexes by Predicate Splitter (SP). Specifically, we split the RDF graph by two ways. For the triples, whose predicate is not \textbf{rdf:type}, we extract the triples's subject and object into corresponding predicate index files(predicate being as the file name). Thus the triples sharing the same predicate are grouped together to accelerate the SPARQL queries that have a binding predicate. For other triples( predicate is \textbf{rdf:type}), we divide them into small class files based on the triple's object representing a specific class. The instances belonging to the same class are stored in corresponding type index files(object being as the file name). Then we further divide the predicate indexes according to the type of the subjects and objects, thus a set of finer-grained index (TP,PT,TPT) are created, which will further improve query efficiency.
+
+%SparkRDF models the index files using an unified concept called RDSG(Resilient Discreted Semantic Graph). It is the basic abstraction of index files in the distributed memory. Based on the API of Spark, we provide the four main operators with which we implement query processing.
+%\begin{enumerate}[(i)]
+%\item \textbf{RDSG\_Gen:} The operator creates a RDSG given the name of index file.
+%\item \textbf{RDSG\_Filter:} The operator filters RDSG based on the subject or object constrains given in a triple pattern.
+%\item \textbf{RDSG\_Align:} The operator swaps a join variable to support next join.
+%\item \textbf{RDSG\_Join:} The operator implements join operation on a set of RDSG.
+%\end{enumerate}
+\subsection{RDF Graph Query Processing}
+The query parser mainly has two tasks: generate query plan and input list. The query plan specifies the necessary triple patterns and corresponding join order. The input list dynamically tells the required index files for a triple pattern and loads the indexes into appropriate node to reduce the shuffle cost by data prepartitioning. For the query parser, it first gets the triple patterns by parsing the SPARQL query. Then Query Optimizer rewrites the SPARQL query by merging these triple patterns whose predicates are \textbf{rdf:type} with related triple patterns (they share the same variable). The strategy can greatly reduce the join number and search space. After determining the triple patterns, Query Optimizer rearranges them by selectivity. The triple pattern with high selectivity will be computed first to reduce the intermediate results of joining.
+
+\section{Preliminary Results}
+The preliminary experiment is conducted on a cluster with 3 machines(consist of 8 Xeon(R) E5606@2.13GHz, 16GB of RAM and 1T disk). Every node uses Spark v. 0.9.0 and Hadoop v. 1.0.4. We compare SparkRDF's query performance using RDF-3X based on the LUBM 10K dataset, containing 1.3 billion triples with a subset of the benchmark queries\cite{paper6}. RDF-3X runs on a single node while SparkRDF is executed using the 3-node cluster. The result confirms our prediction: SparkRDF outcomes RDF-3X for most non-selective queries(Q2, Q6 and Q14) while RDF-3X is faster than SparkRDF for selective queries.
+
+\begin{table*}[htbp]
+  \centering
+\begin{tabular}{|c|c|c|}
+
+\hline
+& \multicolumn{2}{|c|}{LUBM 10K} \\ \hline
+& {RDF-3X} & {SparkRDF}\\ \hline
+Query 1 & {0.01s} & {9.4s}\\ \hline
+Query 2 & {2115s} & {530s}\\ \hline
+Query 5 & {0.01s} & {17.5s}\\ \hline
+Query 6 & {91s} & {89s}\\ \hline
+Query 9 & {121s} & {1849s}\\ \hline
+Query 12 & {3s} & {16s}\\ \hline
+Query 14 & {101s} & {64s}\\ \hline
+\end{tabular}
+\caption{Comparison with RDF3X}
+\end{table*}
+
+
+
+%The primary goal of this search engine is to provide biologists with a comprehensive and accurate association query platform for the information retrieval of modern biology and TCM.
+%The primary goal of this platform is to provide a knowledge graph view of associating TCMs and bio-entities,supported by cloud-based storage, graph-based query and effective association inferencing methods.
+
+
+\section{Conclusion and Future Work}
+In the paper, we introduce the SparkRDF, an elastic discreted semantic graph processing engine based on Spark distributed memory computing framework and novel RDF graph splitting method. We give some preliminary results to show effectiveness of the SparkRDF. In the future, we would like to extend the work in few directions. First, we will handle more complex SPARQL patterns(such as OPTIONAL). Secondly, we will explore a cost model for SparkRDF. Finally, we will make a more complete and comprehensive experiment to validate the SparkRDF.
+
+
+
+
+\bibliography{IEEEexample}
+
+
+
+% that's all folks
+\end{document}
+
+
