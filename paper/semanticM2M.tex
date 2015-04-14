@@ -1,0 +1,948 @@
+
+%% bare_conf.tex
+%% V1.3
+%% 2007/01/11
+%% by Michael Shell
+%% See:
+%% http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.7 or later) with an IEEE conference paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE!
+%% User assumes all risk.
+%% In no event shall IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%
+%% File list of work: IEEEtran.cls, IEEEtran_HOWTO.pdf, bare_adv.tex,
+%%                    bare_conf.tex, bare_jrnl.tex, bare_jrnl_compsoc.tex
+%%*************************************************************************
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. IEEE's font choices can trigger bugs that do  ***
+% *** not appear when using other class files.                            ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+% Note that the a4paper option is mainly intended so that authors in
+% countries using A4 can easily print to A4 and see how their papers will
+% look in print - the typesetting of the document will not typically be
+% affected with changes in paper size (but the bottom and side margins will).
+% Use the testflow package mentioned above to verify correct handling of
+% both paper sizes by the user's LaTeX system.
+%
+% Also note that the "draftcls" or "draftclsnofoot", not "draft", option
+% should be used if it is desired that the figures are to be displayed in
+% draft mode.
+%
+\documentclass[10pt, conference, compsocconf]{IEEEtran}
+\usepackage{algorithm}
+%\usepackage{algorithmic}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{graphicx}
+
+\usepackage{cite}
+\usepackage{subfigure}
+\usepackage{float}
+
+\usepackage{epstopdf}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+
+\usepackage{booktabs}
+\usepackage{multirow}
+
+
+
+\makeatletter
+\thm@headfont{\sc}
+\makeatother
+\newtheorem{theorem}{Property}
+% Add the compsocconf option for Computer Society conferences.
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[conference]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/oberdiek/
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+%\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 4.0 (2003-05-27) and later if using hyperref.sty. cite.sty does
+% not currently provide for hyperlinked citations.
+% The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/cite/
+% The documentation is contained in the cite.sty file itself.
+
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/graphics/
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found as epslatex.ps or
+% epslatex.pdf at: http://www.ctan.org/tex-archive/info/
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage[cmex10]{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics. If using
+% it, be sure to load this package with the cmex10 option to ensure that
+% only type 1 fonts will utilized at all point sizes. Without this option,
+% it is possible that some math symbols, particularly those within
+% footnotes, will be rendered in bitmap form which will result in a
+% document that can not be IEEE Xplore compliant!
+%
+% Also, note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/amslatex/math/
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithms/
+% There is also a support site at:
+% http://algorithms.berlios.de/index.html
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/tools/
+
+
+%\usepackage{mdwmath}
+%\usepackage{mdwtab}
+% Also highly recommended is Mark Wooding's extremely powerful MDW tools,
+% especially mdwmath.sty and mdwtab.sty which are used to format equations
+% and tables, respectively. The MDWtools set is already installed on most
+% LaTeX systems. The lastest version and documentation is available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/mdwtools/
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+%\usepackage{eqparbox}
+% Also of notable interest is Scott Pakin's eqparbox package for creating
+% (automatically sized) equal width boxes - aka "natural width parboxes".
+% Available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/eqparbox/
+
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\usepackage[tight,footnotesize]{subfigure}
+% subfigure.sty was written by Steven Douglas Cochran. This package makes it
+% easy to put subfigures in your figures. e.g., "Figure 1a and 1b". For IEEE
+% work, it is a good idea to load it with the tight package option to reduce
+% the amount of white space around the subfigures. subfigure.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at:
+% http://www.ctan.org/tex-archive/obsolete/macros/latex/contrib/subfigure/
+% subfigure.sty has been superceeded by subfig.sty.
+
+
+
+%\usepackage[caption=false]{caption}
+%\usepackage[font=footnotesize]{subfig}
+% subfig.sty, also written by Steven Douglas Cochran, is the modern
+% replacement for subfigure.sty. However, subfig.sty requires and
+% automatically loads Axel Sommerfeldt's caption.sty which will override
+% IEEEtran.cls handling of captions and this will result in nonIEEE style
+% figure/table captions. To prevent this problem, be sure and preload
+% caption.sty with its "caption=false" package option. This is will preserve
+% IEEEtran.cls handing of captions. Version 1.3 (2005/06/28) and later
+% (recommended due to many improvements over 1.2) of subfig.sty supports
+% the caption=false option directly:
+%\usepackage[caption=false,font=footnotesize]{subfig}
+%
+% The latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/subfig/
+% The latest version and documentation of caption.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/caption/
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure. The latest version and documentation can be found at:
+% http://www.ctan.org/tex-archive/macros/latex/base/
+
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/sttools/
+% Documentation is contained in the stfloats.sty comments as well as in the
+% presfull.pdf file. Do not use the stfloats baselinefloat ability as IEEE
+% does not allow \baselineskip to stretch. Authors submitting work to the
+% IEEE should note that IEEE rarely uses double column equations and
+% that authors should try to avoid such use. Do not be tempted to use the
+% cuted.sty or midfloat.sty packages (also by Sigitas Tolusis) as IEEE does
+% not format its papers in such ways.
+
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/misc/
+% Read the url.sty source comments for usage information. Basically,
+% \url{my_url_here}.
+
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+
+%\bibliographystyle{plain}
+%\citestyle{IEEEtran}
+\bibliographystyle{IEEEtran}
+\addtolength\itemsep{0em}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{Elastic Semantic Engine for OneM2M Appliations}
+
+
+% author names and affiliations
+% use a multiple column layout for up to two different
+% affiliations
+
+\author{\IEEEauthorblockN{Xi Chen}
+\IEEEauthorblockA{Department of Computer Science\\
+Zhejiang University\\
+Hangzhou, China\\
+xichen@zju.edu.cn}
+\and
+\IEEEauthorblockN{Huajun Chen}
+\IEEEauthorblockA{Department of Computer Science\\
+Zhejiang University\\
+Hangzhou, China\\
+huajunsir@zju.edu.cn}
+\and
+\IEEEauthorblockN{Ningyu Zhang}
+\IEEEauthorblockA{Department of Computer Science\\
+Zhejiang University\\
+Hangzhou, China\\
+zxlzr@zju.edu.cn}
+}
+
+% conference papers do not typically use \thanks and this command
+% is locked out in conference mode. If really needed, such as for
+% the acknowledgment of grants, issue a \IEEEoverridecommandlockouts
+% after \documentclass
+
+% for over three affiliations, or if they all won't fit within the width
+% of the page, use this alternative format:
+%
+%\author{\IEEEauthorblockN{Michael Shell\IEEEauthorrefmark{1},
+%Homer Simpson\IEEEauthorrefmark{2},
+%James Kirk\IEEEauthorrefmark{3},
+%Montgomery Scott\IEEEauthorrefmark{3} and
+%Eldon Tyrell\IEEEauthorrefmark{4}}
+%\IEEEauthorblockA{\IEEEauthorrefmark{1}School of Electrical and Computer Engineering\\
+%Georgia Institute of Technology,
+%Atlanta, Georgia 30332--0250\\ Email: see http://www.michaelshell.org/contact.html}
+%\IEEEauthorblockA{\IEEEauthorrefmark{2}Twentieth Century Fox, Springfield, USA\\
+%Email: homer@thesimpsons.com}
+%\IEEEauthorblockA{\IEEEauthorrefmark{3}Starfleet Academy, San Francisco, California 96678-2391\\
+%Telephone: (800) 555--1212, Fax: (888) 555--1212}
+%\IEEEauthorblockA{\IEEEauthorrefmark{4}Tyrell Inc., 123 Replicant Street, Los Angeles, California 90210--4321}}
+
+
+
+
+% use for special paper notices
+%\IEEEspecialpapernotice{(Invited Paper)}
+
+
+
+
+% make the title area
+\maketitle
+
+
+\begin{abstract}
+
+%With the explosive growth of semantic data on the Web over the past years, many large-scale RDF knowledge bases with billions of facts are generating. This poses
+%significant challenges for the storage and query of big RDF graphs. Current systems still have many limitations in processing big RDF graphs including scalability and real-time. In this paper, we introduce the SparkRDF, an elastic discreted RDF graph processing engine with distributed memory. To reduce the high I/O and communication cost in distributed processing platforms, SparkRDF implements SPARQL query based on Spark, a novel in-memory distributed computing framework for big data processing. All the intermediate results are modeled as Resilient Discreted SubGraph, which are cached in the distributed memory to support fast iterative join operations.
+%%Instead of building a traditional massive set of permutations of (S,P,O) indexes which results in significant demand for both main memory and disk storage,
+%To cut down the search space and avoid the overhead of memory, we split the RDF graph into the small Multi-layer Elastic SubGraph based on the relations and classes. % and cater for diverse triple patterns(TP).
+% For SPARQL query optimization, SparkRDF deploys a serials of optimization strategies, leading to effective reduction on the size of intermediate results, the number of joins and the cost of communication. Our extensive evaluation demonstrates that SparkRDF can efficiently implement non-selective joins faster than both current state-of-the-art distributed and centralized stores, while being able to process other queries in real time, scaling linearly to the amount of data.
+%while being only tenths of a second slower in simple queries, The experiment proves that SparkRDF has great scalability, real-time and efficiency.
+
+
+%Moreover, biomedical data is interlinked with complex semantic associations. Every biomedical entity links to many other biomedical entities with association relationships. When we are
+%faced with such massive and complicated data, biomedical data integration and analysis become a challenge. In this paper, we utilize the OWL (Ontology Web Language) reasoning technology with distributed computing architecture MapReduce to deal with the problem of massive biomedical data analysis. OWL reasoning method is ideally suitable for problems involved complex semantic associations because it is able to infer logical consequences based on a set of asserted rules or axioms.
+%MapReduce framework is used to solve the problem of memory overflow and low efficiency.
+%In our experiment, we focus on the problem that looks for the relationship between Chinese Medicine and Western Medicine. The experimental results show that our approach achieves high performance, accuracy and scalability.
+\end{abstract}
+
+\begin{IEEEkeywords}
+%Large RDF Graph, Big Data, SPARQL, Spark, Distributed memory.
+\end{IEEEkeywords}
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+
+Machine-to-Machine (M2M) applications are more and
+more popular due to the availability of smart M2M devices (sensors). M2M devices are used in a great deal of realms such as home monitoring, vehicular networks environmental monitoring (weather forecasting), health monitoring. Integrating and processing M2M data from heterogeneous domains is still faced with many challenges. 
+
+First, With the advances in M2M domain, more and more smart sensor devices are deployed in the M2M network.It is predicted that within the next decade billions of devices (Cisco predicts that the number of the Internet connected devices will be around 50 Billion by 2020) will generate myriad of real world data for many applications and services in a variety of areas such as smart grids, smart homes, e-health, automotive, transport, logistics and environmental monitoring. Such a stunning number of devices will generate massive data. Secondly, many M2M applications need to gather and combine heterogeneous sensor data with different formats and measurements. Besides that, some large-scale background data also needs to be integrated.
+Thirdly, most of the M2M data is generated with spatial and temporal annotations, which is used to support all kinds of real-time and location-based applications. For example, 
+
+
+The Semantic Web technologies are viewed as a key for the development of M2M. In specific, it serves as the following three purposes: First, it provide us with a good way to resolve the problems of inter-operability and integration within this heterogeneous world of M2M devices by defining and reusing some standard semantic concepts. Much efforts have been put on the area. For example, ontologies such as the W3C’s SSN ontology (Lefort et al., 2011; Compton et al., 2012) have been developed, which offers a number of constructs to formally describe not only the sensor resources but also the sensor observation and measurement data. %Thus, the Internet of Things will become a Semantic Web of Things(SWT) after encapsulating the semantically enriched descriptions to IOT data.
+Secondly, the Semantic Web provides a seamless interface to facilitate the interactions of M2M data and other existing non-M2M knowledge or services such as Linked Data, DBpedia, LinkedGeodata, various kinds of Web Services and so on. %So the SWT, along with the background knowledge, will create a more widely connected world-Semantic Web of Everything(SWeT), which have billions of people, sensors, objects and ‘things’ connecting each other is changing the way organizations and consumers interact with each other and the environment around them.
+At last, applying the semantic query and reasoning technologies can help us analyze and mine the M2M data to have a better understanding about our physical world.
+
+However, considering the another two characteristics of IOT data: dynamics and scale, current Semantic Web still exists many limitations:
+
+%In fact, the overall architecture of SWeT can be summarized in figure 1, which including machine layer, communication layer, semantic
+
+
+%(pacemaker, blood glucose level, heartbeat, brain waves).
+%M2M area networks (sensor networks) gather heterogeneous data from M2M devices. 
+
+%Each application focuses on a specific M2Marea network. We would like to link these existing heterogeneous M2M area networks to provide promising M2M applications
+
+%Integrating and processing M2M data from heterogeneous domains is faced with many challenges.
+%With the development of Semantic technologies and Web 3.0,
+%the amount of Semantic Web data represented by the Resource Description Framework (RDF)\cite{rdf} is increasing rapidly. Commercial search engines including Google and Bing add the semantics of their web contents by RDFa to improve the query accuracy. At the same time, a growing number of organizations and community driven projects
+%are constructing large knowledge bases with billions of facts in many domains to implement more useful applications including bioinformatics, life sciences, social networks and so on. For example, The UniProt Knowledge base contains more than 2.9 billion triples\cite{uniprot}. The DBpedia and Probase also have billions of facts in RDF format\cite{dbpedia}\cite{probase}. The Linked Open Data Project even announces 52 billion triples were published by 2012\cite{linkeddata}.
+%
+%
+%\textbf{Challenges} Faced with such large RDF data, traditional RDF data management systems are facing two challenges:i)scalability: the ability to process the big RDF graph data. Existing most RDF systems are based on single node\cite{rdf3x}\cite{matrixbit}. Thus, they are easily vulnerable to the growth of the data size because they usually need to load large indexes into the limited memory. ii) real-time: the capacity to implement SPARQL\cite{sparql} query over big RDF graph in near real time. For highly iterative SPARQL joins, existing MapReduce-based\cite{mapreduce} RDF systems suffer from high I/O cost because of iteratively reading and writing large intermediate results in disk\cite{hadooprdf}.
+%
+%In fact, a RDF graph can be considered as representing a directed
+%graph, with entities (i.e. subjects and objects) as nodes, and
+%relationships (i.e. predicates) as directed edges. SPARQL, which acts as the standard query language for RDF graph, consists of a conjunctive set of triple patterns(TP). A TP is similar to a RDF triple except that any position in the TP can be a variable. The goal of SPARQL query is to compute the bindings for all variables. As Every TP can be regarded as a subgraph of the big RDF graph, the problem of SPARQL query processing can be transformed to the problem of iterative matching and joining of subgraphs.
+%We can summarize the following stages for querying a big RDF graph: store the RDF data and create indexes, read necessary data inside memory, compute binding values for every TP, implement joins over intermediate results(IR), and build the final results of the query. Hence, a desired query processing system should meet the following requirements as much as possible: (i) reduce the data needed to be loaded in memory (ii)reduce the number of IR (iii)reduce the number of join (iv)reduce the i/o and communication cost of iterative join.
+%
+%In this paper, we introduce SparkRDF, an elastic discreted RDF graph processing system with distributed memory. It is based on Spark framework, a fast in-memory cluster computing system which is quite suitable for large-scale real-time iterative computing tasks\cite{spark}. Unlike existing most systems that use a set of permutations of (S,P,O) indexes to manage RDF, SparkRDF splits the big RDF graph into MESGs(Multi-layer Elastic SubGraph) based on relations and classes by creating 5 kinds of indexes(C,R,CR,RC,CRC) with different grains to cater for diverse TPs. These index files on demand are modeled as RDSG (Resilient Discreted SubGraph), a collection of in-memory semantic subgraph objects partitioned across machines, which can implement SPARQL query by a series of basic operators. All IRs, which are also regarded as the RDSG, remain in the distributed memory to support further fast joins. Based on the data model and query model, we introduce a new cost model and several corresponding optimization tactics to improve the efficiency of SparkRDF including TR-SPARQL(Type-Restrictive), optimal query plan and on-demand dynamic prepartitioning techniques.
+%
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=1\textwidth,bb=0 0 1648 1714]{f1.pdf}
+\caption{The Architecture of SparkRDF}
+\label{}
+\end{figure*}
+
+
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=1\textwidth,bb=0 0 842 595]{f2.pdf}
+\caption{The Architecture of SparkRDF}
+\label{}
+\end{figure*}
+
+%
+%
+%We summarize the main contributions of this work as follows:
+%\begin{enumerate}[(i)]
+%\item We introduce a novel MESG-based storage scheme for managing big RDF graph by constructing relation subgraphs, class subgraphs and their combinations. The method improves the query efficiency by reducing search space and the number of tasks.
+%\item We design a RDSG-based iterative model to process the SPARQL query by implementing iterative join operations with distributed memory, which avoids lots of I/O cost for IRs.
+%\item We devise a cost model and several optimization strategies, including TP-SPARQL, optimal query plan and on demand dynamic prepartitioning techniques. These approaches ensure high performance for SparkRDF.
+%\item We perform an experimental evaluation by comparing SparkRDF and current state-of-the-art
+%distributed and centralized stores. The results prove the effectiveness of SparkRDF.
+%\end{enumerate}
+
+
+%The remaining of this paper is organized as follows. Section 2 outlines related work. In Section 3
+%, we introduce the architecture of the \textit{SparkRDF} system. Section 4 describes the data model of SparkRDF. Section 5 gives the distributed SPARQL query processing techniques. In Section 6, we present the results of our experiments. Finally, we conclude and discuss the future work in Section 7.
+
+\section{RELATED WORK}
+%%
+%%There are many researches focusing on the RDF data management. We can summarize these work as the following three categories:
+%%
+%%\textbf{Single-machine Systems:} RDF-3X\cite{rdf3x} is considered the fastest existing RDF management system today. It builds clustered B+-trees on all six (S,P,O) permutations, thus each RDF graph is stored in six duplicates. Besides, it also employs additional indexes to collect statistical information for pairs and stand-alone entities to eliminate the problem of expensive self-joins and provides great performance improvement. However, storing all the indexes is expensive and query efficiency highly depends on the amount of main memory. The performance penalty can be high as the volume of dataset increases due to the expensive cost of storing, loading, accessing and joining the big indexes at the query evaluation, especially for some unselective queries with large results. BitMat\cite{matrixbit} represents an alternative design of the property table approach, in which RDF data is represented as a 3D bit-cube matrix. Each matrix element is a bit denoting the presence or absence of the corresponding triple. TripleBit\cite{triplebit} introduces a bit matrix storage structure and the encoding-based compression method for storing huge RDF graphs more efficiently. It also uses two auxiliary indexing structures to reduce the number and size of indexes to the minimal. As above systems aim at processing RDF data in single machine, they all suffer from the problem of scalability.
+%%
+%%%SW-Store, Hexastore, TripleBit, and RDF-3X represent the typical examples. Obviously, the centralized solutions are vulnerable to the growth of the data size.
+%%
+%%\textbf{Distributed RDF Systems:} Currently, most distributed RDF systems are based on popular distributed processing framework Hadoop and MapReduce. HadoopRDF\cite{hadooprdf} uses HDFS\cite{hdfs} files named after predicate values to partition the input RDF graph to create a pos or pso index. Then the predicate files are splitted into smaller files according to the type of objects. It performs the SPARQL query by a serious of iterative MapReduce jobs, each of which implements a join between two TPs on a variable. Besides, it employs a greedy algorithm to reduce the number of required MapReduce joins at each step. Obviously, the greedy planner ignores the information about join selectivity, inducing a lot of unnecessary intermediate results. Huang et al. \cite{huang} deploy single-node RDF-3X systems on multiple machines, and use the MapReduce framework to synchronize query execution. H2RDF+\cite{h2rdf} stores and indexes RDF data in HBase\cite{hbase}. Then it implements MapReduce-based multi-way Merge and Sort-Merge join algorithms to process SPARQL query. For above systems, it will spend lots of time to iteratively reading and writing IRs in HDFS or HBase as every MapReduce job needs a given input and output.
+%%because SPARQL query can be regarded as a highly iterative joining process.
+%
+%%HadoopRDF, H2RDF and Shard. As the SPARQL graph pattern query needs to be implemented by multiple iterations, it leads to the large amount of disk i/o and communications generated.
+%%严格意思上讲
+%\textbf{Distributed in-memory RDF Systems:} Trinity.RDF\cite{trinity} is a distributed memory-based graph engine for big RDF graph. It builds on top of a memory cloud and models the RDF data in its native graph form. Instead of processing SPARQL by expensive join operations, it leverages graph exploration to generate bindings for each of the TP, which greatly reduces the amount of intermediate results and boosts the query performance. But The whole RDF graph must be loaded in main memory for the Trinity.RDF, which is unrealistic in most situations. So this is not a scalable approach, as it needs very strict cluster and memory limitations.
+
+
+\section{System Architecture}
+%Figure 1 shows the architecture of SparkRDF. In general, SparkRDF consists of five modules: data preprocessing module, graph splitting module, distributed storage module, query parser module and distributed join module.
+%
+%The data preprocessing module is responsible for unifying the format of input data by converting XML-like RDF data to N-Triples. Then the big RDF graph is splitted into several elastic discreted subgraphs by
+%graph splitter. The distributed storage module subsequently persists the indexes into HDFS. Query parser module takes the SPARQL query from the user, and dynamically generates the query plan including required index information for the query. Based on the index information, corresponding indexes are dynamically loaded into the distributed memory and modeled as RDSG for further implementing iterative joins in memory as the query plan requested. At last, the final join results are returned to the user.
+
+%
+%\section{Data Modeling}
+%To support SPARQL queries on big RDF graph more effectively, we store the RDF graph in the MESG form and model the index subgraphs as RDSG once they are selected as the query index for the TPs. In this section, we describe the two data models: MESG and RDSG.
+%\subsection{Index Data Model: Multi-layer Elastic SubGraph}
+%Usually, the size of memory even on large clusters is far from the amount of massive RDF graph data. Conventional index scheme, which uses a set of permutations of (S,P,O) indexes, is not applicable since the size of its index files is still very big which will easily lead to the overhead of memory. The RDF graph should be elaborately splitted into smaller subgraphs to reduce the search space and avoid the overhead of memory.
+%
+%In this section, we describe the process of splitting the big RDF graph into MESG. It extends traditional vertical partitioning solution by connecting class indexes with relation indexes, whose goal is to construct a smaller index file for every TP in the SPARQL query. At the same time, as it is uncertain that the class information about the entities can are given in the SPARQL query, the SparkRDF needs a multi-layer elastic index scheme to meet the query need for different kinds of TP.
+%
+%\subsubsection{Class indexes and Relation indexes}
+%As is shown in the Graph Splitter of Figure 1, in the first step, we construct the class indexes(C) and relation indexes(R) by Predicate Splitter (SP). Specifically, we split the RDF graph by two ways. For the triples, whose predicate is not \textbf{rdf:type}, we extract the triples's subject and object into corresponding relation index files(predicate being as the file name). Thus the triples sharing the same predicate are grouped together to accelerate the SPARQL queries that have a binding predicate. For other triples(predicate is \textbf{rdf:type}), we divide them into small class files based on the triple's object representing a specific class. The instances belonging to the same class are stored in corresponding class index files(object being as the file name). This further reduces the amount of storage space because the type index files only contain these triples' subject.
+%
+%\subsubsection{Class\&Relation index}
+%The class indexes and relation indexes enable us to select precise index files based on TP's predicate. But we actually only use the predicate information of a TP, while other information such as its subject and object is missed directly. This will generate some very large relation indexes for those common predicates such as emailAddress, name and so on.
+%A finer-grained partitioning scheme should be designed to further cut down the search space.
+%
+%In fact, a predicate represents the binary relationship between subject and object, whose type information is often given in a SPARQL query. Thus we can divide the predicate files further according to the type of the subjects and objects. The type information of the subject and object in a triple is available in type indexes. So a set of finer-grained index files(CR,RC,CRC) can be created by joining the two kinds of index files(we cache the type information in the first step to support subsequent fast indexing). Take the triple (Student0, advisor, Professor0) for example, as its subject and object belong to class Student and Professor respectively, tuple (Student0, Professor0) will be moved into three different kinds of index files named as Student\_advisor(CR), advisor\_Professor(RC), Student\_advisor\_Professor(CRC index).
+%
+%The flexible index method makes SparkRDF capable of creating a appropriate subgraph for every TP in the SPARQL by selecting the minimum input indexes, which greatly reduces the cost of reading indexes and executing joins. What's more, it can also cut down the number of joins by eliminating unnecessary class TPs(see section V).
+%
+%\subsubsection{Example Data}
+%
+%Table I shows some sample data for the query goal: look for the graduate students whose advisor is a full professor. The first layer index constructs two class indexes and one relation index.
+%It is obvious that there exist many undesirable results in the hasAdvisor index including undergraduate students, research assistants and associate professors due to the lack of the limitation for the class of subject and object. The second layer index alleviates the problem by specifying the required class for subject or object. At last, the CRC index provides the best input option.
+%
+%Another advantage of the data model lies in the data compression because we do not need to store data in triple form. For the class and relation index, we save the 2/3 and 1/3 storage cost respectively. So although we store all the three layer indexes, SparkRDF achieves more than 60\% storage reduction based on the statistics for LUBM-10000 data(The raw size is 224G, while our index is only 84G).
+%
+%
+%\begin{table}
+%\caption{Sample Data for Our Query}
+%\centering
+%\subtable[The First Layer Index: C and R]{
+%        \begin{tabular}{|c|c||c|c|}
+%\hline
+%\multicolumn{2}{|c||}{Class Index(C)} & \multicolumn{2}{|c|}{Relation Index(R)} \\\hline
+%Type\_GraduateStudent & Type\_FullProfessor &\multicolumn{2}{c|}{hasAdvisor} \\\hline
+%GS1&FP1&GS1&FP1 \\\hline
+%GS2&FP2&GS2&AP1 \\\hline
+%&FP3&US1&FP2 \\\hline
+%&&RA1&FP3 \\\hline
+%&&US2&AP2 \\\hline
+%       \end{tabular}
+%}
+%\qquad
+%\subtable[The Second Layer Index: CR and RC]{
+%               \begin{tabular}{|c|c||c|c|}
+%\hline
+%\multicolumn{2}{|c||}{Class\&Relation Index(CR)} & \multicolumn{2}{|c|}{Relation\&Class Index(RC)} \\\hline
+%\multicolumn{2}{|c||}{GraduateStudent\_hasAdvisor}&\multicolumn{2}{c|}{hasAdvisor\_FullProfessor} \\\hline
+%    GS1&FP1&GS1&FP1 \\\hline
+%    GS2&AP1&US1&FP2 \\\hline
+%    &&RA1&FP3 \\\hline
+%       \end{tabular}
+%}
+%
+%\qquad
+%\subtable[The Third Layer Index: CRC]{
+%               \begin{tabular}{|c|c|}
+%\hline
+%\multicolumn{2}{|c|}{Class\&Relation\&Class Index(CRC)} \\\hline
+%\multicolumn{2}{|c|}{GraduateStudent\_hasAdvisor\_FullProfessor} \\\hline
+%    GS1&FP1\\\hline
+%       \end{tabular}
+%}
+%\end{table}
+%
+%
+%\subsection{Memory Data Model: RDSG}
+%
+%As previously noted, the problem of SPARQL query processing can be transformed to the problem of iterative subgraph matching and joining. We need to compute the matchings for every TP in the SPARQL query by selecting the suitable index subgraphs and implement iterative subgraph join operation on the matchings to get the final result subgraph. To improve the query efficiency, SparkRDF models all the subgraph data using an unified concept called RDSG(Resilient Discreted Semantic subGraph), which is a distributed memory abstraction that lets us perform in-memory query computations on large clusters. Based on the API of Spark, we provide the following basic operators to implement query processing:
+%
+%\begin{enumerate}[(i)]
+%\item \textbf{RDSG\_Gen:} The operator creates a RDSG given the
+%
+%name of MESG. i.e., RDSG\_Gen(GraduateStudent\_
+%
+%hasAdvisor) generates the RDSG$_1$.
+%
+%\item \textbf{RDSG\_Filter:} The operator filters RDSG based on the subject or object constrains given in a TP i.e., RDSG\_Filter(RDSG$_1$,"Professor1", flag) filters the graduate students whose advisor is not "Professor1". Flag is a parameter that specifies whether the constrain is subject or object.
+%
+%\item \textbf{RDSG\_Prepartition:} The operator controls the partitioning of the RDSG. Every RDSG is composed of a list of partition objects, which are distributed in the multiple machines.
+%
+%\item \textbf{RDSG\_Join:}% Generally, a query is comprised of multiple subpatterns that are linked together to form the final graph pattern.
+%    The operator implements join operation on a set of RDSG and takes in as parameters, the labels of the two types of RDSG to be joined and a join condition e.g. RDSG\_Join(RDSG$_1$, RDSG$_2$, RDSG$_1$.S=RDSG$_2$.O) returns the results of joining RDSG$_1$ and RDSG$_2$ on shared join key.
+%\end{enumerate}
+%
+%
+%
+%\begin{figure}[htbp]
+%\centering
+%\includegraphics[width=0.5\textwidth,bb=0 7 66 50]{TP.pdf}
+%\caption{The Query Graph of Our Example}
+%\label{}
+%\end{figure}
+%
+%
+%\section{Query Processing}
+%In this section, we first propose our RDSG-based iterative query model. Then we introduce the cost estimation based on the query model. At last, multiple query optimization strategies are presented according to our cost model to improve the query efficiency of the SparkRDF.
+%
+%\subsection{RDSG-based Iterative Query Model}
+%\subsubsection{Overview}
+%We represent a SPARQL query by a query graph Q, which contains multiple query variables. Each query variable exists in two or more TPs. Figure 2 shows the query graph of our SPARQL query example.
+%
+%With Q defined, the problem of SPARQL query processing can be conducted as follows: Firstly decompose Q into an ordered sequence of variables: X, Y, Z. Every query variable is made up of several ordered TPs. TP$_{1}^{X}$ refers to the first TP of variable X. To every TP with variable X, we iteratively compute the matches for each TP$_{i}^{X}$, and the matched IRs are used to find the matches for TP$_{i+1}^{X}$ by implementing joins on the shared variable X. After computing the bindings of a variable, we continue computing the bindings of another variable based on the IRs of X in the same way.
+%At last, the remaining results are the final answer of the query graph. %We will discuss the process in detail in next subsections.
+%
+%%Obviously, the execution order of TPs is the key to
+%The query process can be explained by a query plan, which specifies the execution flow of TPs by a serious of jobs. Figure 3 illustrates the query process of SparkRDF. Every job is responsible for computing the bindings for a certain variable.
+%For convenience, we only refer to the TPs by the variable in that pattern(or plus its order subscript if necessary). %For example, the TP$_{1}$ (?X rdf:type Student) will be represented as simply X and TP$_{2}$(?Y type Department) should be denoted as Y$_{2}$ to distinguish TP$_{5}$.
+%Thus the query can be simplified as follows:\{X,Y$_{2}$,Z,XY,Y$_{5}$,XW,XZ\}. Given the query, several possible query plans are as follows:
+%
+%Plan 1. job$_{1}$=\{X,XY,XW,XZ\}, job$_{2}$=\{Y$_{2}$,Y$_{5}$\},job$_{3}$=\{Z\}
+%
+%Plan 2. job$_{1}$=\{Y$_{2}$,XY,Y$_{5}$\}, job$_{2}$=\{X,XW,XZ\},job$_{3}$=\{Z\}
+%
+%Plan 3. job$_{1}$=\{Y$_{5}$,Y$_{2}$,XY\}, job$_{2}$=\{X,XW,XZ\},job$_{3}$=\{Z\}
+%
+%\emph{Definition 1:}\textbf{ Query Plan(QP).} A sequence of jobs that
+%give the variable join order and TP execution order. QP=\{Job$_{1}$,Job$_{2}$,...,Job$_{n}$$|$$\cup_{i=1}^{n}$Job$_{i}$=U(TP),Job$_{k}$$\cap$Job$_{m}$=$\emptyset$,
+%k$\not=$m,k$\leq$n,m$\leq$n\}. Job$_{k}$=\{TP$_{1}^{V}$,TP$_{2}^{V}$,...,TP$_{N_k}^{V}$\}(n is the number of job, $N{_k}$ is the number of TP corresponding to variable V in the Job$_{k}$).
+%
+%\subsubsection{Single TP Matching}
+%
+%
+%%Every job contains multiple TPs corresponding to a variable.
+%
+%
+%As is shown in Figure 3, for single TP matching, we use the RDSG-based operators to get the bindings of variables in the TP. Firstly, RDSG\_Gen is used to choose appropriate MESG(index files) to create a RDSG. Then the Prepartition operator repartitions the data based on the hash value of the join variable.%guarantees that the data sharing the same variable value will be read into the same partition.
+% Then RDSG\_Filter further filters lots of unrelated bindings
+%of a variable according to the given subject or object of the TP. We use the Parse(TP) to represent the three phases.
+%\subsubsection{Multiple TPs Join}
+%For multiple TPs matching in a job(take Plan$_{1}$.job$_{1}$ for example), the results of parsing the first TP will act as the IR$_{1}^{X}$. Then we compute IR$_{2}^{X}$ by implementing RDFG\_Join operation between TP$_{2}^{X}$ and IR$_{1}^{X}$ on the common variable X. Similarly, we get the final results of job$_{1}$: IR$_{4}^{X}$. As job$_{1}$ also contains other variables, the format of IR is (B(X),(B(Y),B(Z),B(W))). The former denotes the bindings of X, and the latter gets the bindings of other variables.% Benefiting by the prepartitioning strategy, all the join operation can be finished in local node's memory，thus no shuffle cost needs to be paid.
+%% 在图中把cv变为job
+% After a job is finished, we need to change the format of the IR to support further join. For Plan$_{1}$, the IR of the job$_{1}$ will become (B(Y),(B(Z),B(W),B(X))). Subsequently, we complete job$_{2}$ and job$_{3}$ in the similar way. At last, the results of job$_{3}$ will return the final answer to user.
+%
+%\begin{figure*}[htbp]
+%\centering
+%\includegraphics[width=1\textwidth,bb=0 0 818 301]{join.pdf}
+%\caption{The RDSG\_based Iterative Query Model}
+%\label{}
+%\end{figure*}
+%
+%\subsection{Cost Estimation}
+%%A query plan gives the TP execution order of a SPARQL query by specifying a set of jobs.
+%According to the query plan, we run TP-based Spark tasks to answer a SPARQL query. Every task mainly contains two subtasks: parse single TP and join IRs.
+%The cost of parsing single TP$_{i}$ is composed of the cost of loading, prepartitioning and matching TP$_{i}$, which are denoted as $|$Read(TP$_{i}$)$|$, $|$Shuffle(TP$_i$)$|$ and $|$Match(TP$_{i}$)$|$, respectively. All the three kinds of cost is in positive correlation with the size of MESG. The cost of joining two RDSG is composed of shuffle communication cost in distributed environment and join computation cost in single node: $|$Shuffle(RDSG$_{1}$,RDSG$_{2}$)$|$ and $|$Compute(RDSG$_{1}$,RDSG$_{2}$)$|$, both of which are roughly proportional to the size of RDSG. %But for these tasks in the same job, as previously discussed, the shuffle cost is zero.
+%All cost parameters are assigned a different weight based on the bandwidth of disk, network and memory.
+%
+%\begin{equation}
+%\begin{aligned}
+%COST= &\sum_{i=1}^N Parse(TP_i)+\sum_{j=2}^N Join(Result_{j-1},\\
+%&Match(TP_i))=Parse(TP_1)+\sum_{i=2}^N Task_i
+%\end{aligned}
+%\end{equation}
+%\begin{equation}
+%\begin{aligned}
+%Task_i=&Parse(TP_i)+Join(Result_{i-1},Match(TP_i))
+%\end{aligned}
+%\end{equation}
+%\begin{equation}
+%\begin{aligned}
+%|Parse(TP_i)|=&\mu|Read(TP_i)|+\lambda|Shuffle(TP_i)|\\
+%&+\nu|Match(TP_i)|
+%\end{aligned}
+%\end{equation}
+%\begin{equation}
+%\begin{aligned}
+%|Join(RDSG_1,RDSG_2)|=&\lambda|Shuffle(RDSG_1,RDSG_2)|+\\
+%&\omega|Compute(RDSG_1,RDSG_2)|
+%\end{aligned}
+%\end{equation}
+%\begin{equation}
+%Result_i=
+%\left\{
+%\begin{array}
+%{l@{\quad:\quad}l}
+%Join(Result_{i-1},Match(TP_i))&2<=$i$<=$N$ \\
+%Match(TP_i)&$i$=1
+%\end{array}
+%\right.
+%\end{equation}
+%Where,
+%
+%\   \   \   \   \ N = the number of TP in the SPARQL query.
+%
+%\   \   \   \   \ Parse(TP$_{i}$) = the cost of parsing TP$_{i}$.
+%
+%\   \   \   \  Join(RDSG$_1$,RDSG$_2$) = the cost of joining RDSG$_1$ and RDSG$_2$.
+%
+%\   \   \   \   Read(TP$_{i}$) = the result of loading the corresponding MESG for TP$_{i}$.
+%
+%\   \   \   \   Match(TP$_{i}$) = the result for single TP matching TP$_{i}$.
+%
+%\   \   \   \   Result$_{i}$ = the IRs for TP$_{1}$, ... ,TP$_{i}$.
+%
+%\   \   \   \   Shuffle(RDSG$_{1}$,RDSG$_{2}$) = the size of the data needed to be moved in distributed environment.
+%
+%\   \   \   \   Compute(RDSG$_{1}$,RDSG$_{2}$)=the size of the data needed to be implemented join operation in single node.
+%
+%% It can be seen the process of N
+%Equation(1) estimates the total cost of processing a query. It includes the two cost of parsing TPs and joining IRs.
+%It can also be seen as the summation of
+%the cost of (N-1) tasks and parsing the first TP. Equation(2) further computes the cost of every task.
+%Equation 3 gives the cost of parsing a TP. Equation (4) shows the cost of implementing join operation
+%in the SparkRDF. Equation(5) calculates the IRs for iterative query.
+%Obviously according to Equation (1), we can reduce the total query cost from two aspects: cut down the number of task and the cost within every task.
+%The former can be achieved by reducing the number of TPs. The latter can be implemented by reducing the number of IRs and size of MESGs(Equation 2).
+%
+%
+%\subsection{Query Optimization}
+%
+%%\begin{theorem}
+%%\end{theorem}
+%%\textit{PROOF.}
+%
+%\subsubsection{TR-SPARQL}
+%TR-SPARQL refers to a type-restrictive SPARQL by passing variables' class message to corresponding TPs that contains the variable. It can cut down the number of task (remove the TPs whose predicate is rdf:type) and the cost of parsing every TP by forming a more restrictive(smaller) predicate.
+%
+%\begin{theorem}
+%In Semantic Web, every identified entity belongs to a specific class, denoted by predicate "type". The type message can be passed to other TPs that contains the variable, and form a more restrictive TP in a SPARQL query, which will improve the query efficiency greatly.
+%\end{theorem}
+%\textit{PROOF.} For TR-SPARQL, the result size of reading the new TP is equal or less than the previous result, that is $|$Read(TP$_i^{'}$)$|$$<=$$|$Read(TP$_{i}$)$|$. Similarly, $|$Shuffle(TP$_i^{'}$)$|$$<=$$|$Shuffle(TP$_{i}$)$|$, $|$Match(TP$_i^{'}$)$|$
+%$<=$$|$Match
+%(TP$_{i}$)$|$. So we can have: $|$Parse(TP$_i^{'}$)$|$$<=$$|$Parse(TP$_{i}$)$|$. According to Equation 5, we can get: $|$Result$_i^{'}$$|$$<=$$|$Result$_{i}$$|$. So the cost of join also becomes less: $|$Join$^{'}$$|$$<=$$|$Join$|$. Moreover, the number of TPs(N') is also not more than N. At last, we prove the property.
+%
+%
+%\begin{figure}[htbp]
+%\centering
+%\includegraphics[width=0.5\textwidth,bb=0 5 71 56]{rew.pdf}
+%\caption{TR-SPARQL for the query example}
+%\label{}
+%\end{figure}
+%
+%To elaborate the use of the property, consider the query example(Figure 4). As the type of X is given, we can sent the information to other TPs that contain X(TP$_4$, TP$_6$, TP$_7$). We apply the same way for Y and Z. Thus, the TPs whose predicate is "rdf:type" will be removed including TP$_1$, TP$_2$, TP$_3$. %As a result, the format of the new property is divided into four kinds: P, CP, PC, CPC.
+%At the same time, it will help us to form more restrictive MESGs.
+%For example, to TP$_{3}^{'}$, index file Student\_emailAddress is chosen based on its predicate. This will avoid reading many unnecessary data compared to previous index because the predicate(emailAddress) is shared by many other classes such as Professor.
+%\subsubsection{On-demand Dynamic Prepartitioning}
+%As previously discussed, the iterative join process in distributed environment needs two steps: first move the records with the same join key into a node, then implement the join operation within the node. When the size of RDSG is large, the cost of shuffling data will be quite high. Here a on-demand dynamic prepartitioning strategy is deployed to reduce the shuffling cost in the distributed join process. It prepartitions the MESG only when they are on-demand loaded into the distributed memory, while ignoring the partitioning for other MESGs which are persisted in the HDFS. The prepartitioning scheme
+%guarantees that the records sharing the same variable value will be read into the same partition, thus all the join operation can be finished in local node's memory，and no shuffle cost needs to be paid.
+%\subsubsection{Optimal Query Plan}
+%SPARQL usually require multiple joins on different variables. The query order has a significant impact on the performance. A optimal query plan should design a good execution order of jobs and TPs in a job so as to minimize the size of IR. %Our query plan described the query by an ordered sequence of jobs and TPs.
+%We use a selectivity-based algorithm to create the plan.
+%Specifically speaking, we should first determine the joining order of variables. Then we make the order of TPs in a job.
+%Before describing our query optimization processing, we would like to give some definitions about the join process.
+%
+%\emph{Definition 2:}\textbf{ Selectivity Score (SS)}. A parameter that is used to evaluate the selectivity of a TP or variable. Initially, Table II shows the SS for different formats of TP where symbol \_ denotes a binding and symbol ? represents a variable. The more selective TP will have a higher SS.
+%The SS of a variable is the product of its most selective TP's SS and the number of the kind of TPs. For example, SS(Y)= SS(TP$_5$)*1=5.
+%
+%\emph{Definition 3:}\textbf{ Candidate Joining Variable (CV).} A variable that exists in two or more TPs.
+%
+%\emph{Definition 4:}\textbf{ Joining Variable (JV)}. The CJV that has the highest Selectivity Score. Every JV corresponds to a job of the query plan.
+%
+%\begin{table}[H]
+%\caption{The Selectivity Score for Common TPs.}
+%\begin{center}
+%\begin{tabular}{|l|c|}
+%\hline
+%\textbf{Triple Format} & \textbf{Selectivity Score} \\\hline
+%?S     \_\_     \_\_ & 5   \\\hline
+%\_\_     \_\_     ?O & 5    \\\hline
+% ?S \_\_(CRC) ?O & 4   \\\hline
+% ?S \_\_(CR) ?O & 3   \\\hline
+% ?S \_\_(RC) ?O & 3   \\\hline
+% ?S \_\_ ?O &2    \\\hline
+% \_\_ ?P \_\_& 1   \\\hline
+% ?S ?P \_\_ & 1   \\\hline
+% \_\_ ?P ?O & 1   \\\hline
+%
+%\end{tabular}
+%\end{center}
+%\end{table}
+%
+%
+%%optimal tactics are employed to produce a query plan
+%We compute the order of variables(jobs) in terms of two factors: (i) the number of IR, (ii) the format of IR. Both factors aim at reducing the size of IR. To the first factor, our priority is the variable having the highest SS since the cost of joining is roughly proportional to the size of their matching results. So choose a more restrictive CV as JV is quite essential. For example, if we first choose Z as JV, many unnecessary results are generated, which greatly adds the burden of further joins. As it is very common multiple variables have the same SS(X=Y), we break the ties by the second factor. The choice of JV directly affects the format of IR. For our example, if the JV is X, the IR of the first job will be (B(X),B(Y),B(W),B(Z)). Instead, the IR will be (B(Y),B(X)) if Y acts as JV. It is obvious that the latter is more inclined to generate the smaller results. So we should choose the variable with less TPs in the situation.
+%%(a subset of the bindings of the TP with the highest SS
+%
+%After the order of job is determined, all we need to concern is to decide the executing order of TPs in a job. As the final results of a job are the same no matter how TPs are ordered, we only need to consider how to reduce the number of IR. Similarly, we get the execution order of TP based on their SS in the job.  According to the ordered list, we implement the join between
+%the current TP owning highest SS with existing IRs iteratively until the job is finished.
+%
+%\begin{table*}[t]
+%\caption{Performance Comparison with HadoopRDF and RDF-3X.}
+%
+%\begin{tabular}{|c||c|c|c|| c|c|c|| c|c|c||}
+%\hline
+% & \multicolumn{3}{c||}{LUBM-10000} & \multicolumn{3}{c||}{LUBM-20000} & \multicolumn{3}{c||}{LUBM-30000} \\\hline
+% \multirow{2}{*}{}& \multicolumn{2}{c|}{cluster systems} & centralized system & \multicolumn{2}{c|}{cluster systems} & centralized system & \multicolumn{2}{c|}{cluster systems} & centralized system\\
+% \cline{2-10}
+% &SparkRDF&HadoopRDF&RDF-3X &SparkRDF&HadoopRDF&RDF-3X &SparkRDF&HadoopRDF&RDF-3X
+% \\\hline
+%Q1(sec)&\textbf{478.5}&8475.4&2131.4&\textbf{1123.2}&$>$3h&4380.3&\textbf{1435.4}&$>$3.5h&failed\\\hline
+%Q2(sec)&\textbf{11.9}&3425.2&13.8&\textbf{25.8}&$>$2h&28.9&\textbf{40.3}&$>$2.5h&43.5\\\hline
+%Q3(sec)&\textbf{1.4}&6869.7&24.6&\textbf{1.4}&$>$2.5h&90.7&\textbf{1.4}&$>$3h&failed\\\hline
+%Q4(sec)&14.4&11940.3&\textbf{0.7}&23.8&$>$4h&\textbf{0.8}&32.5&$>$8h&\textbf{0.8}\\\hline
+%Q5(sec)&6.8&2587.5&\textbf{0.7}&10.9&$>$1h&\textbf{0.7}&13.0&$>$3h&\textbf{0.7}\\\hline
+%Q6(sec)&10.3&7210.5&\textbf{0.6}&16.4&$>$2.5h&\textbf{0.7}&20.0&$>$3h&\textbf{0.7}\\\hline
+%Q7(sec)&\textbf{54.6}&1911.2&101.5&\textbf{112.5}&$>$0.7h&198.5&\textbf{201.3}&$>$1h&853.0\\\hline
+%\end{tabular}
+%\end{table*}
+%
+
+\section{Evaluation}
+%In the section, we give the performance evaluation of SparkRDF.
+%
+%\textbf{Configuration:}
+%The experiment is implemented on a cluster with three machines. Each node has 16 GB DDR3 RAM, 8-core Intel Xeon(R) E5606 CPUs at 2.13GHz, 1.5TB disk. The nodes are connected by the network with the bandwith of 1000M/s. All the nodes use CentOS6.4 with the softwares Hadoop-1.0.4, Scala-1.10.1 and Spark-0.9.0.
+%
+%\textbf{Compared Systems:}
+%We compare SparkRDF with the centralized RDF-3X and distributed HadoopRDF. We run the RDF-3X(v3.0.7) on one of the nodes. HadoopRDF and SparkRDF were executed in the cluster.
+%
+%\textbf{Datasets and Queries:}
+%In our experiment, we use the widely-used LUBM\cite{lubm} dataset with the scale of 10000, 20000 and 30000 universities, consisting of 1.3, 2.7 and 4.1 billion triples. To achieve a better performance, we replace all literals in RDF triples by a long id value(64-bit). For the LUBM queries, we chose 7 representative queries that provide a good mixture of both simple and complex structures. The selected set covers all variations of the LUBM test queries. At the same time, they are
+%able to highlight the different decisions and characteristics of
+%SparkRDF and the compared systems. They are roughly classified into 2 categories: selective(Q4,Q5,Q6) and unselective queries(Q1,Q2,Q3,Q7). For the former, there is usually bound subject or object in their TPs to get some specific information about a given subject or object. The latter contains some unselective TPs, aiming at querying the RDF graph by nonrestrictive input conditions. A short description on the chosen queries is provided in the Appendix.
+%
+%\textbf{Query Performance:}
+%Table III summarizes our comparison with HadoopRDF and RDF-3X(best times are boldfaced). The first observation is that SparkRDF performs much better than HadoopRDF for all queries. This can be attributed to the following three reasons: i)finer granularity of index scheme. The MESG guarantees that SparkRDF can process a TP by inputting a smaller index file than HadoopRDF; ii) efficient query model. SparkRDF uses memory-based RDSG model to process iterative join operations, which makes it capable of avoiding many expensive disk-based operations compared to HadoopRDF; iii) optimal query plan. HadoopRDF executes the query plan that greedily reduces the total number of remaining MapReduce joins without considering the joining selectivity, resulting in many unnecessary IRs. However, SparkRDF makes a optimal query plan based on Selectivity Score(SS) to reduce the size of IRs.
+%
+%Another observation is that HadoopRDF outperformed RDF-3X in Q1,Q2,Q3,Q7, while RDF-3X did better in Q4,Q5,Q6.
+%This result conforms to our initial conjecture: RDF-3X can achieve high performance for queries with high selectivity and bound objects or subjects, while SparkRDF did well for queries with unbound objects or subjects, low selectivity or large intermediate results joins.
+%
+%Queries of the first class are --- Q1,Q2,Q3 and Q7. In particular, Q1 is a complex query having many unselective TPs and needs multiple join operations. SparkRDF achieves almost 5$\times$ performance gain compared to RDF-3X, which is mainly thanks to the TR-SPARQL optimization strategy that reduces the number of join and the search space for TPs greatly. At the same time,
+%SparkRDF implements all the join operations based on RDSG which caches large IRs in the distributed memory. It helps SparkRDF work well in processing the query with multiple join operations and large IRs. Meanwhile, it is worth noting that RDF-3X needs quite a lot of time (2131 and 4380 seconds for LUBM-10000, LUBM-20000) or even failed (for LUBM-30000) to implement the query for the three datasets. So RDF-3X might be not applicable in some real-time applications.
+%Q3 is similar to Q1 except that one TP of Q3 does not have corresponding index file(Undergraduate\_undergraduateDegreeFrom\_University), which means a empty result should return. So SparkRDF finished the query plan without even launching a query job. That is the reason SparkRDF gains
+%has a much performance advantage by factor of more than 20$\times$. Q2 and Q7 represent another kind of
+%typical unselective query containing few simple TPs. The number of TP in Q2 and Q7 are only 2 and 1, respectively. The number of join operations are 1 and 0 for RDF-3X. For the SparkRDF, it does not require any join operations because we can get the final results directly from its MESG index files. Thus all we need to do is just loading the index files and outputting corresponding results. So the efficient index scheme helps SparkRDF outperform the RDF-3X for the simple unselective queries.
+%
+%In the case of the second kind of queries --- Q4, Q5 and Q6, they all contain the TPs with bound objects which make them highly selective. So the size of intermediate and final results is also very small(their final results are 10, 10, 125 on all datasets). Benefiting from the set of permutations of (S,P,O) indexes, RDF-3X can process the queries efficiently by searching a small portion of index data. The index strategy provides RDF-3X a very fast way to look up TPs, similar to a hash table. Hence, RDF-3X completed the queries in less than 1 second. In comparison, SparkRDF needs to read the corresponding relatively large MESG index file and filter unrelated records by bound objects. But for all this, SparkRDF still answers all the queries within 15 seconds(14.4, 6.8, 10,3), which is an entirely acceptable response time. The results show although the performance of SparkRDF for queries with highly selective TPs is lower than RDF-3X, it is still adequate to satisfy the requirement of real-time.
+%
+%Another important factor for evaluating RDF systems is how the performance scales with the size of data. RDF-3X fails to answer Q1 and Q3 when the data set size is 4.1 billion triples. It returns memory segmentation fault error messages. On the contrary, SparkRDF scales linearly and smoothly (no large variation is observed) when the scale of the datasets increases from 1.3 to 4.1 billion triples. It proves the good scalability of SparkRDF.
+%
+%
+%To summarize the results, it was evident that: i) for all the queries, SparkRDF outperformed HadoopRDF by a significant margin. ii) for both simple and complex
+%join queries with low-selectivity,
+%SparkRDF prevailed over RDF-3X; iii) Although for queries with highly selectivity
+%, RDF-3X
+%performed better. But SparkRDF still could process the queries within a short time. This confirms with our initial goal of real-time ; iv) for varying size of data, SparkRDF showed good scalability, while RDF-3X is not able to process some queries when the data increases due to the limitation of single machine. This also accords with our initial goal of scalability.
+
+
+\section{Conclusion}
+%In the paper, we introduce the SparkRDF, an elastic discreted RDF graph processing engine based on Spark. We present a MESG-based graph splitting scheme to cut down the search space and avoid the overhead of memory. Then a RDSG-based iterative query model is used to implement the query process in distributed memory. Based on the data model and query model, we also introduce a cost estimation method and multiple optimization strategies. The experimental results prove that SparkRDF is a scalable and real-time RDF processing system. % We give some preliminary results to show effectiveness of the SparkRDF. In the future, we would like to extend the work in few directions. First, we will handle more complex SPARQL patterns(such as OPTIONAL). Secondly, we will explore a cost model for SparkRDF. Finally, we will make a more complete and comprehensive experiment to validate the SparkRDF\cite{rdf3x}.
+%\bibliography{Sparkrdf}
+%\end{thebibliography}
+%\section*{APPENDIX}
+%We provide the SPARQL queries used in the experimental section:
+%Q1-Q6 are the same as \cite{matrixbit}, Q7 corresponds to q14 of \cite{lubm}.%\cite{paper5}.
+%
+%\begin{flushleft}
+%%PREFIX ub: $<$http:$//$www.lehigh.edu$/$$~$zhp2$/$2004$/$0401$/$univbench.
+%
+%\textbf{Q1}: select ?x ?y ?z where \{ ?z ub:subOrganizationOf
+%?y . ?y rdf:type ub:University . ?z rdf:type ub:Department. ?x ub:memberOf ?z .
+%?x rdf:type ub:GraduateStudent .
+%?x ub:undergraduateDegreeFrom ?y . \}
+%
+%\textbf{Q2:} select ?x where \{?x rdf:type ub:Course . ?x ub:name
+%?y . \}
+%
+%\textbf{Q3:} select ?x ?y ?z where \{ ?x rdf:type ub:UndergraduateStudent . ?y rdf:type ub:University . ?z rdf:type ub:Department . ?x ub:memberOf ?z . ?z ub:subOrganizationOf ?y . ?x ub:undergraduateDegreeFrom ?y . \}
+%
+%\textbf{Q4:} select ?x where \{ ?x ub:worksFor $<$http:$//$www.Department0.University0.edu$>$ . ?x rdf:type ub:FullProfessor.
+%?x ub:name ?y1 . ?x ub:emailAddress ?y2 . ?x ub:telephone ?y3
+%. \}
+%
+%\textbf{Q5:} select ?x where \{ ?x ub:subOrganizationOf $<$http:$//$www.Department0.University0.edu$>$ . ?x rdf:type ub:ResearchGroup\}
+%
+%\textbf{Q6:} select ?x ?y where \{ ?y ub:subOrganizationOf $<$http-
+%:$//$www.University0.edu$>$ . ?y rdf:type ub:Department . ?x
+%ub:worksFor ?y . ?x rdf:type ub:FullProfessor . \}
+%
+%\textbf{Q7:} select ?x where \{ ?x rdf:type ub:UndergraduateStudent . \}
+% \end{flushleft}
+\end{document}
+
+
+
+
+
+
+
+
