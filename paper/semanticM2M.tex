@@ -382,7 +382,7 @@
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{Elastic Semantic Engine for OneM2M Appliations}
+\title{Elastic Streaming Semantic Engine for OneM2M Appliations}
 
 
 % author names and affiliations
@@ -401,11 +401,11 @@ Zhejiang University\\
 Hangzhou, China\\
 huajunsir@zju.edu.cn}
 \and
-\IEEEauthorblockN{Ningyu Zhang}
+\IEEEauthorblockN{Jue Huang}
 \IEEEauthorblockA{Department of Computer Science\\
 Zhejiang University\\
 Hangzhou, China\\
-zxlzr@zju.edu.cn}
+juehuang@zju.edu.cn}
 }
 
 % conference papers do not typically use \thanks and this command
@@ -444,6 +444,14 @@ zxlzr@zju.edu.cn}
 
 
 \begin{abstract}
+With the rapid advances in Machine-to-Machine sensor data collection and communication, M2M applications become ubiquitous in various aspects of our daily life. Due to the highly distributed and heterogeneous characteristics of M2M data, it requires more and deeper support of semantic technologies. While most of the existing efforts are focused on the modeling, annotation, and representation of semantic sensor networks , there has been little work focusing on the background processing of large-scale real-time sensor data for M2M applications. In the paper, we present an elastic streaming semantic processing framework for M2M applications. The proposed framework efficiently capture and model  different scenarios for all kinds of M2M applications. We have preliminarily implemented an engine based on popular large-scale distributed computing platform SPARK.
+Based on the engine, a typical use case on home environment monitoring
+is given to illustrate the efficiency of our engine.
+%, which is a typical M2M application in the
+The results show that our system can scale for large number of sensor streams with different types of M2M applications.
+
+
+
 
 %With the explosive growth of semantic data on the Web over the past years, many large-scale RDF knowledge bases with billions of facts are generating. This poses
 %significant challenges for the storage and query of big RDF graphs. Current systems still have many limitations in processing big RDF graphs including scalability and real-time. In this paper, we introduce the SparkRDF, an elastic discreted RDF graph processing engine with distributed memory. To reduce the high I/O and communication cost in distributed processing platforms, SparkRDF implements SPARQL query based on Spark, a novel in-memory distributed computing framework for big data processing. All the intermediate results are modeled as Resilient Discreted SubGraph, which are cached in the distributed memory to support fast iterative join operations.
@@ -460,7 +468,7 @@ zxlzr@zju.edu.cn}
 \end{abstract}
 
 \begin{IEEEkeywords}
-%Large RDF Graph, Big Data, SPARQL, Spark, Distributed memory.
+M2M, Semantic Web, Streaming, Big Data, Spark.
 \end{IEEEkeywords}
 
 
@@ -479,23 +487,48 @@ zxlzr@zju.edu.cn}
 \section{Introduction}
 
 Machine-to-Machine (M2M) applications are more and
-more popular due to the availability of smart M2M devices (sensors). M2M devices are used in a great deal of realms such as home monitoring, vehicular networks environmental monitoring (weather forecasting), health monitoring. Integrating and processing M2M data from heterogeneous domains is still faced with many challenges. 
+more popular due to the availability of smart M2M devices (sensors). M2M devices are used in a great deal of realms such as home monitoring, vehicular networks environmental monitoring (weather forecasting), health monitoring. Integrating and processing M2M data from heterogeneous domains is still faced with many challenges.
 
-First, With the advances in M2M domain, more and more smart sensor devices are deployed in the M2M network.It is predicted that within the next decade billions of devices (Cisco predicts that the number of the Internet connected devices will be around 50 Billion by 2020) will generate myriad of real world data for many applications and services in a variety of areas such as smart grids, smart homes, e-health, automotive, transport, logistics and environmental monitoring. Such a stunning number of devices will generate massive data. Secondly, many M2M applications need to gather and combine heterogeneous sensor data with different formats and measurements. Besides that, some large-scale background data also needs to be integrated.
-Thirdly, most of the M2M data is generated with spatial and temporal annotations, which is used to support all kinds of real-time and location-based applications. For example, 
+First, With the advances in M2M domain, more and more smart sensor devices are deployed in the M2M network.It is predicted that within the next decade billions of devices (Cisco predicts that the number of the Internet connected devices will be around 50 Billion by 2020) will generate myriad of real world data for many applications and services in a variety of areas such as smart grids, smart homes, e-health, automotive, transport, logistics and environmental monitoring. Such a stunning number of devices will generate massive data. Secondly, many M2M applications need to gather and combine multiple heterogeneous sensor data with different formats and measurements. Besides that, some background data also needs to be integrated.
+Thirdly, most of the M2M data is generated with spatial and temporal annotations, which is used to support all kinds of real-time and location-based applications. For example,
 
 
-The Semantic Web technologies are viewed as a key for the development of M2M. In specific, it serves as the following three purposes: First, it provide us with a good way to resolve the problems of inter-operability and integration within this heterogeneous world of M2M devices by defining and reusing some standard semantic concepts. Much efforts have been put on the area. For example, ontologies such as the W3C¡¯s SSN ontology (Lefort et al., 2011; Compton et al., 2012) have been developed, which offers a number of constructs to formally describe not only the sensor resources but also the sensor observation and measurement data. %Thus, the Internet of Things will become a Semantic Web of Things(SWT) after encapsulating the semantically enriched descriptions to IOT data.
-Secondly, the Semantic Web provides a seamless interface to facilitate the interactions of M2M data and other existing non-M2M knowledge or services such as Linked Data, DBpedia, LinkedGeodata, various kinds of Web Services and so on. %So the SWT, along with the background knowledge, will create a more widely connected world-Semantic Web of Everything(SWeT), which have billions of people, sensors, objects and ¡®things¡¯ connecting each other is changing the way organizations and consumers interact with each other and the environment around them.
-At last, applying the semantic query and reasoning technologies can help us analyze and mine the M2M data to have a better understanding about our physical world.
+%Semantic support for M2M, by describing the meaning of M2M data, that will also re-use existing semantics from vertical domains, is a way to enhance interoperability between initially ¡°siloed¡± applications. Another key benefit from Semantic is that it enables Applications to directly interact with real-world entities, through their virtual annotated-representation
+
+
+
+The Semantic Web technologies are viewed as a key for the development of M2M. Figure 1 shows the generic functional model of M2M for supporting semantics in the specification of oneM2M study on abstraction and semantics enablement.
+In specific, it serves as the following several purposes:
+First, the data access layer provides connections with a device and a gateway for accessing M2M data.
+Secondly, the abstraction and semantics layer provide us with a good way to resolve the problems of inter-operability and integration within this heterogeneous world of M2M devices by defining and reusing some standard semantic concepts.  %Thus, the Internet of Things will become a Semantic Web of Things(SWT) after encapsulating the semantically enriched descriptions to IOT data.
+Besides, the Semantic Web provides a seamless interface to facilitate the interactions of M2M data and other existing non-M2M knowledge or services such as Linked Data, DBpedia, LinkedGeodata, various kinds of Web Services .
+At last, the service layer provides an interface for various M2M applications by semantic processing technologies, including semantic query, mash-up and so on.
+%So the SWT, along with the background knowledge, will create a more widely connected world-Semantic Web of Everything(SWeT), which have billions of people, sensors, objects and ¡®things¡¯ connecting each other is changing the way organizations and consumers interact with each other and the environment around them.
+
+%At last, applying the semantic query and reasoning technologies can help us analyze and mine the M2M data to have a better understanding about our physical world.
+
+
+Currently, much efforts have been made to model the M2M sensor networks by . For example, ontologies such as the W3C¡¯s SSN ontology (Lefort et al., 2011; Compton et al., 2012) have been developed, which offers a number of constructs to formally describe not only the sensor resources but also the sensor observation and measurement data.
+
 
 However, considering the another two characteristics of IOT data: dynamics and scale, current Semantic Web still exists many limitations:
+
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.5\textwidth,bb=0 0 901 714]{semantic.pdf}
+\caption{Generic functional model for supporting semantics}
+\label{}
+\end{figure}
+
+
 
 %In fact, the overall architecture of SWeT can be summarized in figure 1, which including machine layer, communication layer, semantic
 
 
 %(pacemaker, blood glucose level, heartbeat, brain waves).
-%M2M area networks (sensor networks) gather heterogeneous data from M2M devices. 
+%M2M area networks (sensor networks) gather heterogeneous data from M2M devices.
 
 %Each application focuses on a specific M2Marea network. We would like to link these existing heterogeneous M2M area networks to provide promising M2M applications
 
@@ -514,20 +547,21 @@ However, considering the another two characteristics of IOT data: dynamics and s
 %
 %In this paper, we introduce SparkRDF, an elastic discreted RDF graph processing system with distributed memory. It is based on Spark framework, a fast in-memory cluster computing system which is quite suitable for large-scale real-time iterative computing tasks\cite{spark}. Unlike existing most systems that use a set of permutations of (S,P,O) indexes to manage RDF, SparkRDF splits the big RDF graph into MESGs(Multi-layer Elastic SubGraph) based on relations and classes by creating 5 kinds of indexes(C,R,CR,RC,CRC) with different grains to cater for diverse TPs. These index files on demand are modeled as RDSG (Resilient Discreted SubGraph), a collection of in-memory semantic subgraph objects partitioned across machines, which can implement SPARQL query by a series of basic operators. All IRs, which are also regarded as the RDSG, remain in the distributed memory to support further fast joins. Based on the data model and query model, we introduce a new cost model and several corresponding optimization tactics to improve the efficiency of SparkRDF including TR-SPARQL(Type-Restrictive), optimal query plan and on-demand dynamic prepartitioning techniques.
 %
-\begin{figure*}[htbp]
-\centering
-\includegraphics[width=1\textwidth,bb=0 0 1648 1714]{f1.pdf}
-\caption{The Architecture of SparkRDF}
-\label{}
-\end{figure*}
 
-
-\begin{figure*}[htbp]
-\centering
-\includegraphics[width=1\textwidth,bb=0 0 842 595]{f2.pdf}
-\caption{The Architecture of SparkRDF}
-\label{}
-\end{figure*}
+%\begin{figure*}[htbp]
+%\centering
+%\includegraphics[width=1\textwidth,bb=0 0 1648 1714]{f1.pdf}
+%\caption{The Architecture of SparkRDF}
+%\label{}
+%\end{figure*}
+%
+%
+%\begin{figure*}[htbp]
+%\centering
+%\includegraphics[width=1\textwidth,bb=0 0 842 595]{f2.pdf}
+%\caption{The Architecture of SparkRDF}
+%\label{}
+%\end{figure*}
 
 %
 %
@@ -545,6 +579,31 @@ However, considering the another two characteristics of IOT data: dynamics and s
 %, we introduce the architecture of the \textit{SparkRDF} system. Section 4 describes the data model of SparkRDF. Section 5 gives the distributed SPARQL query processing techniques. In Section 6, we present the results of our experiments. Finally, we conclude and discuss the future work in Section 7.
 
 \section{RELATED WORK}
+Semantic Web is considered as one of the most fundamental and important
+technology in the M2M sensor data management and processing.
+Lots of efforts have been made by the academia and industry for the semantic support of M2M.
+
+
+\textbf{Semantic Sensor Network and Ontology}
+
+One key research topic in M2M semantic modeling is to represent the data observation and measurement from sensors. For example, Semantic Sensor Web (SSW) is a technology in which sensor data is semantic annotated for inter-operability and also provides contextual information for situational knowledge. Many works have proposed semantic model for representing sensors and data. Ontologies such as the W3C's SSN ontology have been developed. In particular, these ontologies provide metadata for numerical, spatial, temporal, and other semantic objects. Similar works for sensor metadata description also include Sensor Data Ontology (SDO) , Sensei O$\&$M and SensorML. Meanwhile, there are ontologies like CSIRO Sensor Ontology and OntoSensor designed to describe semantic sensor specification and knowledge. In order to improve ontology reusability and inter-operability, some of them extend their ontology based on IEEE's Suggested Upper Merged Ontology (SUMO) as a root definition of general concepts and associations for semantic modeling.
+
+These works mainly focus on semantic annotation for the inter-operability of sensors by defining an unified and standard ontology, paying no attention to the high-level semantic M2M applications.
+
+
+\textbf{Semantic M2M Applications}
+
+Gyrard proposes a semantic-based Machine-to-Machine Measurement approach (M3) to automatically combine, enrich and reason about M2M data to provide promising cross-domain M2M applications, such as naturopathy application based on multiple datasets. The approach also presents a hub for cross-domain ontologies and datasets. [20] and [21] apply the semantic IOT in the generic agriculture and healthcare context management. SSEO [22] is developed to enable semantic indexing, machine-processable event detection and data exchange for smart space modeling. Other applications include  CONON [23], CoOL [24] and CoBrA [25].
+
+All the works failed to provide a generic semantic M2M processing framework. And the applications also did not deal with some important challenges for M2M data, such as the real-time and scalability.
+
+\textbf{Semantic Web Technologies}
+
+
+
+
+
+
 %%
 %%There are many researches focusing on the RDF data management. We can summarize these work as the following three categories:
 %%
@@ -560,11 +619,198 @@ However, considering the another two characteristics of IOT data: dynamics and s
 %\textbf{Distributed in-memory RDF Systems:} Trinity.RDF\cite{trinity} is a distributed memory-based graph engine for big RDF graph. It builds on top of a memory cloud and models the RDF data in its native graph form. Instead of processing SPARQL by expensive join operations, it leverages graph exploration to generate bindings for each of the TP, which greatly reduces the amount of intermediate results and boosts the query performance. But The whole RDF graph must be loaded in main memory for the Trinity.RDF, which is unrealistic in most situations. So this is not a scalable approach, as it needs very strict cluster and memory limitations.
 
 
-\section{System Architecture}
-%Figure 1 shows the architecture of SparkRDF. In general, SparkRDF consists of five modules: data preprocessing module, graph splitting module, distributed storage module, query parser module and distributed join module.
-%
-%The data preprocessing module is responsible for unifying the format of input data by converting XML-like RDF data to N-Triples. Then the big RDF graph is splitted into several elastic discreted subgraphs by
-%graph splitter. The distributed storage module subsequently persists the indexes into HDFS. Query parser module takes the SPARQL query from the user, and dynamically generates the query plan including required index information for the query. Based on the index information, corresponding indexes are dynamically loaded into the distributed memory and modeled as RDSG for further implementing iterative joins in memory as the query plan requested. At last, the final join results are returned to the user.
+\section{Proposed Framework And Elastic Processing Engine}
+In this section, we propose a semantic processing framework for M2M applications and elaborate the Elastic Processing Engine to explain how it provides the capabilities for performing various M2M applications.
+
+
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=1\textwidth,bb=0 0 3497 3328]{framework.pdf}
+\caption{Semantic Processing Framework For M2M Applications}
+\label{}
+\end{figure*}
+
+
+\subsection{Framework}
+Figure 2 shows the architecture of our semantic processing framework for M2M applications. In general, it consists of five layers: Physical Entities Layer, Abstract Entities Layer, Window-Based Data Stream Layer, Virtual Entities Layer and Elastic Semantic Engine Layer.
+
+
+
+\textbf{Physical Entities Layer}
+Physical entities layer is located in the lowest layer of the framework, which is responsible for generating M2M data in real-time.
+Every physical entity represents a tangible element that can be sensed by sensors that are deployed in the oneM2M Field Domain environment, and that is not specific to a particular M2M application in this environment. According to the oneM2M project standardization, every kind of sensors are be organized by logical entity (AE) and common services entity (CSE), which provide application logic and common services, respectively.
+
+
+\textbf{Abstract Entities Layer}
+
+Abstract Entities Layer is responsible for receiving and implementing the abstraction for the data from the physical devices by the semantic annotation of proxy software. The abstraction layer aims at hiding the complexity of variety of devices and environments by providing a single and standard format to represent devices. So from the view of upper layer, all the data can be .
+
+
+
+\textbf{Window-Based Data Stream Layer}
+
+
+
+
+\textbf{Virtual Entities Layer}
+Virtual Entities Layer aggregates the related data for every virtual entity. Virtual entity is a new resource created by multiple window data streams. For our latter use case, if user in a home requests the service for Discomfort Index(DI), a new virtual entity will be generated through aggregating corresponding home appliance sensors(such as temperature, heater, air cleaner sensors and so on).
+
+
+\textbf{Elastic Semantic Engine Layer}
+
+%The data preprocessing module is responsible for unifying the format of input data by converting XML-like RDF data to N-Triples. Then the big RDF graph is splitted into several elastic discreted subgraphs by graph splitter. The distributed storage module subsequently persists the indexes into HDFS. Query parser module takes the SPARQL query from the user, and dynamically generates the query plan including required index information for the query. Based on the index information, corresponding indexes are dynamically loaded into the distributed memory and modeled as RDSG for further implementing iterative joins in memory as the query plan requested. At last, the final join results are returned to the user.
+
+
+\subsection{Elastic Processing Engine}
+
+
+
+\subsubsection{M2M Data Model}
+All M2M data is modeled as the RDF Stream. Every virtual entity aggregates the RDF streams from corresponding several windows. A window extracts from its sensor stream the latest elements
+, which is considered by the virtual entity. Besides the streaming M2M data, some M2M applications need auxiliary background knowledge, such as Linked Open Data, DBpedia and so on.
+Related definitions are as follows:
+
+%\emph{Definition 1:}\textbf{ Query Plan(QP).} A sequence of jobs that
+%give the variable join order and TP execution order. QP=\{Job$_{1}$,Job$_{2}$,...,Job$_{n}$$|$$\cup_{i=1}^{n}$Job$_{i}$=U(TP),Job$_{k}$$\cap$Job$_{m}$=$\emptyset$,
+%k$\not=$m,k$\leq$n,m$\leq$n\}. Job$_{k}$=\{TP$_{1}^{V}$,TP$_{2}^{V}$,...,TP$_{N_k}^{V}$\}(n is the number of job, $N{_k}$ is the number of TP corresponding to variable V in the Job$_{k}$).
+
+\emph{Definition 1:}\textbf{ RDF Stream(S).} The basic data unit for RDF Stream is ($<s,p,o>$,timestamp).
+A RDF Stream is defined as an ordered sequence of pairs, where every pair is constituted by multiple basic data units, denoted as
+D$_{i}$$^j$, $i$ represents the identification ID of certain sensor, $j$ is the timestamp. For example, S$_{i}$=\{D$_{i}$$^0$, D$_{i}$$^1$, D$_{i}$$^2$,...,$i \in \mathbb{N}$\} denotes the RDF stream data of the ith sensor.
+
+\emph{Definition 2:}\textbf{ Window(W).} A window is a subset of the RDF Stream given a time range $t$. W$_{i}$(t)= \{D$_{i}$$^0$, D$_{i}$$^1$, D$_{i}$$^2$,..., D$_{i}$$^(t-1)$\}denotes the RDF stream data of the ith sensor within the latest t logical time unit(second, minute, hour, number...). Windows are sliding when they are progressively advanced of a given STEP. For example, the size of window and sliding window for W$_0$ in the figure 2 are 2 and 1, respectively.
+
+
+\emph{Definition 3:}\textbf{ Virtual Window(VW).} Virtual window aggregates the related data needed by a virtual entity, which includes the corresponding window data and background knowledge $B={(s,p,o)}$.
+
+
+
+\subsubsection{M2M Semantic Query}
+M2M Semantic Query is a basic function for M2M applications.
+It enhances the M2M discovery mechanism, to allow locating and linking resources or services based on their semantic information. For example, ¡°Get the temperature of the room 1", "Get the all rooms whose PM2.5 $\geq$ 80".
+
+The query task is formalized via the concept of mapping.
+We denote as I, B, L, V respectively the domains of IRIs, blank nodes, literals, and
+variables which are all disjoint. We also define T = (I $\cup$ B $\cup$ L). A mapping $\mu$ is a
+partial function $\mu$ : V $\rightarrow$ T which gives the bindings for all the variables of a query.
+Evaluation occurs when a graph pattern (denoted as P) in the query is matched
+against a Virtual Window (VW). P is a set of triple patterns t = (s, p, o) such that
+s, p, o $\in$ (V $\cup$ T ). We then define dom($\mu$) as the subset of V where $\mu$ is defined
+(i.e., the domain of $\mu$ and use the notation $\mu$(x) to refer to the bindings of variable x in $\mu$.
+%Two mappings \mu' and \mu'' are said to be compatible
+
+\subsubsection{M2M Semantic Mash-up}
+Semantic mash-up provides functionalities to support new services through the creation of new virtual devices, which do not exist in physical world, by obtaining semantic information through semantic descriptions from existing M2M resources in the M2M System. For example, "compute the indoor air quality index of a room" is a typical Mash-up application, which needs to accomplish a task based on various window data.
+
+\subsubsection{M2M Semantic Reasoning}
+%Semantic reasoning to derive new relations and classifications of semantically annotated data
+Reasoning is a mechanism to derive a new implicit knowledge from semantically annotated data and to answer complex user query. It can be implemented as a piece of software to be able to infer logical consequences from a set of asserted facts or axioms.
+
+\subsubsection{M2M Semantic Spatial-Temporal Processing}
+
+
+
+
+
+\section{Use Case and Evaluation}
+
+
+In this section, we have preliminarily implemented the M2M application framework and demonstrated a domain extension in selected scenario of home environment monitoring. It is designed to facilitate the smart real-time monitoring to the home environment by providing three concrete application examples. We first give a brief overview of the use case, then
+
+%functional and scalability tests are made to prove the efficiency of our system.
+
+\subsection{Overview}
+Nowadays, with the popularity of smart home appliances  (e.g., heater, air conditioner, humidifier, air cleaner, etc.) equipped with environment sensors (e.g., sensors for temperature, humidity, CO1, CO2, VOC(Volatile Organic Compound) level, etc.), large volumes of data from all aspects of home environment is available, which makes it possible to implement various home monitoring applications including emergency detection(gas-leaking, fire accident), environmental index
+
+The use case shows three representative scenarios of home environment monitoring:  Indoor Sensor Discovery, Indoor Air Pollution Index (API), Human Comfort Index (I$_{hc}$). The three applications correspond to three kinds of M2M applications: M2M Semantic Query, M2M Semantic Mashup, M2M Semantic Reasoning.
+
+As the paper mainly focuses on the background streaming data processing for M2M applications, we do not create a complex and comprehensive ontology to semantically annotate the all various M2M data. Conversely, we design a simple concept model for the home environment monitoring scenario (see Figure 3). The model captures three types of resources: Home, Room, Sensor.The label under the resource denotes the its URI. "p" is the namespace of the properties. Every sensor entity has three properties: type, value, time.
+
+Figure 4 shows a simple snapshot data of the stream knowledge model based on the concept model. Every home contains multiple rooms(living room, bedroom, kitchen and so on). Every room is equipped with 15 kinds of sensors, including Temperature, Humility, Illumination, Volume, PM10,  PM2.5, O3, CO, SO2, NO2 and so on.
+
+\subsection{Scenarios}
+
+\subsubsection{Semantic Query:S}
+
+\subsubsection{Semantic Mashup:AQI}
+
+\subsubsection{Semantic Reasoning:I$_{hc}$}
+
+
+
+
+\section{Evaluation}
+
+\textbf{Configuration}
+The experiment is implemented on a Spark cluster with three machines. Each node has 16 GB DDR3 RAM, 8-core Intel Xeon(R) E5606 CPUs at 2.13GHz, 1.5TB disk. The nodes are connected by the network with the bandwith of 1000M/s. All the nodes use CentOS6.4 with the softwares JDK-1.7.0, Scala-1.10.1 and Spark-0.9.0.
+
+\textbf{Data}
+The experimental data is generated by our stream data generator whose schema is based on the concept model in figure 3. The main parameters of the generator are R and T, denoting the number of home and sampling time, respectively. The number of home is in proportion to the number of sensor denoted by N$_s$(N$_s$=15*5*R, 15 and 5 represent the number of sensors in a room and rooms in a home). Sampling time stimulates the rate of sensor stream.
+
+\subsection{Functionality Evaluation}
+\subsection{Scalability Evaluation}
+During the process of spark streaming execution, we will write a total delay(TD) into the log file after the data in a time slice has been processed completely. The parameter records the total time from receiving window data to output final results. In our experiment, the time slice is set as 5 seconds and we will run the program for 300 seconds. That is to say, 60 TD will be written into the log file.
+
+\begin{table}
+\caption{Throughput in single node}
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+N$_s$(k) & TD(s) & TD/D & $\sigma$ & Q(MB/s) \\
+\hline
+15& & & & \\
+\hline
+30& & & & \\
+\hline
+45& & & & \\
+\hline
+60& & & & \\
+\hline
+75& & & & \\
+\hline
+90& & & & \\
+\hline
+105& & & & \\
+\hline
+120& & & & \\
+\hline
+135& & & & \\
+\hline
+150& & & & \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+\caption{Throughput in cluster}
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+N$_s$(k) & TD(s) & TD/D & $\sigma$ & Q(MB/s) \\
+\hline
+75& & & & \\
+\hline
+150& & & & \\
+\hline
+225& & & & \\
+\hline
+300& & & & \\
+\hline
+375& & & & \\
+\hline
+450& & & & \\
+\hline
+525& & & & \\
+\hline
+600& & & & \\
+\hline
+675& & & & \\
+\hline
+750& & & & \\
+\hline
+\end{tabular}
+\end{table}
+
 
 %
 %\section{Data Modeling}
@@ -866,7 +1112,8 @@ However, considering the another two characteristics of IOT data: dynamics and s
 %\end{table*}
 %
 
-\section{Evaluation}
+%\section{Evaluation}
+
 %In the section, we give the performance evaluation of SparkRDF.
 %
 %\textbf{Configuration:}
