@@ -1,0 +1,14 @@
+@article{Liu2011,
+author = {Liu, Chang and Qi, Guilin and Wang, Haofen and Yu, Yong},
+doi = {10.1109/WI-IAT.2011.119},
+file = {:C$\backslash$:/Users/xixi/Desktop/项目资料/ppt/semantic rerasoning/referenced papers/4513a162.pdf:pdf},
+isbn = {978-1-4577-1373-6},
+journal = {2011 IEEE/WIC/ACM International Conferences on Web Intelligence and Intelligent Agent Technology},
+keywords = {-semantic web,Semantic Web, OWL, Fuzzy Logic,fuzzy logic,owl},
+month = aug
+pages = {162--169},
+publisher = {Ieee},
+title = {{Fuzzy Reasoning over RDF Data Using OWL Vocabulary}},
+url = {http://ieeexplore.ieee.org/lpdocs/epic03/wrapper.htm?arnumber=6040513},
+year = {2011}
+}
