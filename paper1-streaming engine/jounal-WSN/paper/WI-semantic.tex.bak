@@ -1,0 +1,989 @@
+
+%% bare_conf.tex
+%% V1.3
+%% 2007/01/11
+%% by Michael Shell
+%% See:
+%% http://www.michaelshell.org/
+%% for current contact information.
+%%
+%% This is a skeleton file demonstrating the use of IEEEtran.cls
+%% (requires IEEEtran.cls version 1.7 or later) with an IEEE conference paper.
+%%
+%% Support sites:
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/tex-archive/macros/latex/contrib/IEEEtran/
+%% and
+%% http://www.ieee.org/
+
+%%*************************************************************************
+%% Legal Notice:
+%% This code is offered as-is without any warranty either expressed or
+%% implied; without even the implied warranty of MERCHANTABILITY or
+%% FITNESS FOR A PARTICULAR PURPOSE!
+%% User assumes all risk.
+%% In no event shall IEEE or any contributor to this code be liable for
+%% any damages or losses, including, but not limited to, incidental,
+%% consequential, or any other damages, resulting from the use or misuse
+%% of any information contained here.
+%%
+%% All comments are the opinions of their respective authors and are not
+%% necessarily endorsed by the IEEE.
+%%
+%% This work is distributed under the LaTeX Project Public License (LPPL)
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% distributed and modified. A copy of the LPPL, version 1.3, is included
+%% in the base LaTeX documentation of all distributions of LaTeX released
+%% 2003/12/01 or later.
+%% Retain all contribution notices and credits.
+%% ** Modified files should be clearly indicated as such, including  **
+%% ** renaming them and changing author support contact information. **
+%%
+%% File list of work: IEEEtran.cls, IEEEtran_HOWTO.pdf, bare_adv.tex,
+%%                    bare_conf.tex, bare_jrnl.tex, bare_jrnl_compsoc.tex
+%%*************************************************************************
+
+% *** Authors should verify (and, if needed, correct) their LaTeX system  ***
+% *** with the testflow diagnostic prior to trusting their LaTeX platform ***
+% *** with production work. IEEE's font choices can trigger bugs that do  ***
+% *** not appear when using other class files.                            ***
+% The testflow support page is at:
+% http://www.michaelshell.org/tex/testflow/
+
+
+
+% Note that the a4paper option is mainly intended so that authors in
+% countries using A4 can easily print to A4 and see how their papers will
+% look in print - the typesetting of the document will not typically be
+% affected with changes in paper size (but the bottom and side margins will).
+% Use the testflow package mentioned above to verify correct handling of
+% both paper sizes by the user's LaTeX system.
+%
+% Also note that the "draftcls" or "draftclsnofoot", not "draft", option
+% should be used if it is desired that the figures are to be displayed in
+% draft mode.
+%
+\documentclass[10pt, conference, compsocconf]{IEEEtran}
+\usepackage{algorithm}
+%\usepackage{algorithmic}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{graphicx}
+
+\usepackage{cite}
+\usepackage{subfigure}
+\usepackage{float}
+
+\usepackage{epstopdf}
+\usepackage{enumerate}
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+
+\usepackage{booktabs}
+\usepackage{multirow}
+
+
+
+\makeatletter
+\thm@headfont{\sc}
+\makeatother
+\newtheorem{theorem}{Property}
+% Add the compsocconf option for Computer Society conferences.
+%
+% If IEEEtran.cls has not been installed into the LaTeX system files,
+% manually specify the path to it like:
+% \documentclass[conference]{../sty/IEEEtran}
+
+
+
+
+
+% Some very useful LaTeX packages include:
+% (uncomment the ones you want to load)
+
+
+% *** MISC UTILITY PACKAGES ***
+%
+%\usepackage{ifpdf}
+% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
+% compilation based on whether the output is pdf or dvi.
+% usage:
+% \ifpdf
+%   % pdf code
+% \else
+%   % dvi code
+% \fi
+% The latest version of ifpdf.sty can be obtained from:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/oberdiek/
+% Also, note that IEEEtran.cls V1.7 and later provides a builtin
+% \ifCLASSINFOpdf conditional that works the same way.
+% When switching from latex to pdflatex and vice-versa, the compiler may
+% have to be run twice to clear warning/error messages.
+
+
+
+
+
+
+% *** CITATION PACKAGES ***
+%
+%\usepackage{cite}
+% cite.sty was written by Donald Arseneau
+% V1.6 and later of IEEEtran pre-defines the format of the cite.sty package
+% \cite{} output to follow that of IEEE. Loading the cite package will
+% result in citation numbers being automatically sorted and properly
+% "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
+% cite.sty will become [1], [2], [5]--[7], [9] using cite.sty. cite.sty's
+% \cite will automatically add leading space, if needed. Use cite.sty's
+% noadjust option (cite.sty V3.8 and later) if you want to turn this off.
+% cite.sty is already installed on most LaTeX systems. Be sure and use
+% version 4.0 (2003-05-27) and later if using hyperref.sty. cite.sty does
+% not currently provide for hyperlinked citations.
+% The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/cite/
+% The documentation is contained in the cite.sty file itself.
+
+
+
+
+
+
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+% graphicx was written by David Carlisle and Sebastian Rahtz. It is
+% required if you want graphics, photos, etc. graphicx.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/graphics/
+% Another good source of documentation is "Using Imported Graphics in
+% LaTeX2e" by Keith Reckdahl which can be found as epslatex.ps or
+% epslatex.pdf at: http://www.ctan.org/tex-archive/info/
+%
+% latex, and pdflatex in dvi mode, support graphics in encapsulated
+% postscript (.eps) format. pdflatex in pdf mode supports graphics
+% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
+% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
+% not a bitmapped formats (.jpeg, .png). IEEE frowns on bitmapped formats
+% which can result in "jaggedy"/blurry rendering of lines and letters as
+% well as large increases in file sizes.
+%
+% You can find documentation about the pdfTeX application at:
+% http://www.tug.org/applications/pdftex
+
+
+
+
+
+% *** MATH PACKAGES ***
+%
+%\usepackage[cmex10]{amsmath}
+% A popular package from the American Mathematical Society that provides
+% many useful and powerful commands for dealing with mathematics. If using
+% it, be sure to load this package with the cmex10 option to ensure that
+% only type 1 fonts will utilized at all point sizes. Without this option,
+% it is possible that some math symbols, particularly those within
+% footnotes, will be rendered in bitmap form which will result in a
+% document that can not be IEEE Xplore compliant!
+%
+% Also, note that the amsmath package sets \interdisplaylinepenalty to 10000
+% thus preventing page breaks from occurring within multiline equations. Use:
+%\interdisplaylinepenalty=2500
+% after loading amsmath to restore such page breaks as IEEEtran.cls normally
+% does. amsmath.sty is already installed on most LaTeX systems. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/amslatex/math/
+
+
+
+
+
+% *** SPECIALIZED LIST PACKAGES ***
+%
+%\usepackage{algorithmic}
+% algorithmic.sty was written by Peter Williams and Rogerio Brito.
+% This package provides an algorithmic environment fo describing algorithms.
+% You can use the algorithmic environment in-text or within a figure
+% environment to provide for a floating algorithm. Do NOT use the algorithm
+% floating environment provided by algorithm.sty (by the same authors) or
+% algorithm2e.sty (by Christophe Fiorio) as IEEE does not use dedicated
+% algorithm float types and packages that provide these will not provide
+% correct IEEE style captions. The latest version and documentation of
+% algorithmic.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithms/
+% There is also a support site at:
+% http://algorithms.berlios.de/index.html
+% Also of interest may be the (relatively newer and more customizable)
+% algorithmicx.sty package by Szasz Janos:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/algorithmicx/
+
+
+
+
+% *** ALIGNMENT PACKAGES ***
+%
+%\usepackage{array}
+% Frank Mittelbach's and David Carlisle's array.sty patches and improves
+% the standard LaTeX2e array and tabular environments to provide better
+% appearance and additional user controls. As the default LaTeX2e table
+% generation code is lacking to the point of almost being broken with
+% respect to the quality of the end results, all users are strongly
+% advised to use an enhanced (at the very least that provided by array.sty)
+% set of table tools. array.sty is already installed on most systems. The
+% latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/required/tools/
+
+
+%\usepackage{mdwmath}
+%\usepackage{mdwtab}
+% Also highly recommended is Mark Wooding's extremely powerful MDW tools,
+% especially mdwmath.sty and mdwtab.sty which are used to format equations
+% and tables, respectively. The MDWtools set is already installed on most
+% LaTeX systems. The lastest version and documentation is available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/mdwtools/
+
+
+% IEEEtran contains the IEEEeqnarray family of commands that can be used to
+% generate multiline equations as well as matrices, tables, etc., of high
+% quality.
+
+
+%\usepackage{eqparbox}
+% Also of notable interest is Scott Pakin's eqparbox package for creating
+% (automatically sized) equal width boxes - aka "natural width parboxes".
+% Available at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/eqparbox/
+
+
+
+
+
+% *** SUBFIGURE PACKAGES ***
+%\usepackage[tight,footnotesize]{subfigure}
+% subfigure.sty was written by Steven Douglas Cochran. This package makes it
+% easy to put subfigures in your figures. e.g., "Figure 1a and 1b". For IEEE
+% work, it is a good idea to load it with the tight package option to reduce
+% the amount of white space around the subfigures. subfigure.sty is already
+% installed on most LaTeX systems. The latest version and documentation can
+% be obtained at:
+% http://www.ctan.org/tex-archive/obsolete/macros/latex/contrib/subfigure/
+% subfigure.sty has been superceeded by subfig.sty.
+
+
+
+%\usepackage[caption=false]{caption}
+%\usepackage[font=footnotesize]{subfig}
+% subfig.sty, also written by Steven Douglas Cochran, is the modern
+% replacement for subfigure.sty. However, subfig.sty requires and
+% automatically loads Axel Sommerfeldt's caption.sty which will override
+% IEEEtran.cls handling of captions and this will result in nonIEEE style
+% figure/table captions. To prevent this problem, be sure and preload
+% caption.sty with its "caption=false" package option. This is will preserve
+% IEEEtran.cls handing of captions. Version 1.3 (2005/06/28) and later
+% (recommended due to many improvements over 1.2) of subfig.sty supports
+% the caption=false option directly:
+%\usepackage[caption=false,font=footnotesize]{subfig}
+%
+% The latest version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/subfig/
+% The latest version and documentation of caption.sty can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/caption/
+
+
+
+
+% *** FLOAT PACKAGES ***
+%
+%\usepackage{fixltx2e}
+% fixltx2e, the successor to the earlier fix2col.sty, was written by
+% Frank Mittelbach and David Carlisle. This package corrects a few problems
+% in the LaTeX2e kernel, the most notable of which is that in current
+% LaTeX2e releases, the ordering of single and double column floats is not
+% guaranteed to be preserved. Thus, an unpatched LaTeX2e can allow a
+% single column figure to be placed prior to an earlier double column
+% figure. The latest version and documentation can be found at:
+% http://www.ctan.org/tex-archive/macros/latex/base/
+
+
+
+%\usepackage{stfloats}
+% stfloats.sty was written by Sigitas Tolusis. This package gives LaTeX2e
+% the ability to do double column floats at the bottom of the page as well
+% as the top. (e.g., "\begin{figure*}[!b]" is not normally possible in
+% LaTeX2e). It also provides a command:
+%\fnbelowfloat
+% to enable the placement of footnotes below bottom floats (the standard
+% LaTeX2e kernel puts them above bottom floats). This is an invasive package
+% which rewrites many portions of the LaTeX2e float routines. It may not work
+% with other packages that modify the LaTeX2e float routines. The latest
+% version and documentation can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/sttools/
+% Documentation is contained in the stfloats.sty comments as well as in the
+% presfull.pdf file. Do not use the stfloats baselinefloat ability as IEEE
+% does not allow \baselineskip to stretch. Authors submitting work to the
+% IEEE should note that IEEE rarely uses double column equations and
+% that authors should try to avoid such use. Do not be tempted to use the
+% cuted.sty or midfloat.sty packages (also by Sigitas Tolusis) as IEEE does
+% not format its papers in such ways.
+
+
+
+
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+%
+%\usepackage{url}
+% url.sty was written by Donald Arseneau. It provides better support for
+% handling and breaking URLs. url.sty is already installed on most LaTeX
+% systems. The latest version can be obtained at:
+% http://www.ctan.org/tex-archive/macros/latex/contrib/misc/
+% Read the url.sty source comments for usage information. Basically,
+% \url{my_url_here}.
+
+
+
+
+
+% *** Do not adjust lengths that control margins, column widths, etc. ***
+% *** Do not use packages that alter fonts (such as pslatex).         ***
+% There should be no need to do such things with IEEEtran.cls V1.6 and later.
+% (Unless specifically asked to do so by the journal or conference you plan
+% to submit to, of course. )
+
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+
+%\bibliographystyle{plain}
+%\citestyle{IEEEtran}
+\bibliographystyle{IEEEtran}
+\addtolength\itemsep{0em}
+%
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{Elastic Streaming Semantic Engine for Web of Things}
+
+
+% author names and affiliations
+% use a multiple column layout for up to two different
+% affiliations
+
+\author{\IEEEauthorblockN{Xi Chen}
+\IEEEauthorblockA{Department of Computer Science\\
+Zhejiang University\\
+Hangzhou, China\\
+xichen@zju.edu.cn}
+\and
+\IEEEauthorblockN{Huajun Chen}
+\IEEEauthorblockA{Department of Computer Science\\
+Zhejiang University\\
+Hangzhou, China\\
+huajunsir@zju.edu.cn}
+\and
+\IEEEauthorblockN{Jue Huang}
+\IEEEauthorblockA{Department of Computer Science\\
+Zhejiang University\\
+Hangzhou, China\\
+juehuang@zju.edu.cn}
+}
+
+
+\maketitle
+
+
+\begin{abstract}
+
+With the rapid advances in sensor data collection and communication, heterogeneous and real-time IOT data is increasing rapidly. %The web infrastructure provides an ideal means to effectively organize,
+To make full use of the information, lots of web technologies such as semantic technologies and web service are introduced to effectively organize, publish, and process the sensor data. Thus the web infrastructure integrates the IOT world and Web world into an unified Web of Things(WOT). While most of the existing efforts are mainly focused on the modeling, annotation, and representation of WOT data, there has been little work focusing on the background processing of large-scale streaming WOT data. In the paper, we present a general semantic processing framework and implement an elastic streaming engine for WOT applications. The proposed engine efficiently capture and model different scenarios for all kinds of WOT applications based on popular large-scale distributed computing platform SPARK.
+Based on the engine, a typical use case on home environment monitoring
+is given to illustrate the efficiency of our engine.
+%, which is a typical M2M application in the
+The results show that our system can scale for large number of sensor streams with different types of WOT applications.
+
+
+\end{abstract}
+
+\begin{IEEEkeywords}
+WOT, Semantic Web, IOT, Streaming, Big Data, Spark.
+\end{IEEEkeywords}
+
+
+% For peer review papers, you can put extra information on the cover
+% page as needed:
+% \ifCLASSOPTIONpeerreview
+% \begin{center} \bfseries EDICS Category: 3-BBND \end{center}
+% \fi
+%
+% For peerreview papers, this IEEEtran command inserts a page break and
+% creates the second title. It will be ignored for other modes.
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introduction}
+
+With the advances in sensor data collection and communication technologies, %such as pervasive and embedded device and M2M paradigm have lead to a large number of connected smart devices along with the web and continuously transmit their data over time.
+increased number of sensors have been deploying world-wide, which builds a global sensing system. It is predicted that within the next decade billions of devices (Cisco predicts that the number of the Internet connected devices will be around 50 Billion by 2020)\cite{cisio} will generate myriad of real world data for many applications and services in a variety of areas such as smart grids, smart homes, e-health, automotive, transport and environmental monitoring. Such a stunning massive and widespread data can help us to observe the surroundings, learn patterns and have a better understanding of the world, which will construct a more intelligent world.
+
+%. Then we are able to generalize, recognize unseen patterns and infer new ones.
+
+To make full use of the senses to implement a deeper web intelligence,
+a natural next step would be to find a way to connect the sensor things with existing web of data. The web infrastructure is the ideal means to integrate these two worlds to an unified Web of Things. Presently, much efforts have been put on this area from Internet of Things(IOT) to Web of Things(WOT). The W3C founded the Web of Things Community Group aiming at accelerating the adoption of Web technologies such as semantic technologies as a basic for enabling services for the combination of IOT with rich descriptions of web data and the context in which they are used. The industry also initiates the standards oneM2M\footnote{www.onem2m.org}, whose goal is to develop technical specification which is used to address the need for a common WOT Service Layer by reusing existing web standards and protocols, including RDF, HTTP, Restful.
+
+
+However, the characteristics of WOT, including heterogeneity, variety, volume and real-time, pose a series of challenges to integrate WOT data and
+deploy WOT applications effectively.
+The Semantic Web technologies are viewed as a key for the development of WOT. Figure 1 shows the generic functional model of oneM2M for supporting semantics in the specification of oneM2M study on abstraction and semantics enablement\cite{onem2m}.
+In specific, it serves as the following several purposes:
+%First, the data access layer provides connections with a device and a gateway for accessing M2M data.
+First, the abstraction and semantics layer provide us with a good way to resolve the problems of inter-operability and integration within this heterogeneous world of IOT data by defining and reusing some standard semantic concepts.  %Thus, the Internet of Things will become a Semantic Web of Things(SWT) after encapsulating the semantically enriched descriptions to IOT data.
+Then, the Semantic Web provides a seamless interface to facilitate the interactions of IOT data and other existing web of data such as Linked Data, DBpedia, LinkedGeodata, various kinds of data from Web Services.
+At last, the service layer provides an interface for various WOT applications by semantic processing technologies, including semantic mash-up, query, reasoning and so on.
+%So the SWT, along with the background knowledge, will create a more widely connected world-Semantic Web of Everything(SWeT), which have billions of people, sensors, objects and ¡®things¡¯ connecting each other is changing the way organizations and consumers interact with each other and the environment around them.
+
+%At last, applying the semantic query and reasoning technologies can help us analyze and mine the M2M data to have a better understanding about our physical world.
+
+Currently, most of the existing works aim at the annotation and definition of the WOT by providing corresponding description ontology. For example, ontologies such as the W3C¡¯s SSN ontology have been developed, offering a number of constructs to formally describe not only the sensor resources but also the sensor observation and measurement data\cite{ssn}.
+However, there has been little work focusing on the background processing of large-scale streaming WOT data. In the paper, we present a general semantic processing framework for WOT applications. The proposed framework efficiently capture and model different scenarios for various WOT applications. We have preliminarily implemented an elastic streaming engine based on popular large-scale distributed computing platform SPARK\cite{spark}. Based on the engine, a typical use case on home environment monitoring is given to illustrate the efficiency of our engine. The results show that our system can scale for large number of sensor streams with different types of WOT applications.
+
+The remaining of this paper is organized as follows. Section 2 outlines related work. In Section 3, we introduce the general framework and processing engine for WOT applications. Section 4 describes a typical use case in home environment monitoring. Section 5 presents our experiments and results. Finally, we conclude the work in Section 6.
+
+%However, considering the another two characteristics of IOT data: dynamics and scale, current Semantic Web still exists many limitations:
+
+
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.5\textwidth,bb=0 0 901 714]{f1.pdf}
+\caption{Generic Functional Semantic Model for Supporting WOT applications}
+\label{}
+\end{figure}
+
+
+
+\section{RELATED WORK}
+To the best of our knowledge, our framework and system are the first work addressing various semantic processing tasks for large-scale streaming WOT data, including WOT semantic mash-up, semantic query and semantic reasoning. There is some related work as follows.
+
+\subsection{WOT Modeling and Ontology}
+
+One key research topic in WOT is to represent the "things" by standard vocabularies and schemas. Semantic Sensor Web (SSW) is a technology in which sensor data is semantic annotated for inter-operability and also provides contextual information for situational knowledge\cite{ssw}. Many works have proposed semantic model for representing sensors and data. Ontologies such as the W3C's SSN ontology have been developed\cite{ssn}. These ontologies provide metadata for numerical, spatial, temporal, and other semantic objects. Similar works for sensor metadata description also include Sensor Data Ontology (SDO)\cite{sdo} and SensorML\cite{sensorml}.
+
+These works mainly focus on semantic annotation for the inter-operability of WOT by defining an unified and standard ontology, paying no attention to the high-level semantic WOT applications.
+
+
+\subsection{Semantic WOT Applications}
+
+Gyrard proposes a semantic-based Machine-to-Machine Measurement approach (M3) to automatically combine, enrich and reason about WOT data to provide promising cross-domain WOT applications, such as naturopathy application based on multiple datasets\cite{mmm}. The approach also presents a hub for cross-domain ontologies and datasets. \cite{agont} and \cite{heont} apply the WOT in the generic agriculture and healthcare context management. SSEO \cite{sseo} is developed to enable semantic indexing, machine-processable event detection and data exchange for smart space modeling.% Other applications include  CONON\cite{conon}, CoOL\cite{cool}  and CoBrA \cite{cobra}.
+
+Most of the work aim at building WOT applications in a specific domain, failing to provide a generic semantic WOT processing framework. And they also did not deal with some important challenges for WOT data, such as the real-time and scalability.
+
+\subsection{Stream Processing for Semantic data}
+There are several semantic stream data processing engines, including Streaming SPARQL\cite{streamingsparql}, C-SPARQL\cite{csparql}, CQELS\cite{cqels2}. Streaming SPARQL extends SPARQL to process data streams. C-SPARQL defines an extension of SPARQL whose distinguishing feature is the support of continuous queries, i.e. queries registered over RDF data streams and then continuously executed. CQELS is a native and adaptive query processor for unified query processing over Linked Stream Data and Linked Data.
+
+However, most of these works only focus on the semantic query for linked stream data, ignoring other common demands of WOT applications, including semantic mash-up, reasoning and so on. What is more, the systems are designed to run on a single machine, while our system goes beyond that and specifically focuses on the common scalability issues for WOT applications. 
+
+
+\section{Proposed Framework And Elastic Processing Engine}
+In this section, we propose the general semantic framework for WOT applications and elaborate the elastic processing engine to explain how it provides the capabilities for performing various WOT applications.
+
+
+\begin{figure*}[htbp]
+\centering
+\includegraphics[width=1\textwidth,bb=0 0 3486 3123]{framework.pdf}
+\caption{General Streaming Semantic Processing Framework For WOT Applications}
+\label{}
+\end{figure*}
+
+
+\subsection{Framework}
+Figure 2 shows the architecture of our semantic processing framework. In general, it consists of five parts: Physical Entities Layer, Abstract Entities Layer, Window-Based Data Stream Layer, Virtual Entities Layer and Elastic Semantic Engine Layer.
+
+
+\subsubsection{\textbf{Physical Entities Layer}}
+Physical entities layer is located in the lowest layer of the framework, which is responsible for collecting raw sensor data in real-time.
+Every physical entity represents a tangible element that can be sensed by sensors that are deployed in the oneM2M Field Domain environment, and that is not specific to a particular WOT application in this environment. According to the oneM2M project standardization, every kind of sensors are be organized by logical entity (AE) and common services entity (CSE), which provide application logic and common services, respectively.
+
+\subsubsection{\textbf{Abstract Entities Layer}}
+Abstract Entities Layer is responsible for receiving and implementing the abstraction for the physical devices by the semantic annotation of proxy software. The abstraction layer aims at hiding the complexity of devices and environments by providing a standard format to represent devices. So from the view of upper layer, all the heterogeneous physical sensors can be seen as unified data streams.
+
+
+
+\subsubsection{\textbf{Window-Based Data Stream Layer}}
+The layer focuses on extracting related data streams into the windows according to the demands of upper applications. In the real-world WOT applications, data takes the form of continuous streams instead of the form of finite data sets stored in a traditional repository.
+This is the case for traffic monitoring, environment monitoring, disaster management, telecommunication management, manufacturing, and many other domains. Every sensor corresponds a window with a certain size.
+
+
+
+\subsubsection{\textbf{Virtual Entities Layer}}
+Virtual Entities Layer aggregates the related window data required by every virtual entity. Virtual entity is a new resource created by multiple window data streams, which is used to accomplish a application service. For our latter use case, if user in a home requests the service for Discomfort Index(DI), a new virtual entity will be generated through aggregating corresponding home appliance sensors(such as temperature, heater, air cleaner sensors and so on). Then we can get the service of DI by the virtual entity.
+
+
+\subsubsection{\textbf{Elastic Semantic Engine Layer}}
+The elastic semantic engine layer is the key of the architecture. The layer is responsible for receiving outer requests, creating corresponding virtual entities, interacting with static web of data, and real-time returning continuous results. Our work mainly focuses on the layer. We will discuss it in detail in the next section.
+%The data preprocessing module is responsible for unifying the format of input data by converting XML-like RDF data to N-Triples. Then the big RDF graph is splitted into several elastic discreted subgraphs by graph splitter. The distributed storage module subsequently persists the indexes into HDFS. Query parser module takes the SPARQL query from the user, and dynamically generates the query plan including required index information for the query. Based on the index information, corresponding indexes are dynamically loaded into the distributed memory and modeled as RDSG for further implementing iterative joins in memory as the query plan requested. At last, the final join results are returned to the user.
+
+
+\subsection{Elastic Streaming Processing Engine}
+
+Our elastic semantic streaming processing engine provides various common WOT services by constructing corresponding virtual entities, including WOT semantic Mash-up, query and reasoning.
+%All WOT data is modeled as the RDF Stream. 
+Every virtual entity aggregates the RDF streams from corresponding several windows. A window extracts the latest elements from the sensor stream. Besides the streaming WOT data, some applications need auxiliary background knowledge, such as Linked Open Data, DBpedia, LinkedGeo data and so on. 
+
+In this part, related definitions are first given, then we elaborate on the 3 functional modules of the engines.
+%Related definitions are as follows:
+
+%\emph{Definition 1:}\textbf{ Query Plan(QP).} A sequence of jobs that
+%give the variable join order and TP execution order. QP=\{Job$_{1}$,Job$_{2}$,...,Job$_{n}$$|$$\cup_{i=1}^{n}$Job$_{i}$=U(TP),Job$_{k}$$\cap$Job$_{m}$=$\emptyset$,
+%k$\not=$m,k$\leq$n,m$\leq$n\}. Job$_{k}$=\{TP$_{1}^{V}$,TP$_{2}^{V}$,...,TP$_{N_k}^{V}$\}(n is the number of job, $N{_k}$ is the number of TP corresponding to variable V in the Job$_{k}$).
+
+\emph{Definition 1:}\textbf{ RDF Stream(S).} The basic data unit for RDF Stream is a quad ($<s,p,o,t>$).
+A RDF Stream is defined as an ordered sequence of pairs, where every pair is constituted by multiple basic data units, denoted as
+D$_{i}$$^j$, $i$ represents the identification ID of certain sensor, $j$ is the timestamp. For example, S$_{i}$=\{D$_{i}$$^0$, D$_{i}$$^1$, D$_{i}$$^2$,...,$i \in \mathbb{N}$\} denotes the RDF stream data of the ith sensor.
+
+\emph{Definition 2:}\textbf{ Window(W).} A window is a subset of the RDF Stream given a time range $t$. W$_{i}$(t)= \{D$_{i}$$^0$, D$_{i}$$^1$, D$_{i}$$^2$,..., D$_{i}$$^{t-1}$,$t \in \mathbb{N}$\} denotes the RDF stream data of the ith sensor within the latest t logical time units. For example, W$_{0}$(3) can represent the data of Sensor$_0$ within the last 3 seconds. %Windows are sliding when they are progressively advanced of a given step. %For example, the size of window and sliding window for W$_0$ in the figure 2 are 2 and 1, respectively.
+
+
+\emph{Definition 3:}\textbf{ Virtual Window(V).} Virtual window aggregates the related data needed by a virtual entity, which includes the corresponding window and background knowledge $B={(s,p,o)}$. A Virtual Window can be denoted as $V_{i}=\{W^{i},B^{i}\}$, which $W^{i}$ represents the set of windows aggregated by the Virtual Window $V_{i}$, $B^{i}$ is the the set of background knowledge bases needed by the $V_{i}$.
+
+
+\subsubsection{WOT Semantic Mash-up}
+Semantic Mash-up is one of the most basic demands in WOT domain since many WOT applications rely on the task.
+It provides functionalities to support new services %the creation of new virtual entities, which do not exist in physical world,
+by aggregating multiple disperse resources.
+For example, "compute the indoor air quality index(AQI) of a room" is a typical Mash-up application, which needs to accomplish the task based on various window data sources including the PM2.5, O3, CO and so on.
+
+The Mash-up task is formalized via the concepts of filtering and recombination. Given a set of RDF Streams S=\{S$_{0}$, S$_{1}$, S$_{2}$,...,S$_{N}$\}, N is the number of sensor streams. A filtering is a function $\upsilon$: S$\rightarrow$ T which maps the primitive RDF streams to a triple set T=\{(s,p,o)\}. A recombination is a mapping $\gamma$: T $\rightarrow$ T' which transforms the T to T' based on the mash-up formulas. Take indoor AQI for example, T represents the triples containing the concentration of related sensors. $\gamma$ denotes the mapping formula for computing the individual AQI.
+
+
+\subsubsection{WOT Semantic Query}
+WOT Semantic Query is a common function for WOT applications.
+It enhances the WOT discovery mechanism, to allow locating and linking resources or services based on their semantic information, such as "Get the temperature of the room$_0$", "Get the all rooms whose PM2.5 $\geq$ 80".
+
+The query task is formalized via the concept of mapping.
+We denote as I, B, L, V respectively the domains of IRIs, blank nodes, literals, and
+variables which are all disjoint. We also define T = (I $\cup$ B $\cup$ L). A mapping $\mu$ is a
+partial function $\mu$ : V $\rightarrow$ T which gives the bindings for all the variables of a query.
+Evaluation occurs when a input graph pattern (denoted as P) in the query is matched against a Virtual Window (V). P is a set of triple patterns t = (s, p, o) such that
+s, p, o $\in$ (V $\cup$ T ). We then define dom($\mu$) as the subset of V where $\mu$ is defined
+(i.e., the domain of $\mu$) and use the notation $\mu$(x) to refer to the bindings of variable x in $\mu$.
+%Two mappings \mu' and \mu'' are said to be compatible
+
+
+\subsubsection{WOT Semantic Reasoning}
+%Semantic reasoning to derive new relations and classifications of semantically annotated data
+Reasoning is a mechanism to derive a new implicit knowledge from semantically annotated data and to answer complex user query. It can be implemented as a piece of software to be able to infer logical consequences from a set of asserted facts or axioms. Many WOT services belong to the application type. For example, we can infer the human comfort index based on the temperature and humility, the dangerous level of gas leaking and so on.
+
+The reasoning task for WOT applications can be seen as the process of applying the reasoning rules in WOT data to derive new facts. We denote as W, B respectively the windows of sensor streams and background knowledge. $F$ represents a set of facts that we want to
+$\gamma$ contains a set of rules $\gamma$=\{$R_1,R_2,R_3,...$\}. Thus the reasoning task is formalized as $\delta:(W,B) \xrightarrow{\gamma} F$.
+%\subsubsection{M2M Semantic Spatial-Temporal Processing}
+
+
+
+\section{Use Case: Home Environment Monitoring}
+
+In this section, we give a common WOT use case.
+It is designed to facilitate the smart real-time monitoring to the home environment. We first give a overview of the use case, then the data model is presented. At last, three concrete application examples are introduced.
+
+%functional and scalability tests are made to prove the efficiency of our system.
+
+\subsection{Overview}
+Nowadays, people are paying much attention to the environmental problems
+since we are facing a series of serious environmental pollution, such as smog disaster, water pollution and so on. To deal with these challenges, governments deploy lots of outdoor monitoring stations to capture and publish real-time environmental information to the public. However, there is limited work in the indoor environmental monitoring due to a lack of sensor devices and processing infrastructure.
+
+With the popularity of smart home appliances  (e.g., heater, air conditioner, humidifier, air cleaner, etc.) equipped with environment sensors (e.g., sensors for temperature, humidity, CO1, CO2, VOC, etc.), large volumes of data from all aspects of indoor environment is available, which makes it possible to implement various home monitoring applications including emergency detection, indoor air quality index and so on.
+Presently, many commercial companies such as Huawei, Cisco, Intel and Telecom are planing to deploy and develop related hardware and software infrastructure to provide similar services.
+
+Our use case considers the scenario: Suppose a number of households in a city have installed relevant smart appliances, they want to get a series of environment monitoring services from the supplier, including Indoor Air Pollution Index (API), Indoor Sensor Discovery, Human Comfort Index (I$_{hc}$). The three cases correspond to the above three kinds of WOT applications: WOT Semantic Mashup, WOT Semantic Query, WOT Semantic Reasoning.
+
+\subsection{Data Model}
+As the paper mainly focuses on the background streaming data processing for WOT applications, we do not create a complex ontology to semantically annotate the all various WOT data. Conversely, we design a simple concept model for the home environment monitoring scenario (see Figure 3). The model captures three types of resources: Home, Room, Sensor. The label under the resource denotes the its URI. "p" is the namespace of the properties. Every sensor entity has three properties: type, value, time.
+
+Figure 4 shows a snapshot of the stream knowledge graph based on the concept model. Every home contains multiple rooms(living room, bedroom, kitchen and so on). Every room is equipped with 15 kinds of sensors, including Temperature, Humility, Illumination, Volume, PM10,  PM2.5, O3, CO, SO2, NO2 and so on.
+
+\begin{figure}[H]
+\centering
+%\includegraphics[width=8cm,height=3cm]{f3.pdf}
+\includegraphics[width=0.5\textwidth,bb=0 0 604 156]{f3.pdf}
+\caption{The Simple Concept Model for Home Environment Monitoring}
+\label{}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\centering
+%\includegraphics[width=8cm,height=3cm]{f4.pdf}
+\includegraphics[width=0.5\textwidth,bb=0 0 784 363]{f4.pdf}
+
+\caption{A Snapshot of the Stream Knowledge Graph}
+\label{}
+\end{figure}
+
+
+
+\subsection{Scenarios}
+
+
+\subsubsection{Streaming Semantic Mash-up}$\\$
+Outdoor AQI is available to us for years, while little attention is paid on indoor AQI, which is also important both for customers and device suppliers. For customers, the indoor AQI can help them keep track of the latest situation of the house and the top air pollutants. For suppliers, the AQI data can help them monitor their devices and have a better understanding of the needs of different customers.
+
+The indoor AQI task is a typical WOT semantic Mash-up application since it needs to integrate multiple window data sources and combine them to complete a specific work. The indoor AQI task is composed of two phases. The first step is to compute the Individual AQI(IAQI) for a pollutant. Equation 1 gives the computing formula for IAQI$_p$ based on\cite{aqi}. The parameters in the equation are relevant with the specific pollutant. Related pollutants include PM10, PM2.5, O$_3$, CO, SO$_2$, NO$_2$.
+Then these IAQIs will be sorted based on Equation 2. The final result will be displayed by a sequence of IAQIs in a descending order, which will keep customers informed of the noticeable pollutants. For more details, readers can refer \cite{aqi}.
+
+\begin{equation}
+\begin{aligned}
+IAQI_p = \frac{IAQI_{Hi}-IAQI_{Lo}}{BP_{Hi}-BP{Lo}}(C_p-BP_{Lo})+IAQI_{Lo}
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+AQI = \max\{IAQI_1,IAQI_2,IAQI_3,...,IAQI_n\}
+\end{aligned}
+\end{equation}
+
+\subsubsection{Streaming Semantic Query}$\\$
+The streaming semantic query provides us with a basic function to discover and  query the WOT resources in real time. We implement the following 6 query examples to illustrate its applications (Table I).  All streaming queries are showed in the appendix.
+
+
+\begin{table}[H]
+\caption{WOT Streaming Query Examples}
+%\begin{center}
+\begin{tabular}{|c|l|}
+\hline
+Query & Goal \\
+\hline
+Q1&Query the type and value of all sensors in a specific room\\
+\hline
+Q2&Query  the value of PM2.5 sensor in a specific room\\
+\hline
+Q3&Query the value of all CO sensors and corresponding room ID\\
+\hline
+Q4&Query the value of all SO$_2$ sensors and corresponding sensor ID\\
+\hline
+Q5&Query all the room ID and sampling time with humidity sensor\\
+\hline
+Q6&Query the temperature and sampling time in a specific room\\
+\hline
+\end{tabular}
+%\end{center}
+\end{table}
+
+
+\subsubsection{Streaming Semantic Reasoning}$\\$
+Reasoning is ubiquitous in the WOT environment. We can derive corresponding conclusions if certain data streams trigger reasoning rules. For example, we can get warnings if some pollutants' concentration exceed normal range, such as temperature and CO. Other reasoning examples include inferring the health status and sleep quality of a person based on some wearable devices such as smart band.
+
+Here we give the example of reasoning the human comfort level. The application will help us to keep track of the conditions of indoor rooms, so further automatically adjust the indoor environment and remind us to prevent heatstroke or cold in time. Specifically, two kinds of sensor streams(temperature and humanity) will be first integrated to compute the human comfort index according to Equation 3. Then based on reasoning rules in Appendix, the level of human comfort will be derived.
+\begin{equation}
+\begin{aligned}
+I_{HC} = T-0.55(1-H_R)(T-58)
+\end{aligned}
+\end{equation}
+
+
+\section{Experiment and Evaluation}
+%In this section, we have preliminarily implemented the M2M application framework and demonstrated a domain extension in selected scenario of home environment monitoring.
+In this section, we introduce the experiments and evaluations. First the experimental environment is briefly presented including the configuration and data.
+Then extended experiments are performed to evaluate the system's functionality and scalability.
+
+\subsection{Experiment Setup}
+
+\textbf{Configuration:} The experiment is implemented on a Spark cluster with three machines. Each node has 16 GB DDR3 RAM, 8-core Intel Xeon(R) E5606 CPUs at 2.13GHz, 1.5TB disk. The nodes are connected by the network with the bandwith of 1000M/s. All the nodes use CentOS6.4 with the softwares JDK-1.7.0, Scala-1.10.1 and Spark-0.9.0.
+
+\textbf{Data:}
+The experimental data is generated by our stream data generator whose schema is based on the concept model in figure 3. The main parameters of the generator are R and T, denoting the number of home and sampling time, respectively. The number of home is in proportion to the number of sensor denoted by N$_s$(N$_s$=15*5*R, 15 and 5 represent the number of sensors in a room and rooms in a home). Sampling time stimulates the rate of sensor stream. The average data size generated by a sensor within a sampling time is 0.5(KB). Data generator and all the source codes are available in \footnote{www.github.com/hualichenxi/Semantic-WOT-Engine/DataGenerator}.
+
+
+\begin{figure}[H]
+\centering
+
+\subfigure[A Snapshot of Indoor AQI Streaming Mash-up]{
+\label{Fig.sub.1}
+\includegraphics[width=0.4\textwidth]{aqi.pdf}}
+
+\subfigure[A Snapshot of Indoor CO Streaming Query]{
+\label{Fig.sub.2}
+\includegraphics[width=0.4\textwidth]{query.jpg}}
+
+
+\subfigure[A Snapshot of Indoor Human Comfort Streaming Reasoning]{
+\label{Fig.sub.3}
+\includegraphics[width=0.4\textwidth]{hc.jpg}}
+
+\caption{The Snapshot of Indoor Environment Monitoring Scenarios}
+\label{Fig.lable}
+\end{figure}
+\subsection{Functional Evaluation}
+For functional experiment, we first briefly introduce the implementation of the elastic streaming semantic engine. Then based on the proposed engine, 3 kinds of representative WOT applications are presented to illustrate the functional characteristics of our system.
+
+We builded our elastic streaming processing engine based on the efficient in-memory cluster computing framework-SPARK, which provides us with rich data abstraction and operation abstraction to meet the needs of various WOT applications. For the data model, we use the DStream(Discreted Stream) to model the window streams. For the processing model, operators provided by SPARK such as "filter" and "map "are translated into the processing primitives to effectively implement the different WOT scenarios.
+
+Presently, we have preliminarily implemented the WOT mash-up subsystem, query subsystem, and reasoning subsystem. Every subsystem acts as a module of our elastic semantic processing engines. Once a WOT application requests service, corresponding subsystem will be activated to run a Spark job to return continues results. Figure 5 shows partial running results of the previous 3 use cases. For more results, readers can access \footnote{www.github.com/hualichenxi/Semantic-WOT-Engine/Experiment}.
+
+
+\subsection{Scalability Evaluation}
+For scalability experiment, we use the AQI use case to illustrate the performance of our engine by increasing the number of sensor streams.
+During the process of spark streaming execution, we will write a total delay(TD) into the log file after the data in a time slice has been processed completely. The parameter records the total time from receiving window data to output final results. In our experiment, the time slice(D) is set as 5 seconds and we will run the program for 300 seconds. That is to say, 60 TD will be written into the log file.
+
+
+Figure 6 and Figure 7 show the trend of the processing time(TD) in single node and cluster with varied sensors. For single node experiment, the number of sensors is varied from 15,000 to 150,000. For cluster experiment, the number of sensors is varied from 75,000 to 750,000. The two figures only show the processing time for parts of sensors so that we can recognize the broken line well. From both figures, in the beginning of executing a spark job, $TD$ is not stable(0$\sim$50) for all varied sensors. After a while, $TD$ will stay in a comparatively stable level. Here we choose these TD in the last 250s and compute their average value denoted as $TD_{SA}$. To capture the fluctuation of the processing time, we compute the standard deviation $\sigma$ of $TD_{SA}$.
+
+Equation 4 computes the system's throughout Q(MB/s): 0.5 is the average data size generated by a sensor in a sampling time, $N_S$ is the number of sensors, $TD_{SA}$ is the processing time.
+
+\begin{equation}
+\begin{aligned}
+Q = \frac{1}{1024} \times \frac{0.5N_s}{TD_{SA}}
+%COST= &\sum_{i=1}^N Parse(TP_i)+\sum_{j=2}^N Join(Result_{j-1},\\
+%&Match(TP_i))=Parse(TP_1)+\sum_{i=2}^N Task_i
+\end{aligned}
+\end{equation}
+
+
+\begin{equation}
+\begin{aligned}
+Sizeup = \frac{computing\quad time\quad for\quad processing\quad m\times data}{computing\quad time\quad for\quad processing\quad data}
+\end{aligned}
+\end{equation}
+
+
+Table II and Table III show the execution results in single node and cluster. Figure 6 and Figure 7 show the throughput and processing time with increased sensors. We can conclude the following results from the tables.
+
+Firstly, we can get the correlation among relevant variables: TD$_{SA}$, Q, N$_s$. From the Figure 8 and 9 in the Appendix we can see that TD$_{SA}$ and Q increase with the increasing numbers of sensors. But when the ratio of TD$_{SA}$ to D reaches a certain value, the throughput will decrease rapidly. This is because the computing capability of the system will not be able to catch up with the rate of the input data stream. As a result, the delay caused by the last time slice will have an effect on the next process and the system will become more and more unstable. The evident increasing of $\sigma$ also reflects the result that TD$_{SA}$ has a larger fluctuation. The correlation analysis can help us control the rate of input stream and set proper time slice to accommodate the ability of the system.
+
+Secondly, Table II and Table III show that our system achieves high throughputs: more than 53MB/s and 175 MB/s in single node and cluster.
+Benefiting from the system's elastic processing ability, it can concurrently process more than 300,000 sensor streams efficiently.
+
+At last, the tables show that our system achieves excellent scalability. For both single and cluster configuration, the sizeup (see Equation 5) of $m$
+times input is much less than $m$. Especially for the cluster, when the input stream increases by 6 times($N_s=262,500$), the processing time only increases by less 2(1.72) times. The results mean that the TD increases much more slowly than input data size and our system works better in processing larger input stream.
+At the same time, the two tables also show that the processing capability of cluster is much better than single node. For example, when the number of input stream sensors is 150,000, the execution time in cluster is 0.575, compared to 2.440 in single node. The best throughput in cluster (175MB/s) is more than 3 times of the one in single node(53MB/s). It proves our system achieves good flexibility and elastic scalability: It can adapt to various different application scenarios and requirements by adding computing nodes.
+
+To sum up, the results demonstrate excellent scalability regarding both the size of input stream and number of nodes.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm,height=4cm]{single.pdf}
+\caption{Processing Time(TD) with Increased Sensors in Single Node}
+\label{}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm,height=4cm]{cluster.pdf}
+\caption{Processing Time(TD) with Increased Sensors in Cluster}
+\label{}
+\end{figure}
+ 
+
+
+
+\begin{table}[H]
+\caption{Throughput and SIZEUP in single node}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+N$_s$ & TD(s) & TD/D & $\sigma$ & Q(MB/s)&Sizeup \\
+\hline
+15,000& 0.308&6.17\% &0.06584 & 23.759&1\\
+\hline
+30,000&0.566&11.32\% &0.08999&25.879& 1.836\\
+\hline
+45,000&0.635&	12.70\%&	0.09619&	34.605 &2.06\\
+\hline
+60,000&0.727&	14.54\%&	0.11524&	40.305 &2.36\\
+\hline
+75,000&0.751&	15.02\%&	0.11416&	48.769 &2.44\\
+\hline
+90,000&0.821&	16.42\%&	0.10602&	53.518 &2.66\\
+\hline
+105,000&0.956&	19.12\%&	0.11979&	53.635 &3.10\\
+\hline
+120,000&1.218&	24.37\%&	0.13368&	48.092&3.95\\
+\hline
+135,000&1.785&	35.70\%&	0.19057&	36.930&5.79\\
+\hline
+150,000&2.440&	48.81\%&	0.24599&	30.012 &7.92\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+
+\begin{table}[H]
+\caption{Throughput AND SIZEUP in cluster}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+N$_s$(k) & TD(s) & TD/D & $\sigma$ & Q(MB/s) &Sizeup\\
+\hline
+37,500&0.438&	8.76\%&	0.08675&	41.825 &1\\
+\hline
+75,000&0.543&	10.85\%&	0.08929&	67.474&1.24\\
+\hline
+112,500&0.566&	11.32\%&	0.10169&	97.025&1.29\\
+\hline
+150,000&0.575&	11.49\%&	0.10676&	127.452 &1.31\\
+\hline
+187,500&0.623&	12.46\%&	0.13582&	146.922 &1.42\\
+\hline
+225,000&0.627&	12.54\%&	0.13051&	175.160&1.40\\
+\hline
+262,500&0.753&	15.07\%&	0.14888&	170.142&1.72\\
+\hline
+300,000&0.991&	19.83\%&	0.17464&	147.753 &2.26\\
+\hline
+337,500&2.519&	50.37\%&	0.56164&	65.431 &5.75\\
+\hline
+375,000&3.294&	65.89\%&	0.78245&	55.583&7.52\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+
+
+
+\section{conclusion}
+To effectively process large-scale streaming WOT data, the paper presents a general semantic processing framework for various WOT applications. Followed by the framework, we have preliminarily implemented an elastic streaming engine based on popular large-scale distributed computing platform SPARK. Based on the
+engine, a typical use case on home environment monitoring
+is given to illustrate the efficiency of our engine. The results
+show that our system can scale for large number of sensor
+streams with different types of WOT applications.
+
+
+\bibliography{semanticM2M}
+%\end{thebibliography}
+\section*{APPENDIX}
+%We provide the SPARQL queries used in the experimental section:
+%Q1-Q6 are the same as \cite{matrixbit}, Q7 corresponds to q14 of \cite{lubm}.%\cite{paper5}.
+%
+\subsection{\textbf{WOT Streaming Semantic Query Examples}}
+
+\begin{flushleft}
+PREFIX p: $<http://hem.org/predicate\#>$.
+
+\textbf{Q1}: SELECT ?type ?value FROM STREAM $<http://hem.org/streams/home>$ WHERE \{ $<http://hem.org/room\#bedroom_1>$ p:hasSensor ?sensor .
+?sensor p:valueType ?type . \}
+
+
+\textbf{Q2:} SELECT ?value FROM STREAM $<http://hem.org/streams/home>$ WHERE \{ $<http://hem.org/room\#bedroom_1>$ p:hasSensor ?sensor . ?sensor p:hasValue ?value .
+?sensor p:valueType 'PM2.5' .
+ \}
+
+
+\textbf{Q3:} SELECT ?room ?value  FROM STREAM $<http://hem.org/streams/home>$ WHERE \{ ?room p:hasSensor ?sensor .
+?sensor p:hasValue ?value .
+?sensor p:valueType 'CO' .
+ \}
+
+
+\textbf{Q4:} SELECT ?sensor ?value  FROM STREAM $<http://hem.org/streams/home>$ WHERE \{ ?sensor p:hasValue ?value .
+?sensor p:valueType 'SO2' .
+ \}
+
+
+\textbf{Q5:} SELECT ?room ?time  FROM STREAM $<http://hem.org/streams/home>$ WHERE \{ ?room p:hasSensor ?sensor .
+?sensor p:hasValue ?value .
+?sensor p:valueType 'humidity' .
+?sensor p:samplingTime ?time .
+\}
+
+
+\textbf{Q6:} SELECT ?value ?time  FROM STREAM $<http://hem.org/streams/home>$ WHERE \{ $<http://hem.org/room\#bedroom_1>$ p:hasSensor ?sensor .
+?sensor p:hasValue ?value .
+?sensor p:valueType 'temp' .
+?sensor p:samplingTime ?time .
+ \}
+
+%
+%\textbf{Q7:} select ?x where \{ ?x rdf:type ub:UndergraduateStudent . \}
+ \end{flushleft}
+
+
+
+\subsection{\textbf{WOT Streaming Semantic Reasoning Example}}
+
+\begin{table}[H]
+\caption{Human Comfort Table}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+HC Index Range & Level & HC Description\\
+\hline
+86$\sim$88&+4&very hot\\
+\hline
+80$\sim$85&+3&hot\\
+\hline
+76$\sim$79&+2&warm\\
+\hline
+71$\sim$75&+1&slightly warm\\
+\hline
+%\hline
+59$\sim$70&0&comfotable\\
+\hline
+51$\sim$58&-1&slightly cool\\
+\hline
+39$\sim$50&-2&cool\\
+\hline
+
+26$\sim$38&-3&cold\\
+\hline
+
+$\leq25$&-4&very code\\
+\hline
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\subsection{\textbf{The trend graph of throughput and TD with varied sensors in single node and cluster}}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm,height=4cm]{single2.pdf}
+\caption{Throughput and TD with Increased Sensors in Single Node}
+\label{}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm,height=4cm]{cluster2.pdf}
+\caption{Throughput and TD with Increased Sensors in Cluster}
+\label{}
+\end{figure}
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
